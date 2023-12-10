@@ -4,16 +4,19 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Media\PhotoController;
 use App\Http\Controllers\Media\VideoController;
 use App\Http\Controllers\AboutUs\TaskController;
+use App\Http\Controllers\Article\InfoController;
 use App\Http\Controllers\Article\PostController;
 use App\Http\Controllers\Media\BannerController;
 use App\Http\Controllers\AboutUs\PolicyController;
 use App\Http\Controllers\AboutUs\VisionController;
-use App\Http\Controllers\Activity\EventController;
 use App\Http\Controllers\AboutUs\HistoryController;
 use App\Http\Controllers\AboutUs\ProfileController;
 use App\Http\Controllers\Activity\RenstraController;
 use App\Http\Controllers\Article\CategoryController;
+use App\Http\Controllers\Information\EventController;
 use App\Http\Controllers\AboutUs\RegulationController;
+use App\Http\Controllers\Activity\FileRenstraController;
+use App\Http\Controllers\Information\CommodityController;
 use App\Http\Controllers\Organization\DivisionController;
 use App\Http\Controllers\Organization\EmployeeController;
 
@@ -47,8 +50,9 @@ Route::resource('/regulation', RegulationController::class);
 //
 
 //ACTIVITY
-Route::resource('/event', EventController::class);
 Route::resource('/renstra', RenstraController::class);
+Route::get('/filerenstra/{renstra}', [FileRenstraController::class, 'index'])->name('filerenstra.index');
+Route::get('/filerenstra/create/{renstra}', [FileRenstraController::class, 'create'])->name('filerenstra.create');
 //
 
 //ORGANIZATION
@@ -59,6 +63,7 @@ Route::resource('/employee', EmployeeController::class);
 //ARTICLE
 Route::resource('/category', CategoryController::class);
 Route::resource('/post', PostController::class);
+Route::resource('/info', InfoController::class);
 //
 
 //MEDIA
@@ -66,3 +71,9 @@ Route::resource('/photo', PhotoController::class);
 Route::resource('/video', VideoController::class);
 Route::resource('/banner', BannerController::class);
 //
+
+//INFORMATION
+Route::resource('/event', EventController::class);
+Route::resource('/commodity', CommodityController::class);
+//
+

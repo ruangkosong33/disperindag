@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Renstra extends Model
+class Filerenstra extends Model
 {
     use HasFactory, Sluggable;
 
-    protected $table='renstras';
+    protected $table='filerenstras';
 
-    protected $fillable=['title', 'slug', 'year'];
+    protected $fillable=['renstra_id', 'title','slug', 'file', 'date'];
 
     protected $hidden=[];
 
@@ -27,8 +27,8 @@ class Renstra extends Model
     }
 
     //RELATION
-    public function filerenstra(): HasMany
+    public function renstra(): BelongsTo
     {
-        return $this->hasMany(Filerenstra::class, 'renstra_id', 'id');
+        return $this->belongsTo(Renstra::class, 'renstra_id', 'id');
     }
 }

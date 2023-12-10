@@ -10,7 +10,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <form action="{{route('renstra.store')}}" method="POST">
+            <form action="{{route('filerenstra.store', $renstra->id)}}" method="POST" enctype="multipar/form-data">
                 @csrf
                 <x-card>
 
@@ -25,10 +25,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="year">Tahun</label>
-                        <input type="number" class="form-control @error('year') ?? is-invalid @enderror" name="year" placeholder="Rencana Strategis">
+                        <label for="file">File</label>
+                        <input type="file" class="form-control @error('file') ?? is-invalid @enderror" name="file" placeholder="Rencana Strategis">
 
-                        @error('year')
+                        @error('file')
                             <span class="invalid-feedback">{{$message}}</span>
                         @enderror
 

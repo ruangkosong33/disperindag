@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Media;
+namespace App\Http\Controllers\Article;
 
-use App\Models\Photo;
+use App\Models\Info;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class PhotoController extends Controller
+class InfoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $photo=Photo::orderBy('id')->get();
+        $info=Info::orderBy('id')->get();
 
-        return view('layouts.admin.pages.photo.index-photo', ['photo'=>$photo]);
+        return view('layouts.admin.pages.info.index-info', ['info'=>$info]);
     }
 
     /**
@@ -25,8 +25,8 @@ class PhotoController extends Controller
     public function create()
     {
         $category=Category::orderBy('id')->get();
-
-        return view('layouts.admin.pages.photo.create-photo', ['category'=>$category]);
+        
+        return view('layouts.admin.pages.info.create-info', ['category'=>$category]);
     }
 
     /**
@@ -36,8 +36,8 @@ class PhotoController extends Controller
     {
         $this->validate($request, [
             'title'=>'required',
-            'image'=>'nullable|mimes:jpeg,jpg,png|max:5000',
-            'date'=>'date_format:d-m-Y',
+            'image'=>'nullable|mimes:jpg,jpeg,png|max:5000',
+            'date'=>'nullable|date_format:d-m-Y',
         ]);
 
         if($request->file('image'))
@@ -45,20 +45,19 @@ class PhotoController extends Controller
             $file=$request->file('image');
             $extension=$file->getClientOriginalName();
             $images=$extension;
-            $file->storeAs('public/image-photo', $images);
+            $file->storeAs('public/image-info', $images);
         }
 
-        $photo=Photo::create([
-            'category_id'=>$request->category_id,
+        $info=Info::create([
             'title'=>$request->title,
-            'image'=>$images,
             'description'=>$request->description,
+            'image'=>$images,
             'date'=>$request->date,
         ]);
 
         flash('Data Berhasil Di Simpan');
 
-        return redirect()->route('photo.index');
+        return redirect()->route('info.index');
     }
 
     /**
@@ -69,24 +68,25 @@ class PhotoController extends Controller
         //
     }
 
-    /** 
+    /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Photo $photo)
+    public function edit(Info $info)
     {
         $category=Category::orderBy('id')->get();
 
-        return view('layouts.admin.pages.photo.edit-photo', ['photo'=>$photo, 'category'=>$category]);
+        return view('layouts.admin.pages.info.edit-info', ['category'=>$category, 'info'=>$info]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Photo $photo)
+    public function update(Request $request, Info $info)
     {
         $this->validate($request, [
             'title'=>'required',
-            'image'=>'nullable|mimes:jpeg,jpg,png|max:5000',
+            'image'=>'nullable|mimes:jpg,jpeg,png|max:5000',
+            'date'=>'nullable|date_format:d-m-Y',
         ]);
 
         if($request->file('image'))
@@ -94,38 +94,35 @@ class PhotoController extends Controller
             $file=$request->file('image');
             $extension=$file->getClientOriginalName();
             $images=$extension;
-            $file->storeAs('public/image-photo', $images);
+            $file->storeAs('public/image-info', $images);
         }
         else{
-            unset($video['image']);
+            unset($info['image']);
         }
 
-        $images=$video->image;
-
-        $photo->update([
-            'category_id'=>$request->category_id,
+        $info->update([
             'title'=>$request->title,
-            'image'=>$images,
             'description'=>$request->description,
+            'image'=>$images,
             'date'=>$request->date,
         ]);
 
         flash('Data Berhasil Di Update');
 
-        return redirect()->route('photo.index');
+        return redirect()->route('info.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Photo $photo)
+    public function destroy(Info $info)
     {
-        $photo=Photo::where('id', $photo->id);
+        $info=Info::where('id', $info->id);
 
-        $photo->delete();
+        $info->delete();
 
         flash('Data Berhasil Di Hapus');
 
-        return redirect()->route('photo.index');
+        return redirect()->route('info.index');
     }
 }

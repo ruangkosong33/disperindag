@@ -29,7 +29,7 @@ class Employee extends Model
     //RELATION
     public function division(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'division_id', 'id');
+        return $this->belongsTo(Division::class, 'division_id', 'id');
     }
 }
 

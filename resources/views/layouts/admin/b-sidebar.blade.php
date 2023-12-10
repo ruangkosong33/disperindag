@@ -106,7 +106,9 @@
             </ul>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item
+          {{request()->is('renstra*') ? 'menu-open' : ''}}
+                                                                ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
@@ -116,7 +118,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{route('renstra.index')}}" class="nav-link {{request()->is('renstra*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Rencana Strategis</p>
                 </a>

@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Media;
+namespace App\Http\Controllers\Information;
 
-use App\Models\Photo;
 use App\Models\Category;
+use App\Models\Commodity;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class PhotoController extends Controller
+class CommodityController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $photo=Photo::orderBy('id')->get();
+        $commodity=Commodity::orderBy('id')->get();
 
-        return view('layouts.admin.pages.photo.index-photo', ['photo'=>$photo]);
+        return view('layouts.admin.pages.commodity.index-commodity', ['commodity'=>$commodity]);
     }
 
     /**
@@ -26,7 +26,7 @@ class PhotoController extends Controller
     {
         $category=Category::orderBy('id')->get();
 
-        return view('layouts.admin.pages.photo.create-photo', ['category'=>$category]);
+        return view('layouts.admin.pages.commodity.create-commodity', ['category'=>$category]);
     }
 
     /**
@@ -34,31 +34,30 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $this-validate($request, [
             'title'=>'required',
-            'image'=>'nullable|mimes:jpeg,jpg,png|max:5000',
+            'image'=>'nullable|mimes:jpg,jpeg,png|max>5000',
             'date'=>'date_format:d-m-Y',
         ]);
-
+        
         if($request->file('image'))
         {
             $file=$request->file('image');
             $extension=$file->getClientOriginalName();
             $images=$extension;
-            $file->storeAs('public/image-photo', $images);
+            $file->storeAs('public/image-commodity', $images);
         }
 
-        $photo=Photo::create([
-            'category_id'=>$request->category_id,
+        $commodity=Commodity::create([
             'title'=>$request->title,
             'image'=>$images,
-            'description'=>$request->description,
+            'price'=>$request->price,
             'date'=>$request->date,
         ]);
 
         flash('Data Berhasil Di Simpan');
 
-        return redirect()->route('photo.index');
+        return redirect()->route('commodity.index');
     }
 
     /**
@@ -69,63 +68,61 @@ class PhotoController extends Controller
         //
     }
 
-    /** 
+    /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Photo $photo)
+    public function edit(Commodity $commodity)
     {
-        $category=Category::orderBy('id')->get();
-
-        return view('layouts.admin.pages.photo.edit-photo', ['photo'=>$photo, 'category'=>$category]);
+        return view('layouts.admin.pages.commodity.edit-commodity', ['commodity'=>$commodity]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Photo $photo)
+    public function update(Request $request, Commodity $commodity)
     {
-        $this->validate($request, [
+        $this-validate($request, [
             'title'=>'required',
-            'image'=>'nullable|mimes:jpeg,jpg,png|max:5000',
+            'image'=>'nullable|mimes:jpg,jpeg,png|max>5000',
+            'date'=>'date_format:d-m-Y',
         ]);
-
+        
         if($request->file('image'))
         {
             $file=$request->file('image');
             $extension=$file->getClientOriginalName();
             $images=$extension;
-            $file->storeAs('public/image-photo', $images);
+            $file->storeAs('public/image-commodity', $images);
         }
         else{
-            unset($video['image']);
+            unset($commodity['image']);
         }
 
-        $images=$video->image;
+        $images=$commodity->image;
 
-        $photo->update([
-            'category_id'=>$request->category_id,
+        $commodity->update([
             'title'=>$request->title,
             'image'=>$images,
-            'description'=>$request->description,
+            'price'=>$request->price,
             'date'=>$request->date,
         ]);
 
-        flash('Data Berhasil Di Update');
+        flash('Data Berhasil Di Simpan');
 
-        return redirect()->route('photo.index');
+        return redirect()->route('commodity.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Photo $photo)
+    public function destroy(Commodity $commodity)
     {
-        $photo=Photo::where('id', $photo->id);
+        $commodity=Commodity::where('id', $commodity->id);
 
-        $photo->delete();
+        $commodity->delete();
 
         flash('Data Berhasil Di Hapus');
 
-        return redirect()->route('photo.index');
+        return redirect()->route('commodity.index');
     }
 }

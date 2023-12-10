@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Media;
 use App\Models\Banner;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class BannerController extends Controller
 {
@@ -50,7 +49,7 @@ class BannerController extends Controller
             'image'=>$images,
         ]);
 
-        Alert::success('Berhasil', 'Data Berhasil Di Simpan');
+        flash('Data Berhasil Di Simpan');
 
         return redirect()->route('banner.index');
     }
@@ -99,7 +98,7 @@ class BannerController extends Controller
             'image'=>$images,
         ]);
 
-        Alert::success('Berhasil', 'Data Berhasil Di Update');
+        flash('Data Berhasil Di Update');
 
         return redirect()->route('banner.index');
     }
@@ -113,7 +112,7 @@ class BannerController extends Controller
 
         $banner->delete();
 
-        Alert::success('Berhasil', 'Data Berhasil Di Hapus');
+        flash('Data Berhasil Di Hapus');
 
         return redirect()->route('banner.index');
     }

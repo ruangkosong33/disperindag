@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Organization;
 
-use App\Http\Controllers\Controller;
+use App\Models\Division;
+use App\Models\Employee;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class EmployeeController extends Controller
 {
@@ -56,7 +58,7 @@ class EmployeeController extends Controller
             'pim'=>$request->pim,
         ]);
 
-        Alert::success('Berhasil', 'Data Berhasil Di Simpan');
+        flash('Data Berhasil Di Simpan');
 
         return redirect()->route('employee.index');
     }
@@ -113,7 +115,7 @@ class EmployeeController extends Controller
             'pim'=>$request->pim,
         ]);
 
-        Alert::success('Berhasil', 'Data Berhasil Di Update');
+        flash('Data Berhasil Di Update');
 
         return redirect()->route('employee.index');
     }
@@ -127,7 +129,7 @@ class EmployeeController extends Controller
 
         $employee->delete();
 
-        Alert::success('Berhasil', 'Data Berhasil Di Hapus');
+        flash('Data Berhasil Di Hapus');
 
         return redirect()->route('employee.index');
     }

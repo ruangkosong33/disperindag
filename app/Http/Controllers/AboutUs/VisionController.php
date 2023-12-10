@@ -5,7 +5,6 @@ namespace App\Http\Controllers\AboutUs;
 use App\Models\Vision;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class VisionController extends Controller
 {
@@ -41,7 +40,7 @@ class VisionController extends Controller
             'description'=>$request->description,
         ]);
 
-        Alert::success('Berhasil', 'Data Berhasil Di Simpan');
+        flash('Data Berhasil Di Simpan');
 
         return redirect()->route('vision.index');
     }
@@ -76,7 +75,7 @@ class VisionController extends Controller
             'description'=>$request->description,
         ]);
 
-        Alert::success('Berhasil', 'Data Berhasil Di Update');
+        flash('Data Berhasil Di Update');
 
         return redirect()->route('vision.index');
     }
@@ -90,8 +89,8 @@ class VisionController extends Controller
 
         $vision->delete();
 
-        Alert::success('Berhasil', 'Data Berhasil Di Hapus');
-
+        flash('Data Berhasil Di Hapus');
+        
         return redirect()->route('vision.index');
     }
 }

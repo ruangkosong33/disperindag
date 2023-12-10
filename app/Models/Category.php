@@ -36,4 +36,14 @@ class Category extends Model
     {
         return $this->hasMany(Photo::class, 'photo_id', 'id');
     }
+
+    public function video(): HasMany
+    {
+        return $this->hasMany(Video::class, 'video_id', 'id');
+    }
+
+    public function commodity(): HasMany
+    {
+        return $this->hasMany(Commodity::class, 'commodity_id', 'id');
+    }
 }
