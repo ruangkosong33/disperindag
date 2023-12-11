@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Filerenstra extends Model
@@ -27,8 +28,8 @@ class Filerenstra extends Model
     }
 
     //RELATION
-    public function renstra(): BelongsTo
+    public function renstras(): BelongsTo
     {
-        return $this->belongsTo(Renstra::class, 'renstra_id', 'id');
+        return $this->belongsTo(Renstra::class);
     }
 }

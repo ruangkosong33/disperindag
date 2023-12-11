@@ -1,10 +1,9 @@
 @extends('layouts.admin.b-master')
 
-@section('title', 'File Rencana Strategis')
+@section('title', 'Indikator Kinerja Utama')
 @section('breadcrumb')
     @parent
-    <li class="breadcrumb-item active"><a href="{{route('renstra.index')}}">Rencana Strategis</a></li>
-    <li class="breadcrumb-item active">File Rencana Strategis</li>
+    <li class="breadcrumb-item active">Indikator Kinerja Utama</li>
 @endsection
 
 @section('content')
@@ -13,32 +12,35 @@
         <div class="col-lg-12">
             <x-card>
                 <x-slot name="header">
-                    <a href="{{route('filerenstra.create', $renstra->id)}}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah</a>
+                    <a href="{{route('iku.create')}}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah</a>
                 </x-slot>
 
                 <x-table>
                     <x-slot name="thead">
                         <th>No</th>
                         <th>Judul</th>
-                        <th>File</th>
+                        <th>Tahun</th>
                         <th>Action</th>
                     </x-slot>
-                    @foreach ($renstra->filerenstras as $key=>$filerens)
+                    @foreach ($iku as $key=>$ikus)
                         <tr>
                             <td>{{$key+1}}</td>
-                            <td>{{$filerens->title}}</td>
-                            <td>{{$filerens->file}}</td>
+                            <td>{{$ikus->title}}</td>
+                            <td>{{$ikus->year}}</td>
                             <td>
-                                <a href="{{route('filerenstra.edit', ['renstra'=>$renstra, 'filerenstra'=>$filerens])}}" class="btn btn-warning btn-sm">
+                                <a href="{{route('iku.edit', $ikus->id)}}" class="btn btn-warning btn-sm">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <form method="post" action="{{route('filerenstra.destroy', ['renstra'=>$renstra, 'filerenstra'=>$filerens])}}" class="d-inline">
+                                <form method="post" action="{{route('iku.destroy', $ikus->id)}}" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-sm btn-danger btn-delete" onclick="return confirm('Yakin Ingin Menghapus Data?')">
                                       <i class="fas fa-trash"></i>
                                     </button>
                                 </form>
+                                <a href="{{route('fileiku.index', $ikus->id)}}" class="btn btn-info btn-sm">
+                                    <i class="fas fa-list"></i>
+                                </a>
                             </td>
                         </tr>
                     @endforeach

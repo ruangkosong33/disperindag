@@ -40,7 +40,7 @@
           {{request()->is('regulation*') ? 'menu-open' : ''}}
           {{request()->is('vision*') ? 'menu-open' : ''}}
           {{request()->is('policy*') ? 'menu-open' : ''}}
-                                                                ">
+                                                                                            ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
@@ -108,6 +108,9 @@
 
           <li class="nav-item
           {{request()->is('renstra*') ? 'menu-open' : ''}}
+          {{request()->is('filerenstra*') ? 'menu-open' : ''}}
+          {{request()->is('iku*') ? 'menu-open' : ''}}
+          {{request()->is('fileiku*') ? 'menu-open' : ''}}
                                                                 ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
@@ -118,19 +121,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('renstra.index')}}" class="nav-link {{request()->is('renstra*') ? 'active' : ''}}">
+                <a href="{{route('renstra.index')}}" class="nav-link {{ request()->is('renstra*') || request()->is('filerenstra*') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Rencana Strategis</p>
                 </a>
               </li>
             </ul>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Indikator Kinerja Utama</p>
-                </a>
-              </li>
+                <li class="nav-item">
+                    <a href="{{ route('iku.index') }}" class="nav-link {{ request()->is('iku*') || request()->is('fileiku*') ? 'active' : '' }}">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Indikator Kinerja Utama</p>
+                    </a>
+                </li>
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
@@ -194,7 +197,7 @@
               <li class="nav-item">
                 <a href="{{route('employee.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Pegawai</p>
+                  <p>Data Pegawai</p>
                 </a>
               </li>
             </ul>

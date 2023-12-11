@@ -1,24 +1,24 @@
 @extends('layouts.admin.b-master')
 
-@section('title', 'File Rencana Strategis')
+@section('title', 'Indikator Kinerja Utama')
 @section('breadcrumb')
     @parent
-    <li class="breadcrumb-item active"><a href="{{route('filerenstra.index', $renstra->id)}}">File Rencana Strategis</a></li>
-    <li class="breadcrumb-item active">Edit File Rencana Strategis</li>
+    <li class="breadcrumb-item active"><a href="{{route('iku.index')}}">Indikator Kinerja Utama</a></li>
+    <li class="breadcrumb-item active">Edit Indikator Kinerja Utama</li>
 @endsection
 
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <form action="{{route('filerenstra.update', ['renstra'=>$renstra, 'filerenstra'=>$filerenstra])}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('iku.update', $iku->id)}}" method="POST">
                 @csrf
                 @method('PUT')
                 <x-card>
 
                     <div class="form-group">
                         <label for="title">Judul</label>
-                        <input type="text" class="form-control @error('title') ?? is-invalid @enderror" name="title" placeholder="Rencana Strategis"
-                        value="{{old('title') ?? $filerenstra->title}}">
+                        <input type="text" class="form-control @error('title') ?? is-invalid @enderror" name="title" placeholder="Indikator Kinerja Utama"
+                        value="{{old('title' ?? $iku->title)}}">
 
                         @error('title')
                             <span class="invalid-feedback">{{$message}}</span>
@@ -27,17 +27,18 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="file">File</label>
-                        <input type="file" class="form-control @error('file') ?? is-invalid @enderror" name="file">
+                        <label for="year">Tahun</label>
+                        <input type="number" class="form-control @error('year') ?? is-invalid @enderror" name="year" placeholder="Indikator Kinerja Utama"
+                        value="{{old('year' ?? $iku->year)}}">
 
-                        @error('file')
+                        @error('year')
                             <span class="invalid-feedback">{{$message}}</span>
                         @enderror
 
                     </div>
 
                     <x-slot name="footer">
-                        <button type="button" onclick="history.back()" class="btn btn-dark" >Kembali</button>
+                        <button type="reset" class="btn btn-dark">Reset</button>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </x-slot>
 

@@ -1,10 +1,10 @@
 @extends('layouts.admin.b-master')
 
-@section('title', 'File Rencana Strategis')
+@section('title', 'File Indikator Kinerja Utama')
 @section('breadcrumb')
     @parent
-    <li class="breadcrumb-item active"><a href="{{route('renstra.index')}}">Rencana Strategis</a></li>
-    <li class="breadcrumb-item active">File Rencana Strategis</li>
+    <li class="breadcrumb-item active"><a href="{{route('iku.index')}}">Indikator Kinerja Utama</a></li>
+    <li class="breadcrumb-item active">File Indikator</li>
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
         <div class="col-lg-12">
             <x-card>
                 <x-slot name="header">
-                    <a href="{{route('filerenstra.create', $renstra->id)}}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah</a>
+                    <a href="{{route('fileiku.create', $iku->id)}}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah</a>
                 </x-slot>
 
                 <x-table>
@@ -23,16 +23,16 @@
                         <th>File</th>
                         <th>Action</th>
                     </x-slot>
-                    @foreach ($renstra->filerenstras as $key=>$filerens)
+                    @foreach ($iku->fileikus as $key=>$filekus)
                         <tr>
                             <td>{{$key+1}}</td>
-                            <td>{{$filerens->title}}</td>
-                            <td>{{$filerens->file}}</td>
+                            <td>{{$filekus->title}}</td>
+                            <td>{{$filekus->file}}</td>
                             <td>
-                                <a href="{{route('filerenstra.edit', ['renstra'=>$renstra, 'filerenstra'=>$filerens])}}" class="btn btn-warning btn-sm">
+                                <a href="{{route('fileiku.edit', ['iku'=>$iku, 'fileiku'=>$filekus])}}" class="btn btn-warning btn-sm">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <form method="post" action="{{route('filerenstra.destroy', ['renstra'=>$renstra, 'filerenstra'=>$filerens])}}" class="d-inline">
+                                <form method="post" action="{{route('fileiku.destroy', ['iku'=>$iku, 'fileiku'=>$filekus])}}" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-sm btn-danger btn-delete" onclick="return confirm('Yakin Ingin Menghapus Data?')">

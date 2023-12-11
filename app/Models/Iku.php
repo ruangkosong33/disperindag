@@ -7,13 +7,13 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Division extends Model
+class Iku extends Model
 {
     use HasFactory, Sluggable;
 
-    protected $table='divisions';
+    protected $table='ikus';
 
-    protected $fillable=['title', 'slug', 'description', 'image'];
+    protected $fillable=['title', 'slug', 'year'];
 
     protected $hidden=[];
 
@@ -28,9 +28,8 @@ class Division extends Model
     }
 
     //RELATION
-    public function employee(): HasMany
+    public function fileikus(): HasMany
     {
-        return $this->hasMany(Employee::class, 'employee_id', 'id');
+        return $this->hasMany(Fileiku::class);
     }
-
 }

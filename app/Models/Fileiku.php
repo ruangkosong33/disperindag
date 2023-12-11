@@ -4,16 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Division extends Model
+class Fileiku extends Model
 {
     use HasFactory, Sluggable;
 
-    protected $table='divisions';
+    protected $table='fileikus';
 
-    protected $fillable=['title', 'slug', 'description', 'image'];
+    protected $fillable=['iku_id', 'title', 'slug', 'file'];
 
     protected $hidden=[];
 
@@ -28,9 +28,8 @@ class Division extends Model
     }
 
     //RELATION
-    public function employee(): HasMany
+    public function ikus(): BelongsTo
     {
-        return $this->hasMany(Employee::class, 'employee_id', 'id');
+        return $this->belongsTo(Iku::class);
     }
-
 }

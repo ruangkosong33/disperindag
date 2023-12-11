@@ -46,6 +46,9 @@ class EmployeeController extends Controller
             $images=$extension;
             $file->storeAs('public/image-employee', $images);
         }
+        else{
+            $images=null;
+        }
 
         $employee=Employee::create([
             'division_id'=>$request->division_id,
@@ -74,11 +77,11 @@ class EmployeeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Employee $employee)
     {
         $division=Division::orderBy('id')->get();
 
-        return view('layouts.admin.pages.employee.edit-employee', ['division'=>$division]);
+        return view('layouts.admin.pages.employee.edit-employee', ['division'=>$division, 'employee'=>$employee]);
     }
 
     /**
@@ -99,10 +102,8 @@ class EmployeeController extends Controller
             $file->storeAs('public/image-employee', $images);
         }
         else{
-            unset($employee['image']);
+            $images=$employee->image;
         }
-
-        $images=$employee->image;
 
         $employee->update([
             'division_id'=>$request->division_id,
@@ -123,7 +124,7 @@ class EmployeeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Employee $employee)
     {
         $employee=Employee::where('id', $employee->id);
 

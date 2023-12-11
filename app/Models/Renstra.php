@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Renstra extends Model
@@ -27,8 +28,8 @@ class Renstra extends Model
     }
 
     //RELATION
-    public function filerenstra(): HasMany
+    public function filerenstras(): HasMany
     {
-        return $this->hasMany(Filerenstra::class, 'renstra_id', 'id');
+        return $this->hasMany(Filerenstra::class);
     }
 }
