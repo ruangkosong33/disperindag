@@ -111,6 +111,8 @@
           {{request()->is('filerenstra*') ? 'menu-open' : ''}}
           {{request()->is('iku*') ? 'menu-open' : ''}}
           {{request()->is('fileiku*') ? 'menu-open' : ''}}
+          {{request()->is('perform*') ? 'menu-open' : ''}}
+          {{request()->is('fileperform*') ? 'menu-open' : ''}}
                                                                 ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
@@ -137,7 +139,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
+                <a href="{{route('perform.index')}}" class="nav-link {{request()->is('perform*') || request()->is('fileperform*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Program & Kinerja</p>
                 </a>
@@ -145,7 +147,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
+                <a href="{{route('achieve.index')}}" class="nav-link {{request()->is('achieve*') || request()->is('fileachieve*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Laporan & Capaian</p>
                 </a>

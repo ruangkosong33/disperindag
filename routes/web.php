@@ -12,11 +12,15 @@ use App\Http\Controllers\AboutUs\PolicyController;
 use App\Http\Controllers\AboutUs\VisionController;
 use App\Http\Controllers\AboutUs\HistoryController;
 use App\Http\Controllers\AboutUs\ProfileController;
+use App\Http\Controllers\Activity\AchieveController;
 use App\Http\Controllers\Activity\FileIkuController;
 use App\Http\Controllers\Activity\RenstraController;
 use App\Http\Controllers\Article\CategoryController;
 use App\Http\Controllers\Information\EventController;
 use App\Http\Controllers\AboutUs\RegulationController;
+use App\Http\Controllers\Activity\EvaluationController;
+use App\Http\Controllers\Activity\FileAchieveController;
+use App\Http\Controllers\Activity\FilePerformController;
 use App\Http\Controllers\Activity\FileRenstraController;
 use App\Http\Controllers\Information\CommodityController;
 use App\Http\Controllers\Organization\DivisionController;
@@ -40,6 +44,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::middleware(['auth'])->group(function () {
+
+});
 
 
 //ABOUT US
@@ -67,6 +76,21 @@ Route::post('/fileiku/{iku}', [FileIkuController::class, 'store'])->name('fileik
 Route::get('/fileiku/{iku}/edit/{fileiku}', [FileIkuController::class, 'edit'])->name('fileiku.edit');
 Route::put('/fileiku/{iku}/{fileiku}', [FileIkuController::class, 'update'])->name('fileiku.update');
 Route::delete('/fileiku/{iku}/{fileiku}', [FileIkuController::class, 'destroy'])->name('fileiku.destroy');
+
+Route::resource('/perform', PerformController::class);
+Route::get('/fileperform/{perform}', [FilePerformController::class, 'index'])->name('fileperform.index');
+Route::get('/fileperform/create/{perform}', [FilePerformController::class, 'create'])->name('fileperform.create');
+Route::get('/fileperform/{perform}', [FilePerformController::class, 'store'])->name('fileperform.store');
+
+
+
+Route::resource('/achieve', AchieveController::class);
+Route::get('/fileachieve/{achieve}', [FileAchieveController::class, 'index'])->name('fileachieve.index');
+Route::get('/fileachieve/create/{achieve}', [FileAchieveController::class, 'create'])->name('fileachieve.create');
+
+
+
+Route::resource('/evaluation', EvaluationController::class);
 //
 
 //ORGANIZATION
