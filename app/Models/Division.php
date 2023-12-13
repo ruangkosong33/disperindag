@@ -32,5 +32,4 @@ class Division extends Model
     {
         return $this->hasMany(Employee::class, 'employee_id', 'id');
     }
-
 }

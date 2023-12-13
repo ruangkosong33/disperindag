@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Achieve extends Model
@@ -24,5 +25,11 @@ class Achieve extends Model
                 'source' => 'title'
             ]
         ];
+    }
+
+    //RELATION
+    public function fileachieves(): HasMany
+    {
+        return $this->hasMany(fileachieve::class);
     }
 }

@@ -7,13 +7,13 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Commodity extends Model
+class Filedip extends Model
 {
     use HasFactory, Sluggable;
 
-    protected $table='commoditys';
+    protected $table='filedips';
 
-    protected $fillable=['title', 'slug', 'image', 'price', 'date'];
+    protected $fillable=['title', 'slug', 'file'];
 
     protected $hidden=[];
 
@@ -28,8 +28,8 @@ class Commodity extends Model
     }
 
     //RELATION
-    public function category(): BelongsTo
+    public function dips(): BelongsTo
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Dip::class);
     }
 }

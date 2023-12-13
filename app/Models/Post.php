@@ -29,14 +29,14 @@ class Post extends Model
 
     //RELATION
 
-    public function category(): BelongsTo
+    public function categorys(): BelongsTo
     {
-        return $this->belongsTo(Category::class, 'category_id', 'id');
+        return $this->belongsTo(Category::class);
     }
 
-    public function user(): BelongsTo
+    public function users(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class);
     }
 
 }

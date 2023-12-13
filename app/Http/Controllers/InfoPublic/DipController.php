@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Activity;
+namespace App\Http\Controllers\InfoPublic;
 
-use App\Models\Achieve;
+use App\Models\Dip;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class AchieveController extends Controller
+class DipController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $achieve=Achieve::orderBy('id')->get();
+        $dip=Dip::orderBy('id')->get();
 
-        return view('layouts.admin.pages.achieve.index-achieve', ['achieve'=>$achieve]);
+        return view('layouts.admin.pages.dip.index-dip', ['dip'=>$dip]);
     }
 
     /**
@@ -23,7 +23,7 @@ class AchieveController extends Controller
      */
     public function create()
     {
-        return view('layouts.admin.pages.achieve.create-achieve');
+        return view('layouts.admin.pages.dip.create-dip');
     }
 
     /**
@@ -33,17 +33,15 @@ class AchieveController extends Controller
     {
         $this->validate($request, [
             'title'=>'required',
-            'year'=>'required',
         ]);
 
-        $achieve=Acvhive::create([
+        $dip=Dip::create([
             'title'=>$request->title,
-            'year'=>$request->year,
         ]);
 
         flash('Data Berhasil Di Simpan');
 
-        return redirect()->route('achieve.index');
+        return redirect()->route('dip.index');
     }
 
     /**
@@ -57,42 +55,40 @@ class AchieveController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Achieve $achieve)
+    public function edit(Dip $dip)
     {
-        return view('layouts.admin.pages.achieve.edit-achieve', ['achieve'=>$achieve]);
+        return view('layouts.admin.pages.dip.edit-dip', ['dip'=>$dips]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Achieve $achieve)
+    public function update(Request $request, Dip $dip)
     {
         $this->validate($request, [
             'title'=>'required',
-            'year'=>'required',
         ]);
 
-        $achieve->update([
+        $dip->update([
             'title'=>$request->title,
-            'year'=>$request->year,
         ]);
 
         flash('Data Berhasil Di Update');
 
-        return redirect()->route('achieve.index');
+        return redirect()->route('dip.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Achieve $achieve)
+    public function destroy(Dip $dip)
     {
-        $achieve=Achieve::where('id', $achieve->id);
+        $dip=Dip::where('id', $dip->id);
 
-        $achieve->delete();
+        $dip->delete();
 
         flash('Data Berhasil Di Hapus');
 
-        return redirect()->route('achieve.index');
+        return redirect()->route('dip.index');
     }
 }

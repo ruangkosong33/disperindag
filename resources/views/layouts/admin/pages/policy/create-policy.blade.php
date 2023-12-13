@@ -12,19 +12,26 @@
         <div class="col-lg-12">
             <form action="{{route('policy.store')}}" method="POST">
                 @csrf
+
                 <x-card>
+
                     <div class="form-group">
                         <label for="title">Judul</label>
                         <input type="text" class="form-control" name="title" placeholder="Peraturan & Kebijakan">
                     </div>
+
                     <div class="form-group">
                         <label for="description">Deskripsi</label>
                         <textarea class="form-control" name="description" placeholder="Peraturan & Kebijakan"></textarea>
+                    </div>
+                    
                     <x-slot name="footer">
                         <button type="reset" class="btn btn-dark">Reset</button>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </x-slot>
+
                 </x-card>
+
             </form>
         </div>
     </div>

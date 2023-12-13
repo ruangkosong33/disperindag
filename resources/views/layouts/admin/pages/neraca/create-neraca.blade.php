@@ -1,37 +1,31 @@
 @extends('layouts.admin.b-master')
 
-@section('title', 'File Rencana Strategis')
+@section('title', 'Neraca Keuangan')
 @section('breadcrumb')
     @parent
-    <li class="breadcrumb-item active"><a href="{{route('filerenstra.index', $renstra->id)}}">File Rencana Strategis</a></li>
-    <li class="breadcrumb-item active">Tambah File Rencana Strategis</li>
+    <li class="breadcrumb-item active"><a href="{{route('neraca.index')}}">Neraca Keuangan</a></li>
+    <li class="breadcrumb-item active">Tambah Neraca Keuangan</li>
 @endsection
 
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <form action="{{route('filerenstra.store', $renstra->id)}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('neraca.store')}}" method="POST">
                 @csrf
                 <x-card>
 
                     <div class="form-group">
                         <label for="title">Judul</label>
-                        <input type="text" class="form-control @error('title') ?? is-invalid @enderror" name="title" placeholder="File Rencana Strategis">
+                        <input type="text" class="form-control @error('title') ?? is-invalid @enderror" name="title" placeholder="Neraca Keuangan">
 
                         @error('title')
                             <span class="invalid-feedback">{{$message}}</span>
                         @enderror
-
                     </div>
 
                     <div class="form-group">
-                        <label for="file">File</label>
-                        <input type="file" class="form-control @error('file') ?? is-invalid @enderror" name="file">
-
-                        @error('file')
-                            <span class="invalid-feedback">{{$message}}</span>
-                        @enderror
-
+                        <label for="description">Deskripsi</label>
+                        <textarea class="form-control" name="description" placeholder="Neraca Keuangan"></textarea>
                     </div>
 
                     <x-slot name="footer">

@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers\Activity;
 
-use App\Models\Achieve;
+use App\Models\Sop;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class AchieveController extends Controller
+class SopController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $achieve=Achieve::orderBy('id')->get();
+        $sop=Sop::orderBy('id')->get();
 
-        return view('layouts.admin.pages.achieve.index-achieve', ['achieve'=>$achieve]);
+        return view('layouts.admin.pages.sop.index-sop', ['sop'=>$sop]);
     }
 
     /**
@@ -23,7 +23,7 @@ class AchieveController extends Controller
      */
     public function create()
     {
-        return view('layouts.admin.pages.achieve.create-achieve');
+        return view('layouts.admin.pages.sop.create-sop');
     }
 
     /**
@@ -33,17 +33,15 @@ class AchieveController extends Controller
     {
         $this->validate($request, [
             'title'=>'required',
-            'year'=>'required',
         ]);
 
-        $achieve=Acvhive::create([
+        $sop=Sop::create([
             'title'=>$request->title,
-            'year'=>$request->year,
         ]);
 
         flash('Data Berhasil Di Simpan');
 
-        return redirect()->route('achieve.index');
+        return redirect()->route('sop.index');
     }
 
     /**
@@ -57,42 +55,40 @@ class AchieveController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Achieve $achieve)
+    public function edit(Sop $sop)
     {
-        return view('layouts.admin.pages.achieve.edit-achieve', ['achieve'=>$achieve]);
+        return view('layouts.admin.pages.sop.edit-sop', ['sop'=>$sop]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Achieve $achieve)
+    public function update(Request $request, Sop $sop)
     {
         $this->validate($request, [
             'title'=>'required',
-            'year'=>'required',
         ]);
 
-        $achieve->update([
+        $sop->update([
             'title'=>$request->title,
-            'year'=>$request->year,
         ]);
 
         flash('Data Berhasil Di Update');
 
-        return redirect()->route('achieve.index');
+        return redirect()->route('sop.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Achieve $achieve)
+    public function destroy(Sop $sop)
     {
-        $achieve=Achieve::where('id', $achieve->id);
+        $sop=Sop::where('id', $sop->id);
 
-        $achieve->delete();
+        $sop->delete();
 
         flash('Data Berhasil Di Hapus');
 
-        return redirect()->route('achieve.index');
+        return redirect()->route('sop.index');
     }
 }

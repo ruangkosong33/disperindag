@@ -39,13 +39,16 @@ class CommodityController extends Controller
             'image'=>'nullable|mimes:jpg,jpeg,png|max>5000',
             'date'=>'date_format:d-m-Y',
         ]);
-        
+
         if($request->file('image'))
         {
             $file=$request->file('image');
             $extension=$file->getClientOriginalName();
             $images=$extension;
             $file->storeAs('public/image-commodity', $images);
+        }
+        else{
+            $images=null;
         }
 
         $commodity=Commodity::create([
@@ -86,7 +89,7 @@ class CommodityController extends Controller
             'image'=>'nullable|mimes:jpg,jpeg,png|max>5000',
             'date'=>'date_format:d-m-Y',
         ]);
-        
+
         if($request->file('image'))
         {
             $file=$request->file('image');
@@ -95,10 +98,8 @@ class CommodityController extends Controller
             $file->storeAs('public/image-commodity', $images);
         }
         else{
-            unset($commodity['image']);
+            $images=$commodity->image;
         }
-
-        $images=$commodity->image;
 
         $commodity->update([
             'title'=>$request->title,

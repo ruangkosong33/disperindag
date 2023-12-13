@@ -5,26 +5,33 @@ use App\Http\Controllers\Media\PhotoController;
 use App\Http\Controllers\Media\VideoController;
 use App\Http\Controllers\AboutUs\TaskController;
 use App\Http\Controllers\Activity\IkuController;
+use App\Http\Controllers\Activity\SopController;
 use App\Http\Controllers\Article\InfoController;
 use App\Http\Controllers\Article\PostController;
 use App\Http\Controllers\Media\BannerController;
 use App\Http\Controllers\AboutUs\PolicyController;
 use App\Http\Controllers\AboutUs\VisionController;
+use App\Http\Controllers\InfoPublic\DipController;
 use App\Http\Controllers\AboutUs\HistoryController;
 use App\Http\Controllers\AboutUs\ProfileController;
+use App\Http\Controllers\Activity\NeracaController;
 use App\Http\Controllers\Activity\AchieveController;
 use App\Http\Controllers\Activity\FileIkuController;
+use App\Http\Controllers\Activity\FileSopController;
+use App\Http\Controllers\Activity\PerformController;
 use App\Http\Controllers\Activity\RenstraController;
 use App\Http\Controllers\Article\CategoryController;
 use App\Http\Controllers\Information\EventController;
 use App\Http\Controllers\AboutUs\RegulationController;
 use App\Http\Controllers\Activity\EvaluationController;
+use App\Http\Controllers\Activity\FileNeracaController;
 use App\Http\Controllers\Activity\FileAchieveController;
 use App\Http\Controllers\Activity\FilePerformController;
 use App\Http\Controllers\Activity\FileRenstraController;
 use App\Http\Controllers\Information\CommodityController;
 use App\Http\Controllers\Organization\DivisionController;
 use App\Http\Controllers\Organization\EmployeeController;
+use App\Http\Controllers\Activity\FileEvaluationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,16 +88,41 @@ Route::resource('/perform', PerformController::class);
 Route::get('/fileperform/{perform}', [FilePerformController::class, 'index'])->name('fileperform.index');
 Route::get('/fileperform/create/{perform}', [FilePerformController::class, 'create'])->name('fileperform.create');
 Route::get('/fileperform/{perform}', [FilePerformController::class, 'store'])->name('fileperform.store');
-
-
+Route::get('/fileperform/{perform}edit/{fileperform}', [FilePerformController::class, 'edit'])->name('fileperform.edit');
+Route::put('/fileperform/{perform}/{fileperform}', [FilePerformController::class, 'update'])->name('fileperform.update');
+Route::delete('/fileperform/{perform}/{fileperform}', [FilePerformController::class, 'destroy'])->name('fileperform.destroy');
 
 Route::resource('/achieve', AchieveController::class);
 Route::get('/fileachieve/{achieve}', [FileAchieveController::class, 'index'])->name('fileachieve.index');
 Route::get('/fileachieve/create/{achieve}', [FileAchieveController::class, 'create'])->name('fileachieve.create');
-
-
+Route::get('/fileachieve/{achieve}', [FileAchieveController::class, 'store'])->name('fileachieve.store');
+Route::get('/fileachieve/edit/{achieve}', [FileAchieveController::class, 'edit'])->name('fileachieve.edit');
+Route::get('/fileachieve/{achieve}/{fileachieve}', [FileAchieveController::class, 'update'])->name('fileachieve.update');
+Route::get('/fileachieve/{achieve}/{fileachieve}', [FileAchieveController::class, 'destroy'])->name('fileachieve.destroy');
 
 Route::resource('/evaluation', EvaluationController::class);
+Route::get('/fileevaluation/{evaluation}', [FileEvaluationController::class, 'index'])->name('fileevaluation.index');
+Route::get('/fileevaluation/create/{evaluation}', [FileEvaluationController::class, 'create'])->name('fileevaluation.create');
+Route::get('/fileevaluation/{evaluation}', [FileEvaluationController::class, 'store'])->name('fileevaluation.store');
+Route::get('/fileevaluation/{evaluation}/edit{fileevaluation}', [FileEvaluationController::class, 'edit'])->name('fileevaluation.edit');
+Route::put('/fileevaluation/{evaluation}/{fileevaluaton}', [FileEvaluationController::class, 'update'])->name('fileevaluation.update');
+Route::put('/fileevaluation/{evaluation}/{fileevaluaton}', [FileEvaluationController::class, 'destroy'])->name('fileevaluation.destroy');
+
+Route::resource('/neraca', NeracaController::class);
+Route::get('/fileneraca/{neraca}', [FileNeracaController::class, 'index'])->name('fileneraca.index');
+Route::get('/fileneraca/create/{neraca}', [FileNeracaController::class, 'create'])->name('fileneraca.create');
+Route::get('/fileneraca/{neraca}', [FileNeracaController::class, 'store'])->name('fileneraca.store');
+Route::get('/fileneraca/{neraca}/edit/{fileneraca}', [FileNeracaController::class, 'edit'])->name('fileneraca.edit');
+Route::get('/fileneraca/{neraca}/{fileneraca}', [FileNeracaController::class, 'update'])->name('fileneraca.update');
+Route::get('/fileneraca/{neraca}/{fileneraca}', [FileNeracaController::class, 'destroy'])->name('fileneraca.destroy');
+
+Route::resource('/sop', SopController::class);
+Route::get('/filesop/{sop}', [FileSopController::class, 'index'])->name('filesop.index');
+Route::get('/filesop/create/{sop}', [FileSopController::class, 'create'])->name('filesop.create');
+Route::get('/filesop/{sop}', [FileSopController::class, 'store'])->name('filesop.store');
+Route::get('/filesop/{sop}/edit/{filesop}', [FileSopController::class, 'edit'])->name('filesop.edit');
+Route::get('/filesop/{sop}/{filesop}', [FileSopController::class, 'update'])->name('filesop.update');
+Route::get('/filesop/{sop}/{filesop}', [FileSopController::class, 'destroy'])->name('filesop.destroy');
 //
 
 //ORGANIZATION
@@ -113,5 +145,9 @@ Route::resource('/banner', BannerController::class);
 //INFORMATION
 Route::resource('/event', EventController::class);
 Route::resource('/commodity', CommodityController::class);
+//
+
+//PPID
+Route::resource('/dip', DipController::class);
 //
 

@@ -64,10 +64,10 @@ class FileAchieveController extends Controller
             $file=$request->file('file');
             $extension=$file->getClientOriginalName();
             $files=$extension;
-            $file->storeAs('public/file-perform', $files);
+            $file->storeAs('public/file-achieve', $files);
         }
         else{
-            $files=$fileperform->file;
+            $files=$fileachieve->file;
         }
 
         $fileachieve=$achieve->fileachieves()->update([
@@ -86,7 +86,7 @@ class FileAchieveController extends Controller
 
         $fileachieve->delete();
 
-        flash('Data Berhasil Di Update');
+        flash('Data Berhasil Di Hapus');
 
         return redirect()->route('fileachieve.index', $achieve->id);
     }

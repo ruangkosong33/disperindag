@@ -7,11 +7,11 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Category extends Model
+class Sop extends Model
 {
     use HasFactory, Sluggable;
 
-    protected $table='categorys';
+    protected $table='sops';
 
     protected $fillable=['title', 'slug'];
 
@@ -28,23 +28,8 @@ class Category extends Model
     }
 
     //RELATION
-    public function post(): HasMany
+    public function filesops(): HasMany
     {
-        return $this->hasMany(Post::class);
-    }
-
-    public function photo(): HasMany
-    {
-        return $this->hasMany(Photo::class);
-    }
-
-    public function video(): HasMany
-    {
-        return $this->hasMany(Video::class);
-    }
-
-    public function commodity(): HasMany
-    {
-        return $this->hasMany(Commodity::class);
+        return $this->hasMany(Filesop::class);
     }
 }

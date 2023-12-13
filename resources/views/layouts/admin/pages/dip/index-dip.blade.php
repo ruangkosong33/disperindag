@@ -1,9 +1,9 @@
 @extends('layouts.admin.b-master')
 
-@section('title', 'Banner')
+@section('title', 'Kategori DIP')
 @section('breadcrumb')
     @parent
-    <li class="breadcrumb-item active">Data Banner</li>
+    <li class="breadcrumb-item active">Kategori Daftar Informasi Publik</li>
 @endsection
 
 @section('content')
@@ -12,32 +12,33 @@
         <div class="col-lg-12">
             <x-card>
                 <x-slot name="header">
-                    <a href="{{route('banner.create')}}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah</a>
+                    <a href="{{route('dip.create')}}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah</a>
                 </x-slot>
 
                 <x-table>
                     <x-slot name="thead">
                         <th>No</th>
                         <th>Judul</th>
-                        <th>Gambar</th>
                         <th>Action</th>
                     </x-slot>
-                    @foreach ($banner as $key=>$banners)
+                    @foreach ($dip as $key=>$dips)
                         <tr>
                             <td>{{$key+1}}</td>
-                            <td>{{$banners->title}}</td>
-                            <td>{{$banners->image}}</td>
+                            <td>{{$dips->title}}</td>
                             <td>
-                                <a href="{{route('banner.edit', $banners->id)}}" class="btn btn-warning btn-sm">
+                                <a href="{{route('dip.edit', $dips->id)}}" class="btn btn-warning btn-sm">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <form method="post" action="{{route('banner.destroy', $banners->id)}}" class="d-inline">
+                                <form method="post" action="{{route('dip.destroy', $dips->id)}}" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-sm btn-danger btn-delete" onclick="return confirm('Yakin Ingin Menghapus Data?')">
                                       <i class="fas fa-trash"></i>
                                     </button>
                                 </form>
+                                <a href="{{route('filedip.index', $dips->id)}}" class="btn btn-info btn-sm">
+                                    <i class="fas fa-list"></i>
+                                </a>
                             </td>
                         </tr>
                     @endforeach

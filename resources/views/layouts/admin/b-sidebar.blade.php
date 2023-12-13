@@ -1,8 +1,8 @@
 <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link bg-primary">
-      <img src="{{asset('bk/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Sysadmin-Web</span>
+      <img src="{{asset('bk/dist/img/kaltim.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light"><strong>Sysadmin-Web</strong></span>
     </a>
 
     <!-- Sidebar -->
@@ -22,6 +22,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+
           <li class="nav-item">
             <a href="{{route('home')}}" class="nav-link">
               <i class="nav-icon fas fa-home"></i>
@@ -31,18 +32,18 @@
             </a>
           </li>
 
-          <li class="nav-header">Menu</li>
+          <li class="nav-header"><strong>Menu</strong></li>
 
           <li class="nav-item
-          {{request()->is('profile*') ? 'menu-open' : ''}}
-          {{request()->is('history*') ? 'menu-open' : ''}}
-          {{request()->is('task*') ? 'menu-open' : ''}}
-          {{request()->is('regulation*') ? 'menu-open' : ''}}
-          {{request()->is('vision*') ? 'menu-open' : ''}}
-          {{request()->is('policy*') ? 'menu-open' : ''}}
-                                                                                            ">
+            {{request()->is('profile*') ? 'menu-open' : ''}}
+            {{request()->is('history*') ? 'menu-open' : ''}}
+            {{request()->is('task*') ? 'menu-open' : ''}}
+            {{request()->is('regulation*') ? 'menu-open' : ''}}
+            {{request()->is('vision*') ? 'menu-open' : ''}}
+            {{request()->is('policy*') ? 'menu-open' : ''}}
+                                                                        ">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
+              <i class="nav-icon fas fa-users"></i>
               <p>
                 Tentang Kami
                 <i class="right fas fa-angle-left"></i>
@@ -104,16 +105,25 @@
                 </a>
               </li>
             </ul>
+
           </li>
 
           <li class="nav-item
-          {{request()->is('renstra*') ? 'menu-open' : ''}}
-          {{request()->is('filerenstra*') ? 'menu-open' : ''}}
-          {{request()->is('iku*') ? 'menu-open' : ''}}
-          {{request()->is('fileiku*') ? 'menu-open' : ''}}
-          {{request()->is('perform*') ? 'menu-open' : ''}}
-          {{request()->is('fileperform*') ? 'menu-open' : ''}}
-                                                                ">
+            {{request()->is('renstra*') ? 'menu-open' : ''}}
+            {{request()->is('filerenstra*') ? 'menu-open' : ''}}
+            {{request()->is('iku*') ? 'menu-open' : ''}}
+            {{request()->is('fileiku*') ? 'menu-open' : ''}}
+            {{request()->is('perform*') ? 'menu-open' : ''}}
+            {{request()->is('fileperform*') ? 'menu-open' : ''}}
+            {{request()->is('achieve*') ? 'menu-open' : ''}}
+            {{request()->is('fileachieve*') ? 'menu-open' : ''}}
+            {{request()->is('evaluation*') ? 'menu-open' : ''}}
+            {{request()->is('fileevaluation*') ? 'menu-open' : ''}}
+            {{request()->is('neraca*') ? 'menu-open' : ''}}
+            {{request()->is('fileneraca*') ? 'menu-open' : ''}}
+            {{request()->is('sop*') ? 'menu-open' : ''}}
+            {{request()->is('filesop*') ? 'menu-open' : ''}}
+                                                                            ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
@@ -155,7 +165,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
+                <a href="{{route('evaluation.index')}}" class="nav-link {{request()->is('evalution*') || request()->is('fileevaluation*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Monitoring & Evaluasi</p>
                 </a>
@@ -163,7 +173,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
+                <a href="{{route('neraca.index')}}" class="nav-link {{request()->is('neraca*') || request()->is('fileneraca*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Neraca Keuangan</p>
                 </a>
@@ -171,15 +181,19 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
+                <a href="{{route('sop.index')}}" class="nav-link {{request()->is('sop*') || request()->is('filesop*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>SOP</p>
                 </a>
               </li>
             </ul>
+
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item
+            {{request()->is('division*') ? 'menu-open' : ''}}
+            {{request()->is('employee*') ? 'menu-open' : ''}}
+                                                                        ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-building"></i>
               <p>
@@ -189,7 +203,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('division.index')}}" class="nav-link">
+                <a href="{{route('division.index')}}" class="nav-link {{request()->is('division*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Unit Kerja</p>
                 </a>
@@ -197,15 +211,18 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('employee.index')}}" class="nav-link">
+                <a href="{{route('employee.index')}}" class="nav-link {{request()->is('employee*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Pegawai</p>
                 </a>
               </li>
             </ul>
+
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item
+            {{request()->is('post*') ? 'menu-open' : ''}}
+                                                                ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-newspaper"></i>
               <p>
@@ -215,15 +232,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('post.index')}}" class="nav-link">
+                <a href="{{route('post.index')}}" class="nav-link {{request()->is('post*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Berita</p>
                 </a>
               </li>
             </ul>
+
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item
+            {{request()->is('commodity*') ? 'menu-open' : ''}}
+            {{request()->is('event*') ? 'menu-open' : ''}}
+                                                                    ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-info"></i>
               <p>
@@ -233,32 +254,246 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
+                <a href="{{route('commodity.index')}}" class="nav-link {{request()->is('commodity*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Harga Komoditi</p>
                 </a>
               </li>
             </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('event.index')}}" class="nav-link {{request()->is('event*') ? 'active' : ''}}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Agenda Kegiatan</p>
+                  </a>
+                </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link
+            {{request()->is('video*') ? 'menu-open' : ''}}
+            {{request()->is('photo*') ? 'menu-open' : ''}}
+            {{request()->is('banner*') ? 'menu-open' : ''}}
+                                                                ">
+              <i class="nav-icon fas fa-film"></i>
+              <p>
+                Media
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('photo.index')}}" class="nav-link {{request()->is('photo*') ? 'active' : ''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Galeri Foto</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('video.index')}}" class="nav-link {{request()->is('video*') ? 'active' : ''}}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Galeri Video</p>
+                  </a>
+                </li>
+            </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('banner.index')}}" class="nav-link {{request()->is('banner*') ? 'active' : ''}}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Slider Banner</p>
+                  </a>
+                </li>
+            </ul>
+
           </li>
 
           <li class="nav-item">
             <a href="{{route('category.index')}}" class="nav-link {{request()->is('category*') ? 'active' : ''}}">
-              <i class="nav-icon fas fa-layer-group"></i>
+              <i class="nav-icon fas fa-tags"></i>
               <p>
                 Kategori
               </p>
             </a>
           </li>
 
-          <li class="nav-item">
-            <a href="{{route('banner.index')}}" class="nav-link {{request()->is('banner*') ? 'active' : ''}}">
-              <i class="nav-icon fas fa-draw-polygon"></i>
+          <!-- -->
+          <li class="nav-header"><strong>PPID</strong></li>
+
+          <li class="nav-item
+            {{request()->is('dip*') ? 'menu-open' : ''}}
+            {{request()->is('filedip*') ? 'menu-open' : ''}}
+                                                            ">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
               <p>
-                Banner
+                Info Publik
+                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('dip.index')}}" class="nav-link {{request()->is('dip*') || request()->is('filedip*') ? 'active' : ''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Kategori DIP</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Data DIP</p>
+                  </a>
+                </li>
+            </ul>
+
           </li>
 
+          <li class="nav-item
+            {{-- {{request()->is('*') ? 'menu-open' : ''}}
+            {{request()->is('*') ? 'menu-open' : ''}} --}}
+                                                            ">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-folder-open"></i>
+              <p>
+                Data PPID
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Profil PPID</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Visi & Misi PPID</p>
+                  </a>
+                </li>
+            </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Struktur Organisasi PPID</p>
+                  </a>
+                </li>
+            </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Dasar Hukum</p>
+                  </a>
+                </li>
+            </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Maklumat Pelayanan</p>
+                  </a>
+                </li>
+            </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Tata Cara Permohonan</p>
+                  </a>
+                </li>
+            </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Tata Cara Pengajuan</p>
+                  </a>
+                </li>
+            </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Tata Cara Sengketa Ke KI</p>
+                  </a>
+                </li>
+            </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Formulir Permohonan</p>
+                  </a>
+                </li>
+            </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pengajuan Keberatan</p>
+                  </a>
+                </li>
+            </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Waktu & Layanan</p>
+                  </a>
+                </li>
+            </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Standar Biaya</p>
+                  </a>
+                </li>
+            </ul>
+
+          </li>
+
+          <!-- -->
+          <li class="nav-header"><strong>BPSK</strong></li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link
+            {{request()->is('dip*') ? 'menu-open' : ''}}
+            {{request()->is('filedip*') ? 'menu-open' : ''}}
+                                                                ">
+              <i class="nav-icon fas fa-universal-access"></i>
+              <p>
+                Data BPSK
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('dip.index')}}" class="nav-link {{request()->is('dip*') ? 'active' : ''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Kategori DIP</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Data DIP</p>
+                  </a>
+                </li>
+            </ul>
+
+          </li>
+          <!-- -->
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

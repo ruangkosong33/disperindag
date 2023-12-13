@@ -47,3 +47,13 @@
     </div>
 
 @endsection
+
+@include('include.datatable')
+
+    @push('script')
+
+        <script>
+            $('.table').DataTable();
+        </script>
+
+    @endpush
