@@ -23,6 +23,7 @@ use App\Http\Controllers\Activity\RenstraController;
 use App\Http\Controllers\Article\CategoryController;
 use App\Http\Controllers\Information\EventController;
 use App\Http\Controllers\AboutUs\RegulationController;
+use App\Http\Controllers\InfoPublic\FileDipController;
 use App\Http\Controllers\Activity\EvaluationController;
 use App\Http\Controllers\Activity\FileNeracaController;
 use App\Http\Controllers\Activity\FileAchieveController;
@@ -54,6 +55,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::middleware(['auth'])->group(function () {
+
+
 
 });
 
@@ -87,7 +90,7 @@ Route::delete('/fileiku/{iku}/{fileiku}', [FileIkuController::class, 'destroy'])
 Route::resource('/perform', PerformController::class);
 Route::get('/fileperform/{perform}', [FilePerformController::class, 'index'])->name('fileperform.index');
 Route::get('/fileperform/create/{perform}', [FilePerformController::class, 'create'])->name('fileperform.create');
-Route::get('/fileperform/{perform}', [FilePerformController::class, 'store'])->name('fileperform.store');
+Route::store('/fileperform/{perform}', [FilePerformController::class, 'store'])->name('fileperform.store');
 Route::get('/fileperform/{perform}edit/{fileperform}', [FilePerformController::class, 'edit'])->name('fileperform.edit');
 Route::put('/fileperform/{perform}/{fileperform}', [FilePerformController::class, 'update'])->name('fileperform.update');
 Route::delete('/fileperform/{perform}/{fileperform}', [FilePerformController::class, 'destroy'])->name('fileperform.destroy');
@@ -95,34 +98,34 @@ Route::delete('/fileperform/{perform}/{fileperform}', [FilePerformController::cl
 Route::resource('/achieve', AchieveController::class);
 Route::get('/fileachieve/{achieve}', [FileAchieveController::class, 'index'])->name('fileachieve.index');
 Route::get('/fileachieve/create/{achieve}', [FileAchieveController::class, 'create'])->name('fileachieve.create');
-Route::get('/fileachieve/{achieve}', [FileAchieveController::class, 'store'])->name('fileachieve.store');
+Route::post('/fileachieve/{achieve}', [FileAchieveController::class, 'store'])->name('fileachieve.store');
 Route::get('/fileachieve/edit/{achieve}', [FileAchieveController::class, 'edit'])->name('fileachieve.edit');
-Route::get('/fileachieve/{achieve}/{fileachieve}', [FileAchieveController::class, 'update'])->name('fileachieve.update');
-Route::get('/fileachieve/{achieve}/{fileachieve}', [FileAchieveController::class, 'destroy'])->name('fileachieve.destroy');
+Route::put('/fileachieve/{achieve}/{fileachieve}', [FileAchieveController::class, 'update'])->name('fileachieve.update');
+Route::delete('/fileachieve/{achieve}/{fileachieve}', [FileAchieveController::class, 'destroy'])->name('fileachieve.destroy');
 
 Route::resource('/evaluation', EvaluationController::class);
 Route::get('/fileevaluation/{evaluation}', [FileEvaluationController::class, 'index'])->name('fileevaluation.index');
 Route::get('/fileevaluation/create/{evaluation}', [FileEvaluationController::class, 'create'])->name('fileevaluation.create');
-Route::get('/fileevaluation/{evaluation}', [FileEvaluationController::class, 'store'])->name('fileevaluation.store');
+Route::post('/fileevaluation/{evaluation}', [FileEvaluationController::class, 'store'])->name('fileevaluation.store');
 Route::get('/fileevaluation/{evaluation}/edit{fileevaluation}', [FileEvaluationController::class, 'edit'])->name('fileevaluation.edit');
 Route::put('/fileevaluation/{evaluation}/{fileevaluaton}', [FileEvaluationController::class, 'update'])->name('fileevaluation.update');
-Route::put('/fileevaluation/{evaluation}/{fileevaluaton}', [FileEvaluationController::class, 'destroy'])->name('fileevaluation.destroy');
+Route::delete('/fileevaluation/{evaluation}/{fileevaluaton}', [FileEvaluationController::class, 'destroy'])->name('fileevaluation.destroy');
 
 Route::resource('/neraca', NeracaController::class);
 Route::get('/fileneraca/{neraca}', [FileNeracaController::class, 'index'])->name('fileneraca.index');
 Route::get('/fileneraca/create/{neraca}', [FileNeracaController::class, 'create'])->name('fileneraca.create');
-Route::get('/fileneraca/{neraca}', [FileNeracaController::class, 'store'])->name('fileneraca.store');
+Route::post('/fileneraca/{neraca}', [FileNeracaController::class, 'store'])->name('fileneraca.store');
 Route::get('/fileneraca/{neraca}/edit/{fileneraca}', [FileNeracaController::class, 'edit'])->name('fileneraca.edit');
-Route::get('/fileneraca/{neraca}/{fileneraca}', [FileNeracaController::class, 'update'])->name('fileneraca.update');
-Route::get('/fileneraca/{neraca}/{fileneraca}', [FileNeracaController::class, 'destroy'])->name('fileneraca.destroy');
+Route::put('/fileneraca/{neraca}/{fileneraca}', [FileNeracaController::class, 'update'])->name('fileneraca.update');
+Route::delete('/fileneraca/{neraca}/{fileneraca}', [FileNeracaController::class, 'destroy'])->name('fileneraca.destroy');
 
 Route::resource('/sop', SopController::class);
 Route::get('/filesop/{sop}', [FileSopController::class, 'index'])->name('filesop.index');
 Route::get('/filesop/create/{sop}', [FileSopController::class, 'create'])->name('filesop.create');
-Route::get('/filesop/{sop}', [FileSopController::class, 'store'])->name('filesop.store');
+Route::post('/filesop/{sop}', [FileSopController::class, 'store'])->name('filesop.store');
 Route::get('/filesop/{sop}/edit/{filesop}', [FileSopController::class, 'edit'])->name('filesop.edit');
-Route::get('/filesop/{sop}/{filesop}', [FileSopController::class, 'update'])->name('filesop.update');
-Route::get('/filesop/{sop}/{filesop}', [FileSopController::class, 'destroy'])->name('filesop.destroy');
+Route::put('/filesop/{sop}/{filesop}', [FileSopController::class, 'update'])->name('filesop.update');
+Route::delete('/filesop/{sop}/{filesop}', [FileSopController::class, 'destroy'])->name('filesop.destroy');
 //
 
 //ORGANIZATION
@@ -149,5 +152,11 @@ Route::resource('/commodity', CommodityController::class);
 
 //PPID
 Route::resource('/dip', DipController::class);
+Route::get('/filedip/{dip}', [FileDipController::class, 'index'])->name('filedip.index');
+Route::get('/filedip/create/{dip}', [FileDipController::class, 'create'])->name('filedip.create');
+Route::post('/filedip/{dip}', [FileDipController::class, 'store'])->name('filedip.store');
+Route::get('/filedip/{dip}/edit/{filedip}', [FileDipController::class, 'edit'])->name('filedip.edit');
+Route::put('/filedip/{dip}/{filedip}', [FileDipController::class, 'update'])->name('filedip.update');
+Route::delete('/filedip/{dip}/{filedip}', [FileDipController::class, 'destroy'])->name('filedip.destroy');
 //
 
