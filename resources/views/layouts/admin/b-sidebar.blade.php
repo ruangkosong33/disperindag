@@ -244,6 +244,8 @@
           <li class="nav-item
             {{request()->is('commodity*') ? 'menu-open' : ''}}
             {{request()->is('event*') ? 'menu-open' : ''}}
+            {{request()->is('download*') ? 'menu-open' : ''}}
+            {{request()->is('filedownload*') ? 'menu-open' : ''}}
                                                                     ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-info"></i>
@@ -265,6 +267,14 @@
                   <a href="{{route('event.index')}}" class="nav-link {{request()->is('event*') ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Agenda Kegiatan</p>
+                  </a>
+                </li>
+            </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('download.index')}}" class="nav-link {{request()->is('download*') || request()->is('filedownload*') ? 'active' : ''}}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Unduhan</p>
                   </a>
                 </li>
             </ul>

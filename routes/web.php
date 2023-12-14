@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Media\PhotoController;
 use App\Http\Controllers\Media\VideoController;
 use App\Http\Controllers\AboutUs\TaskController;
@@ -29,10 +31,12 @@ use App\Http\Controllers\Activity\FileNeracaController;
 use App\Http\Controllers\Activity\FileAchieveController;
 use App\Http\Controllers\Activity\FilePerformController;
 use App\Http\Controllers\Activity\FileRenstraController;
+use App\Http\Controllers\Information\DownloadController;
 use App\Http\Controllers\Information\CommodityController;
 use App\Http\Controllers\Organization\DivisionController;
 use App\Http\Controllers\Organization\EmployeeController;
 use App\Http\Controllers\Activity\FileEvaluationController;
+use App\Http\Controllers\Information\FileDownloadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,7 +94,7 @@ Route::delete('/fileiku/{iku}/{fileiku}', [FileIkuController::class, 'destroy'])
 Route::resource('/perform', PerformController::class);
 Route::get('/fileperform/{perform}', [FilePerformController::class, 'index'])->name('fileperform.index');
 Route::get('/fileperform/create/{perform}', [FilePerformController::class, 'create'])->name('fileperform.create');
-Route::store('/fileperform/{perform}', [FilePerformController::class, 'store'])->name('fileperform.store');
+Route::post('/fileperform/{perform}', [FilePerformController::class, 'store'])->name('fileperform.store');
 Route::get('/fileperform/{perform}edit/{fileperform}', [FilePerformController::class, 'edit'])->name('fileperform.edit');
 Route::put('/fileperform/{perform}/{fileperform}', [FilePerformController::class, 'update'])->name('fileperform.update');
 Route::delete('/fileperform/{perform}/{fileperform}', [FilePerformController::class, 'destroy'])->name('fileperform.destroy');
@@ -148,6 +152,14 @@ Route::resource('/banner', BannerController::class);
 //INFORMATION
 Route::resource('/event', EventController::class);
 Route::resource('/commodity', CommodityController::class);
+
+Route::resource('/download', DownloadController::class);
+Route::get('/filedownload/{download}', [FileDownloadController::class, 'index'])->name('filedownload.index');
+Route::get('/filedownload/create/{download}', [FileDownload::class, 'create'])->name('filedownload.create');
+Route::post('/filedownload/{download}', [FileDownload::class, 'store'])->name('filedownload.store');
+Route::get('/filedownload/{download}/edit/{filedownload}', [FileDownload::class, 'edit'])->name('filedownload.edit');
+Route::put('/filedownload/{download}/{filedownload}', [FileDownload::class, 'update'])->name('filedownload.update');
+Route::delete('/filedownload/{download}/{filedownload}', [FileDownload::class, 'destroy'])->name('filedownload.destroy');
 //
 
 //PPID
