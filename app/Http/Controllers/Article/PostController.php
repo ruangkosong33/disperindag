@@ -61,7 +61,7 @@ class PostController extends Controller
             'date'=>$request->date,
             'image'=>$images,
             'status'=>'Draft',
-
+            'user_id'=>Auth::id(),
         ]);
 
         flash('Data Berhasil Di Simpan');

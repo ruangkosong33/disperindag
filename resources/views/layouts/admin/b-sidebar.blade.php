@@ -255,6 +255,7 @@
             {{request()->is('event*') ? 'menu-open' : ''}}
             {{request()->is('download*') ? 'menu-open' : ''}}
             {{request()->is('filedownload*') ? 'menu-open' : ''}}
+            {{request()->is('infographic*') ? 'menu-open' : ''}}
                                                                     ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-info"></i>
@@ -284,6 +285,14 @@
                   <a href="{{route('download.index')}}" class="nav-link {{request()->is('download*') || request()->is('filedownload*') ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Unduhan</p>
+                  </a>
+                </li>
+            </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('infographic.index')}}" class="nav-link {{request()->is('infographic*') ? 'active' : ''}}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Infografis</p>
                   </a>
                 </li>
             </ul>
