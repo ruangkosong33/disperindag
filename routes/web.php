@@ -23,6 +23,7 @@ use App\Http\Controllers\Activity\FileSopController;
 use App\Http\Controllers\Activity\PerformController;
 use App\Http\Controllers\Activity\RenstraController;
 use App\Http\Controllers\Article\CategoryController;
+use App\Http\Controllers\AboutUs\StructureController;
 use App\Http\Controllers\Information\EventController;
 use App\Http\Controllers\AboutUs\RegulationController;
 use App\Http\Controllers\InfoPublic\FileDipController;
@@ -66,6 +67,7 @@ Route::middleware(['auth'])->group(function () {
 
 
 //ABOUT US
+Route::resource('/structure', StructureController::class);
 Route::resource('/profile', ProfileController::class);
 Route::resource('/history', HistoryController::class);
 Route::resource('/vision', VisionController::class);

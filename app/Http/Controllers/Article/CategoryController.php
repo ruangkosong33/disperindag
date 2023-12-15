@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class CategoryController extends Controller
 {
@@ -40,7 +39,7 @@ class CategoryController extends Controller
             'title'=>$request->title,
         ]);
 
-        Alert::success('Berhasil', 'Data Berhasil Di Simpan');
+        flash('Data Berhasil Di Simpan');
 
         return redirect()->route('category.index');
     }
@@ -74,7 +73,7 @@ class CategoryController extends Controller
             'title'=>$request->title,
         ]);
 
-        Alert::success('Berhasil', 'Data Berhasil Di Update');
+       flash('Data Berhasil Di Update');
 
         return redirect()->route('category.index');
     }
@@ -84,11 +83,11 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        $category=Category::where('id', $category-id);
+        $category=Category::where('id', $category->id);
 
         $category->delete();
-        
-        Alert::success('Berhasil', 'Data Berhasil Di Update');
+
+        flash('Data Berhasil Di Hapus');
 
         return redirect()->route('category.index');
     }

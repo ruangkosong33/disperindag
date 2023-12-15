@@ -222,6 +222,7 @@
 
           <li class="nav-item
             {{request()->is('post*') ? 'menu-open' : ''}}
+            {{request()->is('info*') ? 'menu-open' : ''}}
                                                                 ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-newspaper"></i>
@@ -238,6 +239,14 @@
                 </a>
               </li>
             </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('info.index')}}" class="nav-link {{request()->is('info*') ? 'active' : ''}}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pengumuman</p>
+                  </a>
+                </li>
+              </ul>
 
           </li>
 
@@ -362,8 +371,8 @@
           </li>
 
           <li class="nav-item
-            {{-- {{request()->is('*') ? 'menu-open' : ''}}
-            {{request()->is('*') ? 'menu-open' : ''}} --}}
+            {{request()->is('*') ? 'menu-open' : ''}}
+            {{request()->is('*') ? 'menu-open' : ''}}
                                                             ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-folder-open"></i>

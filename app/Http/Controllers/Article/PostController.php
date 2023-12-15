@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post=Post::with(['category', 'user'])->orderBy('id')->get();
+        $post=Post::with(['categorys'])->orderBy('id')->get();
 
         return view('layouts.admin.pages.post.index-post', ['post'=>$post]);
     }
@@ -25,6 +25,8 @@ class PostController extends Controller
      */
     public function create()
     {
+        // $user=User::orderBy('id')->get();
+
         $category=Category::orderBy('id')->get();
 
         return view('layouts.admin.pages.post.create-post', ['category'=>$category]);
@@ -38,7 +40,7 @@ class PostController extends Controller
         $this->validate($request, [
             'title'=>'required',
             'image'=>'nullable|mimes:jpeg,jpg,png|max:5000',
-            'date'=>'date_format:d-m-Y',
+            'category_id'=>'required',
         ]);
 
         if($request->file('image'))
@@ -48,6 +50,9 @@ class PostController extends Controller
             $images=$extension;
             $file->storeAs('public/image-post', $images);
         }
+        else{
+            $images=null;
+        }
 
         $post=Post::create([
             'title'=>$request->title,
@@ -55,8 +60,8 @@ class PostController extends Controller
             'description'=>$request->description,
             'date'=>$request->date,
             'image'=>$images,
-            'status'=>$request->status,
-            'user_id'=>Auth::user('id'),
+            'status'=>'Draft',
+
         ]);
 
         flash('Data Berhasil Di Simpan');
@@ -67,9 +72,9 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Post $post)
     {
-        //
+        return view('layouts.admin.pages.post.show-post', ['post'=>$post]);
     }
 
     /**
@@ -90,7 +95,6 @@ class PostController extends Controller
         $this->validate($request, [
             'title'=>'required',
             'image'=>'nullable|mimes:jpeg,jpg,png|max:5000',
-            'date'=>'nullable|date_format:d-m-Y',
         ]);
 
         if($request->file('image'))
@@ -101,7 +105,7 @@ class PostController extends Controller
             $file->storeAs('public/image-post', $images);
         }
         else{
-            unset($post['image']);
+            $images=$post->image;
         }
 
         $post->update([
@@ -111,10 +115,9 @@ class PostController extends Controller
             'date'=>$request->date,
             'image'=>$images,
             'status'=>$request->status,
-            'user_id'=>Auth::user('id'),
         ]);
 
-        flash('Data Berhasil Di Simpan');
+        flash('Data Berhasil Di Update');
 
         return redirect()->route('post.index');
     }

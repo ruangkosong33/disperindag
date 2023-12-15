@@ -11,16 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('structures', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->references('id')->on('categorys');
             $table->string('title');
             $table->string('slug');
-            $table->string('description')->nullable();
-            $table->date('date')->nullable();
             $table->string('image')->nullable();
-            $table->enum('status', ['Publish', 'Draft']);
-
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('structures');
     }
 };

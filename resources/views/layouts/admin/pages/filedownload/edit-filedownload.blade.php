@@ -1,24 +1,24 @@
-{{-- @extends('layouts.admin.b-master')
+@extends('layouts.admin.b-master')
 
-@section('title', 'File Rencana Strategis')
+@section('title', 'File Unduhan')
 @section('breadcrumb')
     @parent
-    <li class="breadcrumb-item active"><a href="{{route('filerenstra.index', $renstra->id)}}">File Rencana Strategis</a></li>
-    <li class="breadcrumb-item active">Edit File Rencana Strategis</li>
+    <li class="breadcrumb-item active"><a href="{{route('filedownload.index', $download->id)}}">File Unduhan</a></li>
+    <li class="breadcrumb-item active">Edit File Unduhan</li>
 @endsection
 
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <form action="{{route('filerenstra.update', ['renstra'=>$renstra, 'filerenstra'=>$filerenstra])}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('filedownload.update', ['download'=>$download, 'filedownload'=>$filedownload])}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <x-card>
 
                     <div class="form-group">
                         <label for="title">Judul</label>
-                        <input type="text" class="form-control @error('title') ?? is-invalid @enderror" name="title" placeholder="Rencana Strategis"
-                        value="{{old('title') ?? $filerenstra->title}}">
+                        <input type="text" class="form-control @error('title') ?? is-invalid @enderror" name="title" placeholder="File Unduhan"
+                        value="{{old('title') ?? $filedownload->title}}">
 
                         @error('title')
                             <span class="invalid-feedback">{{$message}}</span>
@@ -45,4 +45,4 @@
             </form>
         </div>
     </div>
-@endsection --}}
+@endsection
