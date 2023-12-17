@@ -380,11 +380,12 @@
           </li>
 
           <li class="nav-item
-            {{request()->is('*') ? 'menu-open' : ''}}
-            {{request()->is('*') ? 'menu-open' : ''}}
+            {{request()->is('profilppid*') ? 'menu-open' : ''}}
+            {{request()->is('visionppid*') ? 'menu-open' : ''}}
+          
                                                             ">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-folder-open"></i>
+              <i class="nav-icon fas fa-folder"></i>
               <p>
                 Data PPID
                 <i class="right fas fa-angle-left"></i>
@@ -392,7 +393,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{route('profilppid.index')}}" class="nav-link {{request()->is('profilppid*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Profil PPID</p>
                 </a>
@@ -400,7 +401,7 @@
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="{{route('visionppid.index')}}" class="nav-link {{request()->is('visionppid*') ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Visi & Misi PPID</p>
                   </a>

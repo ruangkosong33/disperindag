@@ -17,12 +17,14 @@ use App\Http\Controllers\InfoPublic\DipController;
 use App\Http\Controllers\AboutUs\HistoryController;
 use App\Http\Controllers\AboutUs\ProfileController;
 use App\Http\Controllers\Activity\NeracaController;
+use App\Http\Controllers\PPID\VisionPpidController;
 use App\Http\Controllers\Activity\AchieveController;
 use App\Http\Controllers\Activity\FileIkuController;
 use App\Http\Controllers\Activity\FileSopController;
 use App\Http\Controllers\Activity\PerformController;
 use App\Http\Controllers\Activity\RenstraController;
 use App\Http\Controllers\Article\CategoryController;
+use App\Http\Controllers\PPID\ProfilePpidController;
 use App\Http\Controllers\AboutUs\StructureController;
 use App\Http\Controllers\Information\EventController;
 use App\Http\Controllers\AboutUs\RegulationController;
@@ -168,6 +170,10 @@ Route::prefix('admin')->group(function () {
     //
 
     //PPID
+
+    Route::resource('/profilppid', ProfilePpidController::class);
+    Route::resource('/visionppid', VisionPpidController::class);
+
     Route::resource('/dip', DipController::class);
     Route::get('/filedip/{dip}', [FileDipController::class, 'index'])->name('filedip.index');
     Route::get('/filedip/create/{dip}', [FileDipController::class, 'create'])->name('filedip.create');
@@ -175,6 +181,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/filedip/{dip}/edit/{filedip}', [FileDipController::class, 'edit'])->name('filedip.edit');
     Route::put('/filedip/{dip}/{filedip}', [FileDipController::class, 'update'])->name('filedip.update');
     Route::delete('/filedip/{dip}/{filedip}', [FileDipController::class, 'destroy'])->name('filedip.destroy');
+
     //
 
 });
