@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('nip')->nullable();
             $table->string('image')->nullable();
-            $table->enum('level', ['1', '2', '3'])->nullable();
+            $table->enum('level', [1,2,3,4,5])->nullable();
             $table->string('position')->nullable();
             $table->string('education')->nullable();
             $table->string('pim')->nullable();

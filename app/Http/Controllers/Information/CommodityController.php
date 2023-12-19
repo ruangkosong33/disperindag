@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Information;
 
-use App\Models\Category;
 use App\Models\Commodity;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -24,9 +23,7 @@ class CommodityController extends Controller
      */
     public function create()
     {
-        $category=Category::orderBy('id')->get();
-
-        return view('layouts.admin.pages.commodity.create-commodity', ['category'=>$category]);
+        return view('layouts.admin.pages.commodity.create-commodity');
     }
 
     /**
@@ -34,10 +31,9 @@ class CommodityController extends Controller
      */
     public function store(Request $request)
     {
-        $this-validate($request, [
+        $this->validate($request, [
             'title'=>'required',
-            'image'=>'nullable|mimes:jpg,jpeg,png|max>5000',
-            'date'=>'date_format:d-m-Y',
+            'image'=>'nullable|mimes:jpg,jpeg,png|max:5000',
         ]);
 
         if($request->file('image'))
@@ -45,7 +41,7 @@ class CommodityController extends Controller
             $file=$request->file('image');
             $extension=$file->getClientOriginalName();
             $images=$extension;
-            $file->storeAs('public/image-commodity', $images);
+            $file->storeAs('public/image-commodity/', $images);
         }
         else{
             $images=null;
@@ -87,7 +83,6 @@ class CommodityController extends Controller
         $this-validate($request, [
             'title'=>'required',
             'image'=>'nullable|mimes:jpg,jpeg,png|max>5000',
-            'date'=>'date_format:d-m-Y',
         ]);
 
         if($request->file('image'))
@@ -108,7 +103,7 @@ class CommodityController extends Controller
             'date'=>$request->date,
         ]);
 
-        flash('Data Berhasil Di Simpan');
+        flash('Data Berhasil Di Update');
 
         return redirect()->route('commodity.index');
     }

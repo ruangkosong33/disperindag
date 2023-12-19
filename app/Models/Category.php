@@ -42,9 +42,4 @@ class Category extends Model
     {
         return $this->hasMany(Video::class);
     }
-
-    public function commodity(): HasMany
-    {
-        return $this->hasMany(Commodity::class);
-    }
 }

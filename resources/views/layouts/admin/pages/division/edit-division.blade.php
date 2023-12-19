@@ -46,7 +46,7 @@
 
                     </div>
                     <x-slot name="footer">
-                        <button type="reset" class="btn btn-dark">Reset</button>
+                        <button type="button" onclick="history.back()" class="btn btn-dark" >Kembali</button>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </x-slot>
                 </x-card>

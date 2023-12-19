@@ -41,7 +41,7 @@ class StructureController extends Controller
             $file=$request->file('image');
             $extension=$file->getClientOriginalName();
             $images=$extension;
-            $file->storeAs('public/image-structures', $images);
+            $file->storeAs('public/image-structure', $images);
         }
         else{
             $images=null;

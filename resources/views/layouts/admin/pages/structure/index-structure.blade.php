@@ -33,7 +33,7 @@
                         </tr>
                         <tr>
                             <td width="38%">Gambar</td>
-                            <td><img src="{{asset('storage/image-structure/' . $structures->image)}}"></td>
+                            <td><img src="{{asset('storage/image-structure/' . $structures->image)}}" width="300px"></td>
                         </tr>
                         <tr>
                             <td width="38%">Deskripsi</td>

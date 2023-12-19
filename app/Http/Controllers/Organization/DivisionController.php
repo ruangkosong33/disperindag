@@ -43,6 +43,9 @@ class DivisionController extends Controller
             $images=$extension;
             $file->storeAs('public/image-division', $images);
         }
+        else{
+            $images=null;
+        }
 
         $division=Division::create([
             'title'=>$request->title,
@@ -89,10 +92,8 @@ class DivisionController extends Controller
             $file->storeAs('public/image-division', $images);
         }
         else{
-            unset($division['image']);
+            $images=$division->image;
         }
-
-        $images=$division->image;
 
         $division->update([
             'title'=>$request->title,

@@ -16,7 +16,7 @@ class EmployeeController extends Controller
     {
         $employee=Employee::with(['division'])->get();
 
-        return view('layouts.admin.employee.index-employee', ['employee'=>$employee]);
+        return view('layouts.admin.pages.employee.index-employee', ['employee'=>$employee]);
     }
 
     /**
@@ -87,7 +87,7 @@ class EmployeeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Employee $employee)
     {
         $this->validate($request, [
             'name'=>'required',
