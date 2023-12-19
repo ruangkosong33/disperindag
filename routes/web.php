@@ -57,8 +57,11 @@ use App\Http\Controllers\Information\FileDownloadController;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('/', function () {
-    return view('welcome');
+    return view('home-front');
 });
 
 Auth::routes();
