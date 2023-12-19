@@ -1,22 +1,23 @@
 @extends('layouts.admin.b-master')
 
-@section('title', 'Agenda Kegiatan')
+@section('title', 'Galeri Video')
 @section('breadcrumb')
     @parent
-    <li class="breadcrumb-item active"><a href="{{route('event.index')}}">Agenda Kegiatan</a></li>
-    <li class="breadcrumb-item active">Tambah Agenda Kegiatan</li>
+    <li class="breadcrumb-item active"><a href="{{route('video.index')}}">Galeri Video</a></li>
+    <li class="breadcrumb-item active">Edit Galeri Video</li>
 @endsection
 
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <form action="{{route('event.store')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('video.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <x-card>
 
                     <div class="form-group">
                         <label for="title">Judul</label>
-                        <input type="text" class="form-control @error('title') ?? is-invalid @enderror" name="title" placeholder="Agenda Kegiatan">
+                        <input type="text" class="form-control @error('title') ?? is-invalid @enderror" name="title" placeholder="Galeri Video"
+                        value="{{old('title')}}">
 
                         @error('title')
                             <span class="invalid-feedback">{{$message}}</span>
@@ -27,25 +28,28 @@
                     <div class="form-group">
                         <label for="description">Deskripsi</label>
 
-                        <textarea class="form-control" name="description" placeholder="Deskripsi Kegiatan">{{ old('description') }}</textarea>
+                        <textarea class="form-control" name="description" placeholder="Video">{{old('description', $video->description ?? '')}}</textarea>
 
                     </div>
 
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="date">Tanggal Kegiatan</label>
-                                <input type="date" class="form-control" name="date">
+                                <label for="link">Link URL</label>
+                                <input type="text" class="form-control" name="link">
 
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="place">Tempat Acara</label>
-                                <input type="text" class="form-control" name="place">
+                                <label for="image">Gambar</label>
+                                <input type="file" class="form-control" id="image" name="image"
+                                onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
 
                             </div>
+
+                            <div class="mt-3"><img src="" id="output" width="150"></div>
                         </div>
 
                     </div>

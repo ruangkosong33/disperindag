@@ -12,7 +12,7 @@
         <div class="col-lg-12">
             <x-card>
                 <x-slot name="header">
-                    @if($policy->isEmpty())
+                    @if($structure->isEmpty())
                         <a href="{{route('structure.create')}}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah</a>
                     @else
                     @foreach ($structure as $structures)
@@ -33,7 +33,7 @@
                         </tr>
                         <tr>
                             <td width="38%">Gambar</td>
-                            <td><img src="{{asset('public/image-structure'. $structures->image)}}"></td>
+                            <td><img src="{{asset('storage/image-structure/' . $structures->image)}}"></td>
                         </tr>
                         <tr>
                             <td width="38%">Deskripsi</td>

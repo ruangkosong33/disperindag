@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->references('id')->on('categorys')->nullable();
             $table->string('title');
             $table->string('slug');
             $table->string('image')->nullable();

@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Media;
+namespace App\Http\Controllers\PPID;
 
-use App\Models\Banner;
 use Illuminate\Http\Request;
+use App\Models\Structureppid;
 use App\Http\Controllers\Controller;
 
-class BannerController extends Controller
+class StructurePpidController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $banner=Banner::orderBy('id')->get();
+        $structureppid=Structureppid::orderBy('id')->get();
 
-        return view('layouts.admin.pages.banner.index-banner', ['banner'=>$banner]);
+        return view('layouts.admin.pages.ppid.structure.index-structure', ['structureppid'=>$structureppid]);
     }
 
     /**
@@ -23,7 +23,7 @@ class BannerController extends Controller
      */
     public function create()
     {
-        return view('layouts.admin.pages.banner.create-banner');
+        return view('layouts.admin.pages.ppid.structure.create-structure');
     }
 
     /**
@@ -33,7 +33,7 @@ class BannerController extends Controller
     {
         $this->validate($request, [
             'title'=>'required',
-            'image'=>'nullable|mimes:jpeg,png,jpg|max:5000',
+            'image'=>'nullable|mimes:jpeg,jpg,png|max:5000',
         ]);
 
         if($request->file('image'))
@@ -41,20 +41,21 @@ class BannerController extends Controller
             $file=$request->file('image');
             $extension=$file->getClientOriginalName();
             $images=$extension;
-            $file->storeAs('public/image-banner', $images);
+            $file->storeAs('public/image-structurePPID', $images);
         }
         else{
             $images=null;
         }
 
-        $banner=Banner::create([
+        $structureppid=Structureppid::create([
             'title'=>$request->title,
+            'description'=>$request->description,
             'image'=>$images,
         ]);
 
         flash('Data Berhasil Di Simpan');
 
-        return redirect()->route('banner.index');
+        return redirect()->route('structureppid.index');
     }
 
     /**
@@ -68,19 +69,19 @@ class BannerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Banner $banner)
+    public function edit(Structureppid $structureppid)
     {
-        return view('layouts.admin.pages.banner.edit-banner', ['banner'=>$banner]);
+        return view('layouts.admin.pages.ppid.structure.edit-structure', ['structureppid'=>$structureppid]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Banner $banner)
+    public function update(Request $request, Structureppid $structureppid)
     {
         $this->validate($request, [
             'title'=>'required',
-            'image'=>'nullable|mimes:jpeg,png,jpg|max:5000',
+            'image'=>'nullable|mimes:jpeg,jpg,png|max:5000',
         ]);
 
         if($request->file('image'))
@@ -88,33 +89,34 @@ class BannerController extends Controller
             $file=$request->file('image');
             $extension=$file->getClientOriginalName();
             $images=$extension;
-            $file->storeAs('public/image-banner', $images);
+            $file->storeAs('public/image-structurePPID', $images);
         }
         else{
-            $images=$banner->image;
+            $images=$structureppid->image;
         }
 
-        $banner->update([
+        $structureppid->update([
             'title'=>$request->title,
+            'description'=>$request->description,
             'image'=>$images,
         ]);
 
         flash('Data Berhasil Di Update');
 
-        return redirect()->route('banner.index');
+        return redirect()->route('structureppid.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Banner $banner)
+    public function destroy(Structureppid $structureppid)
     {
-        $banner=Banner::where('id', $banner->id);
+        $structureppid=Structureppid::where('id', $structureppid->id);
 
-        $banner->delete();
+        $structureppid->delete();
 
-        flash('Data Berhasil Di Hapus');
+        flash('Data Berhasil Di Update');
 
-        return redirect()->route('banner.index');
+        return redirect()->route('structureppid.index');
     }
 }

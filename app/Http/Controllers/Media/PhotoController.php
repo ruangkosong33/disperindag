@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Media;
 
 use App\Models\Photo;
-use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -24,9 +23,7 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        $category=Category::orderBy('id')->get();
-
-        return view('layouts.admin.pages.photo.create-photo', ['category'=>$category]);
+        return view('layouts.admin.pages.photo.create-photo');
     }
 
     /**
@@ -37,7 +34,6 @@ class PhotoController extends Controller
         $this->validate($request, [
             'title'=>'required',
             'image'=>'nullable|mimes:jpeg,jpg,png|max:5000',
-            'date'=>'date_format:d-m-Y',
         ]);
 
         if($request->file('image'))
@@ -47,9 +43,11 @@ class PhotoController extends Controller
             $images=$extension;
             $file->storeAs('public/image-photo', $images);
         }
+        else{
+            $images=null;
+        }
 
         $photo=Photo::create([
-            'category_id'=>$request->category_id,
             'title'=>$request->title,
             'image'=>$images,
             'description'=>$request->description,
@@ -69,14 +67,12 @@ class PhotoController extends Controller
         //
     }
 
-    /** 
+    /**
      * Show the form for editing the specified resource.
      */
     public function edit(Photo $photo)
     {
-        $category=Category::orderBy('id')->get();
-
-        return view('layouts.admin.pages.photo.edit-photo', ['photo'=>$photo, 'category'=>$category]);
+        return view('layouts.admin.pages.photo.edit-photo');
     }
 
     /**
@@ -97,13 +93,10 @@ class PhotoController extends Controller
             $file->storeAs('public/image-photo', $images);
         }
         else{
-            unset($video['image']);
+            $images=$photo->image;
         }
 
-        $images=$video->image;
-
         $photo->update([
-            'category_id'=>$request->category_id,
             'title'=>$request->title,
             'image'=>$images,
             'description'=>$request->description,

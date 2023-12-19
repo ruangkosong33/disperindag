@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers\PPID;
 
-use App\Models\Lawppid;
+use App\Models\Serviceppid;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class LawPpidController extends Controller
+class ServicePpidController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $lawppid=Lawppid::orderBy('id')->get();
+        $serviceppid=Serviceppid::orderBy('id')->get();
 
-        return view('layouts.admin.pages.ppid.law.index-law', ['lawppid'=>$lawppid]);
+        return view('layouts.admin.pages.ppid.service.index-service', ['serviceppid'=>$serviceppid]);
     }
 
     /**
@@ -23,7 +23,7 @@ class LawPpidController extends Controller
      */
     public function create()
     {
-        return view('layouts.admin.pages.ppid.law.create-law');
+        return view('layouts.admin.pages.ppid.service.create-service');
     }
 
     /**
@@ -35,14 +35,14 @@ class LawPpidController extends Controller
             'title'=>'required',
         ]);
 
-        $lawppid=Lawppid::create([
+        $serviceppid=Serviceppid::create([
             'title'=>$request->title,
             'description'=>$request->description,
         ]);
 
         flash('Data Berhasil Di Simpan');
 
-        return redirect()->route('lawppid.index');
+        return redirect()->route('serviceppid.index');
     }
 
     /**
@@ -56,41 +56,41 @@ class LawPpidController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Lawppid $lawppid)
+    public function edit(Serviceppid $serviceppid)
     {
-        return view('layouts.admin.pages.ppid.law.edit-law', ['lawppid'=>$lawppid]);
+        return view('layouts.admin.pages.ppid.service.edit-service', ['serviceppid'=>$serviceppid]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Serviceppid $serviceppid)
     {
         $this->validate($request, [
             'title'=>'required',
         ]);
 
-        $lawppid->update([
+        $serviceppid->update([
             'title'=>$request->title,
             'description'=>$request->description,
         ]);
 
         flash('Data Berhasil Di Update');
 
-        return redirect()->route('lawppid.index');
+        return redirect()->route('serviceppid.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Lawppid $lawppid)
+    public function destroy(Serviceppid $serviceppid)
     {
-        $lawppid=Lawppid::where('id', $lawppid->id);
+        $serviceppid=Serviceppid::where('id', $serviceppid->id);
 
-        $lawppid->delete();
+        $serviceppid->delete();
 
         flash('Data Berhasil Di Hapus');
 
-        return redirect()->route('lawppid.index');
+        return redirect()->route('serviceppid.index');
     }
 }

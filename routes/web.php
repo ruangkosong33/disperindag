@@ -11,6 +11,8 @@ use App\Http\Controllers\Activity\SopController;
 use App\Http\Controllers\Article\InfoController;
 use App\Http\Controllers\Article\PostController;
 use App\Http\Controllers\Media\BannerController;
+use App\Http\Controllers\PPID\LawPpidController;
+use App\Http\Controllers\PPID\CostPpidController;
 use App\Http\Controllers\AboutUs\PolicyController;
 use App\Http\Controllers\AboutUs\VisionController;
 use App\Http\Controllers\InfoPublic\DipController;
@@ -25,8 +27,10 @@ use App\Http\Controllers\Activity\PerformController;
 use App\Http\Controllers\Activity\RenstraController;
 use App\Http\Controllers\Article\CategoryController;
 use App\Http\Controllers\PPID\ProfilePpidController;
+use App\Http\Controllers\PPID\ServicePpidController;
 use App\Http\Controllers\AboutUs\StructureController;
 use App\Http\Controllers\Information\EventController;
+use App\Http\Controllers\PPID\MaklumatPpidController;
 use App\Http\Controllers\AboutUs\RegulationController;
 use App\Http\Controllers\InfoPublic\FileDipController;
 use App\Http\Controllers\Activity\EvaluationController;
@@ -69,7 +73,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::prefix('admin')->group(function () {
-    
+
     //ABOUT US
     Route::resource('/structure', StructureController::class);
     Route::resource('/profile', ProfileController::class);
@@ -170,9 +174,12 @@ Route::prefix('admin')->group(function () {
     //
 
     //PPID
-
     Route::resource('/profilppid', ProfilePpidController::class);
     Route::resource('/visionppid', VisionPpidController::class);
+    Route::resource('/lawppid', LawPpidController::class);
+    Route::resource('/maklumatppid', MaklumatPpidController::class);
+    Route::resource('/serviceppid', ServicePpidController::class);
+    Route::resource('/costppid', CostPpidController::class);
 
     Route::resource('/dip', DipController::class);
     Route::get('/filedip/{dip}', [FileDipController::class, 'index'])->name('filedip.index');
@@ -181,7 +188,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/filedip/{dip}/edit/{filedip}', [FileDipController::class, 'edit'])->name('filedip.edit');
     Route::put('/filedip/{dip}/{filedip}', [FileDipController::class, 'update'])->name('filedip.update');
     Route::delete('/filedip/{dip}/{filedip}', [FileDipController::class, 'destroy'])->name('filedip.destroy');
-
     //
 
 });

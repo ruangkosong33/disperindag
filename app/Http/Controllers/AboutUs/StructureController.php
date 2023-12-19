@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\AboutUs;
 
+use App\Models\Structure;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Nette\Schema\Elements\Structure;
 
 class StructureController extends Controller
 {
@@ -33,7 +33,7 @@ class StructureController extends Controller
     {
         $this->validate($request, [
             'title'=>'required',
-            'image'=>'nullable|mimes:jpg,png,jpeg|max:5000',
+            'image'=>'mimes:jpg,png,jpeg|max:5000',
         ]);
 
         if($request->file('image'))
@@ -41,7 +41,7 @@ class StructureController extends Controller
             $file=$request->file('image');
             $extension=$file->getClientOriginalName();
             $images=$extension;
-            $file->storeAs('public/image-structure', $images);
+            $file->storeAs('public/image-structures', $images);
         }
         else{
             $images=null;
@@ -49,7 +49,7 @@ class StructureController extends Controller
 
         $structure=Structure::create([
             'title'=>$request->title,
-            'images'=>$images,
+            'image'=>$images,
             'description'=>$request->description,
         ]);
 
@@ -77,11 +77,11 @@ class StructureController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Structure $structure)
     {
         $this->validate($request, [
             'title'=>'required',
-            'image'=>'nullable|mimes:jpg,png,jpeg|max:5000',
+            'image'=>'mimes:jpg,png,jpeg|max:5000',
         ]);
 
         if($request->file('image'))
@@ -97,11 +97,11 @@ class StructureController extends Controller
 
         $structure->update([
             'title'=>$request->title,
-            'images'=>$images,
+            'image'=>$images,
             'description'=>$request->description,
         ]);
 
-        flash('Data Berhasil Di Simpan');
+        flash('Data Berhasil Di Update');
 
         return redirect()->route('structure.index');
     }

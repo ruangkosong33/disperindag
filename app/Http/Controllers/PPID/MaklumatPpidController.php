@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers\PPID;
 
-use App\Models\Lawppid;
+use App\Models\Maklumatppid;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class LawPpidController extends Controller
+class MaklumatPpidController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $lawppid=Lawppid::orderBy('id')->get();
+        $maklumatppid=Maklumatppid::orderBy('id')->get();
 
-        return view('layouts.admin.pages.ppid.law.index-law', ['lawppid'=>$lawppid]);
+        return view('layouts.admin.pages.ppid.maklumat.index-maklumat', ['maklumatppid'=>$maklumatppid]);
     }
 
     /**
@@ -23,7 +23,7 @@ class LawPpidController extends Controller
      */
     public function create()
     {
-        return view('layouts.admin.pages.ppid.law.create-law');
+        return view('layouts.admin.pages.ppid.maklumat.create-maklumat');
     }
 
     /**
@@ -35,14 +35,14 @@ class LawPpidController extends Controller
             'title'=>'required',
         ]);
 
-        $lawppid=Lawppid::create([
+        $maklumatppid=Maklumat::create([
             'title'=>$request->title,
             'description'=>$request->description,
         ]);
 
         flash('Data Berhasil Di Simpan');
 
-        return redirect()->route('lawppid.index');
+        return redirect()->route('maklumatppid.index');
     }
 
     /**
@@ -56,9 +56,9 @@ class LawPpidController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Lawppid $lawppid)
+    public function edit(Maklumatppid $maklumatppid)
     {
-        return view('layouts.admin.pages.ppid.law.edit-law', ['lawppid'=>$lawppid]);
+        return view('layouts.admin.pages.ppid.maklumat.edit-maklumat', ['maklumatppid'=>$maklumatppid]);
     }
 
     /**
@@ -70,27 +70,27 @@ class LawPpidController extends Controller
             'title'=>'required',
         ]);
 
-        $lawppid->update([
+        $maklumatppid->update([
             'title'=>$request->title,
             'description'=>$request->description,
         ]);
 
         flash('Data Berhasil Di Update');
 
-        return redirect()->route('lawppid.index');
+        return redirect()->route('maklumatppid.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Lawppid $lawppid)
+    public function destroy(Maklumatppid $maklumatppid)
     {
-        $lawppid=Lawppid::where('id', $lawppid->id);
+        $maklumatppid=Maklumatppid::where('id', $maklumatppid->id);
 
-        $lawppid->delete();
+        $maklumatppid->delete();
 
         flash('Data Berhasil Di Hapus');
 
-        return redirect()->route('lawppid.index');
+        return redirect()->route('maklumatppid.index');
     }
 }

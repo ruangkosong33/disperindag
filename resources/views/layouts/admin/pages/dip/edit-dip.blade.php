@@ -4,7 +4,7 @@
 @section('breadcrumb')
     @parent
     <li class="breadcrumb-item active"><a href="{{route('dip.index')}}">Kategori Daftar Informasi Publik</a></li>
-    <li class="breadcrumb-item active">Edit Kategori DIP</li>
+    <li class="breadcrumb-item active">Edit Data & Kategori DIP</li>
 @endsection
 
 @section('content')

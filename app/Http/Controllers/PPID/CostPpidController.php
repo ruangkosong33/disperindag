@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers\PPID;
 
-use App\Models\Lawppid;
+use App\Models\Costppid;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class LawPpidController extends Controller
+class CostPpidController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $lawppid=Lawppid::orderBy('id')->get();
+        $costppid=Costppid::orderBy('id')->get();
 
-        return view('layouts.admin.pages.ppid.law.index-law', ['lawppid'=>$lawppid]);
+        return view('layouts.admin.pages.ppid.cost.index-cost', ['costppid'=>$costppid]);
     }
 
     /**
@@ -23,7 +23,7 @@ class LawPpidController extends Controller
      */
     public function create()
     {
-        return view('layouts.admin.pages.ppid.law.create-law');
+        return view('layouts.admin.pages.ppid.cost.create-cost');
     }
 
     /**
@@ -35,14 +35,14 @@ class LawPpidController extends Controller
             'title'=>'required',
         ]);
 
-        $lawppid=Lawppid::create([
+        $costppid=Costppid::create([
             'title'=>$request->title,
             'description'=>$request->description,
         ]);
 
         flash('Data Berhasil Di Simpan');
 
-        return redirect()->route('lawppid.index');
+        return redirect()->route('costppid.index');
     }
 
     /**
@@ -56,41 +56,41 @@ class LawPpidController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Lawppid $lawppid)
+    public function edit(Costppid $costppid)
     {
-        return view('layouts.admin.pages.ppid.law.edit-law', ['lawppid'=>$lawppid]);
+        return view('layouts.admin.pages.ppid.cost.edit-cost', ['costppid'=>$costppid]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Costppid $costppid)
     {
         $this->validate($request, [
             'title'=>'required',
         ]);
 
-        $lawppid->update([
+        $costppid->update([
             'title'=>$request->title,
             'description'=>$request->description,
         ]);
 
         flash('Data Berhasil Di Update');
 
-        return redirect()->route('lawppid.index');
+        return redirect()->route('costppid.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Lawppid $lawppid)
+    public function destroy(Costppid $costppid)
     {
-        $lawppid=Lawppid::where('id', $lawppid->id);
+        $costppid=Costppid::where('id', $costppid->id);
 
-        $lawppid->delete();
+        $costppid->delete();
 
         flash('Data Berhasil Di Hapus');
 
-        return redirect()->route('lawppid.index');
+        return redirect()->route('costppid.index');
     }
 }

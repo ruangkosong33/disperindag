@@ -3,8 +3,8 @@
 @section('title', 'File Kategori Informasi Publik')
 @section('breadcrumb')
     @parent
-    <li class="breadcrumb-item active"><a href="{{route('filedip.index', $dip->id)}}">File Kategori DIP</a></li>
-    <li class="breadcrumb-item active">Tambah File Kategori DIP</li>
+    <li class="breadcrumb-item active"><a href="{{route('filedip.index', $dip->id)}}">File Data Kategori DIP</a></li>
+    <li class="breadcrumb-item active">Tambah File Data Kategori DIP</li>
 @endsection
 
 @section('content')

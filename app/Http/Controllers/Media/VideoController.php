@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Media;
 
 use App\Models\Video;
-use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -24,9 +23,7 @@ class VideoController extends Controller
      */
     public function create()
     {
-        $category=Category::orderBy('id')->get();
-
-        return view('layouts.admin.pages.video.create-video', ['category'=>$category]);
+        return view('layouts.admin.pages.video.create-video');
     }
 
     /**
@@ -39,16 +36,18 @@ class VideoController extends Controller
             'image'=>'nullable|mimes:jpeg,png,jpg|max:5000',
         ]);
 
-        if($request->file('image'));
+        if($request->file('image'))
         {
             $file=$request->file('image');
             $extension=$file->getClientOriginalName();
             $images=$extension;
             $file->storeAs('public/image-video', $images);
         }
+        else{
+            $images=null;
+        }
 
         $video=Video::create([
-            'category_id'=>$request->category_id,
             'title'=>$request->title,
             'image'=>$images,
             'link'=>$request->link,
@@ -73,9 +72,7 @@ class VideoController extends Controller
      */
     public function edit(Video $video)
     {
-        $category=Category::orderBy('id')->get();
-
-        return view('layouts.admin.pages.video.edit-video', ['video'=>$video, 'category'=>$category]);
+        return view('layouts.admin.pages.video.edit-video');
     }
 
     /**
@@ -96,10 +93,8 @@ class VideoController extends Controller
             $file->storeAs('public/image-video', $images);
         }
         else{
-            unset($video['image']);
+            $images=$video->image;
         }
-
-        $images=$video->image;
 
         $video->update([
             'title'=>$request->title,

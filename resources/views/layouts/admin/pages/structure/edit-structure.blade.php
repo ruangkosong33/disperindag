@@ -23,14 +23,18 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="image">Gambar</label>
-                        <input type="file" class="form-control" name="image">
-                    </div>
-
-                    <div class="form-group">
                         <label for="description">Deskripsi</label>
                         <textarea class="form-control" name="description" placeholder="Struktur Organisasi">{{old('description'), $structure->description}}</textarea>
                     </div>
+
+                    <div class="form-group">
+                        <label for="image">Gambar</label>
+                        <input type="file" class="form-control" id="image" name="image"
+                        onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+
+                    </div>
+
+                    <div class="mt-3"><img src="{{asset('storage/image-structure/' . $structure->image)}}" id="output" width="150"></div>
 
                     <x-slot name="footer">
                         <button type="button" onclick="history.back()" class="btn btn-dark" >Kembali</button>

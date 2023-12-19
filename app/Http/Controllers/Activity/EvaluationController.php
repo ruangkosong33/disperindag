@@ -12,7 +12,9 @@ class EvaluationController extends Controller
      */
     public function index()
     {
-        //
+        $evaluation=Evaluation::orderBy('id')->get();
+
+        return view('layouts.admin.pages.evaluation.index-evaluation', ['evaluation'=>$evaluation]);
     }
 
     /**
@@ -20,7 +22,7 @@ class EvaluationController extends Controller
      */
     public function create()
     {
-        //
+        return view('layouts.admin.pages.evaluation.create-evaluation');
     }
 
     /**
@@ -28,7 +30,17 @@ class EvaluationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title'=>'required',
+        ]);
+
+        $evaluaton=Evaluation::create([
+            'title'=>$request->title,
+        ]);
+
+        flash('Data Berhasil Di Simpan');
+
+        return redirect()->route('evaluation.index');
     }
 
     /**
@@ -42,24 +54,40 @@ class EvaluationController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Evaluation $evaluation)
     {
-        //
+        return view('layouts.admin.pages.evaluation.edit-evaluation', ['evaluation'=>$evaluation]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Evaluation $evaluation)
     {
-        //
+        $this->validate($request, [
+            'title'=>'required',
+        ]);
+
+        $evaluaton->update([
+            'title'=>$request->title,
+        ]);
+
+        flash('Data Berhasil Di Update');
+
+        return redirect()->route('evaluation.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Evaluation $evaluation)
     {
-        //
+        $evaluation=Evaluation::where('id', $evaluation->id);
+
+        $evaluation->delete();
+
+        flash('Data Berhasil Di Hapus');
+
+        return redirect()->route('evaluation.index');
     }
 }

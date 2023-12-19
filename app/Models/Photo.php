@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Photo extends Model
@@ -13,7 +12,7 @@ class Photo extends Model
 
     protected $table='photos';
 
-    protected $fillable=['category_id', 'title', 'slug', 'image', 'description', 'date'];
+    protected $fillable=['title', 'slug', 'image', 'description', 'date'];
 
     protected $hidden=[];
 
@@ -25,11 +24,5 @@ class Photo extends Model
                 'source' => 'title'
             ]
         ];
-    }
-
-    //RELATION
-    public function category(): BelongsTo
-    {
-        return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 }

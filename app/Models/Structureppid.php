@@ -2,17 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Video extends Model
+class Structureppid extends Model
 {
     use HasFactory, Sluggable;
 
-    protected $table='videos';
+    protected $table='structureppids';
 
-    protected $fillable=['title', 'slug', 'image', 'link', 'description'];
+    protected $fillable=['title', 'slug', 'description', 'image'];
 
     protected $hidden=[];
 
@@ -25,4 +24,5 @@ class Video extends Model
             ]
         ];
     }
+
 }

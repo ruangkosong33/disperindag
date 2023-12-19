@@ -26,13 +26,12 @@
 
                     <div class="form-group">
                         <label for="image">Gambar</label>
-                        <input type="file" class="form-control @error('image') is-invalid @enderror" name="file">
-
-                        @error('image')
-                            <span class="invalid-feedback">{{$message}}</span>
-                        @enderror
+                        <input type="file" class="form-control" id="image" name="image"
+                        onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
 
                     </div>
+
+                    <div class="mt-3"><img src="" id="output" width="150"></div>
 
                     <x-slot name="footer">
                         <button type="reset" class="btn btn-dark">Reset</button>

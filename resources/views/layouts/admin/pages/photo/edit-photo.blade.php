@@ -1,24 +1,24 @@
 @extends('layouts.admin.b-master')
 
-@section('title', 'Agenda Kegiatan')
+@section('title', 'Galeri Foto')
 @section('breadcrumb')
     @parent
-    <li class="breadcrumb-item active"><a href="{{route('event.index')}}">Agenda Kegiatan</a></li>
-    <li class="breadcrumb-item active">Edit Agenda Kegiatan</li>
+    <li class="breadcrumb-item active"><a href="{{route('photo.index')}}">Galeri Foto</a></li>
+    <li class="breadcrumb-item active">Edit Galeri Foto</li>
 @endsection
 
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <form action="{{route('event.store')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('photo.update', $photo->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <x-card>
 
                     <div class="form-group">
                         <label for="title">Judul</label>
-                        <input type="text" class="form-control @error('title') ?? is-invalid @enderror" name="title" placeholder="Agenda Kegiatan"
-                        value="{{old('title') ?? $event->title}}">
+                        <input type="text" class="form-control @error('title') ?? is-invalid @enderror" name="title" placeholder="Galeri Foto"
+                        value="{{old('title') ?? $photo->title}}">
 
                         @error('title')
                             <span class="invalid-feedback">{{$message}}</span>
@@ -29,27 +29,30 @@
                     <div class="form-group">
                         <label for="description">Deskripsi</label>
 
-                        <textarea class="form-control" name="description" placeholder="Deskripsi Kegiatan">{{ old('description') }}</textarea>
+                        <textarea class="form-control" name="description" placeholder="Foto">{{old('description', $photo->description ?? '')}}</textarea>
 
                     </div>
+
 
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="date">Tanggal Kegiatan</label>
+                                <label for="date">Tanggal Publish</label>
                                 <input type="date" class="form-control" name="date"
-                                value="{{old('date') ?? $event->date}}">
+                                value="{{old(date) ?? $photo->date}}">
 
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="place">Tempat Acara</label>
-                                <input type="text" class="form-control" name="place"
-                                value="{{old('place') ?? $event->place}}">
+                                <label for="image">Gambar</label>
+                                <input type="file" class="form-control" id="image" name="image"
+                                onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
 
                             </div>
+
+                            <div class="mt-3"><img src="{{asset('storage/image-photo/'. $photo->image)}}" id="output" width="150"></div>
                         </div>
 
                     </div>

@@ -26,7 +26,7 @@
                         <tr>
                             <td>{{$key+1}}</td>
                             <td>{{$banners->title}}</td>
-                            <td>{{$banners->image}}</td>
+                            <td><img src="{{asset('storage/image-banner/'. $banners->image)}}" width="100px"></td>
                             <td>
                                 <a href="{{route('banner.edit', $banners->id)}}" class="btn btn-warning btn-sm">
                                     <i class="fas fa-edit"></i>

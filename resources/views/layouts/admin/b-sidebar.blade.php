@@ -41,6 +41,7 @@
             {{request()->is('regulation*') ? 'menu-open' : ''}}
             {{request()->is('vision*') ? 'menu-open' : ''}}
             {{request()->is('policy*') ? 'menu-open' : ''}}
+            {{request()->is('structure*') ? 'menu-open' : ''}}
                                                                         ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
@@ -75,7 +76,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{route('structure.index')}}" class="nav-link {{request()->is('structure*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Struktur Organisasi</p>
                 </a>
@@ -364,17 +365,9 @@
               <li class="nav-item">
                 <a href="{{route('dip.index')}}" class="nav-link {{request()->is('dip*') || request()->is('filedip*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Kategori DIP</p>
+                  <p>Data & Kategori DIP</p>
                 </a>
               </li>
-            </ul>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Data DIP</p>
-                  </a>
-                </li>
             </ul>
 
           </li>
@@ -382,7 +375,11 @@
           <li class="nav-item
             {{request()->is('profilppid*') ? 'menu-open' : ''}}
             {{request()->is('visionppid*') ? 'menu-open' : ''}}
-          
+            {{request()->is('lawppid*') ? 'menu-open' : ''}}
+            {{request()->is('maklumatppid*') ? 'menu-open' : ''}}
+            {{request()->is('serviceppid*') ? 'menu-open' : ''}}
+            {{request()->is('costppid*') ? 'menu-open' : ''}}
+
                                                             ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-folder"></i>
@@ -417,7 +414,7 @@
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="{{route('lawppid.index')}}" class="nav-link {{request()->is('lawppid*') ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Dasar Hukum</p>
                   </a>
@@ -425,7 +422,7 @@
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="{{route('maklumatppid.index')}}" class="nav-link {{request()->is('maklumatppid*') ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Maklumat Pelayanan</p>
                   </a>
@@ -473,7 +470,7 @@
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="{{route('serviceppid.index')}}" class="nav-link {{request()->is('serviceppid*') ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Waktu & Layanan</p>
                   </a>
@@ -481,7 +478,7 @@
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="{{route('costppid.index')}}" class="nav-link {{request()->is('costppid*') ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Standar Biaya</p>
                   </a>

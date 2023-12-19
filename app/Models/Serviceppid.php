@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Video extends Model
+class Serviceppid extends Model
 {
     use HasFactory, Sluggable;
 
-    protected $table='videos';
+    protected $table='serviceppids';
 
-    protected $fillable=['title', 'slug', 'image', 'link', 'description'];
+    protected $fillable=['title', 'slug', 'description'];
 
     protected $hidden=[];
 
