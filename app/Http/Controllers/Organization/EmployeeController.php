@@ -14,7 +14,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employee=Employee::with(['division'])->get();
+        $employee=Employee::with(['divisions'])->get();
 
         return view('layouts.admin.pages.employee.index-employee', ['employee'=>$employee]);
     }

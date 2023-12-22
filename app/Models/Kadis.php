@@ -4,16 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Division extends Model
+class Kadis extends Model
 {
     use HasFactory, Sluggable;
 
-    protected $table='divisions';
+    protected $table='kadiss';
 
-    protected $fillable=['title', 'slug', 'description', 'image'];
+    protected $fillable=['title', 'slug', 'image', 'periode', 'descritpion'];
 
     protected $hidden=[];
 
@@ -25,11 +24,5 @@ class Division extends Model
                 'source' => 'title'
             ]
         ];
-    }
-
-    //RELATION
-    public function employees(): HasMany
-    {
-        return $this->hasMany(Employee::class);
     }
 }

@@ -13,9 +13,9 @@ class ProfilePpidController extends Controller
      */
     public function index()
     {
-        $profileppid=Profileppid::orderBy('id');
+        $profileppid=Profileppid::orderBy('id')->get();
 
-        return view('layouts.admin.pages.ppid.profile.index-profile', ['profilppid'=>$profileppid]);
+        return view('layouts.admin.pages.ppid.profile.index-profile', ['profileppid'=>$profileppid]);
     }
 
     /**

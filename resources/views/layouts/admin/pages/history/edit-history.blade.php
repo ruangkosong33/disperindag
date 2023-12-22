@@ -16,7 +16,7 @@
                 <x-card>
 
                     <div class="form-group">
-                        <label for="title_historical">Judul</label>
+                        <label for="title">Judul</label>
                         <input type="text" class="form-control" name="title" placeholder="Sejarah Dinas"
                         value="{{old('title') ?? $history->title}}">
                     </div>
@@ -30,7 +30,7 @@
                         <button type="button" onclick="history.back()" class="btn btn-dark" >Kembali</button>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </x-slot>
-                    
+
                 </x-card>
             </form>
         </div>

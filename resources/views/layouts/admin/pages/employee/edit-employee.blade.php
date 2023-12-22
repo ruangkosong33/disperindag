@@ -81,12 +81,13 @@
 
                                 <select name="level" class="form-control">
                                     <option disabled selected>--Pilih--</option>
-                                    <option value="1"{{ old('level') == 1 ? 'selected' : ($employee->status === 1 ? 'selected' : '') }}>Tenaga Alih Daya</option>
-                                    <option value="2"{{ old('level') == 2 ? 'selected' : ($employee->status === 2 ? 'selected' : '') }}>Staff</option>
-                                    <option value="3"{{ old('level') == 3 ? 'selected' : ($employee->status === 3 ? 'selected' : '') }}>Kepala Seksi</option>
-                                    <option value="4"{{ old('level') == 4 ? 'selected' : ($employee->status === 4 ? 'selected' : '') }}>Kepala Bidang</option>
-                                    <option value="5"{{ old('level') == 5 ? 'selected' : ($employee->status === 5 ? 'selected' : '') }}>Kepala UPTD</option>
+                                    <option value="1" {{ old('level', $employee->level) == 1 ? 'selected' : '' }}>Tenaga Alih Daya</option>
+                                    <option value="2" {{ old('level', $employee->level) == 2 ? 'selected' : '' }}>Staff</option>
+                                    <option value="3" {{ old('level', $employee->level) == 3 ? 'selected' : '' }}>Kepala Seksi</option>
+                                    <option value="4" {{ old('level', $employee->level) == 4 ? 'selected' : '' }}>Kepala Bidang</option>
+                                    <option value="5" {{ old('level', $employee->level) == 5 ? 'selected' : '' }}>Kepala UPTD</option>
                                 </select>
+
 
                             </div>
 
