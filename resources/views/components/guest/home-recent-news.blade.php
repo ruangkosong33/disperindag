@@ -5,51 +5,77 @@
             <h2 class="sec-title">Berita <span class="text-theme fw-light">Terbaru</span></h2>
         </div>
         <div class="blog-grid-wrap">
-            <div class="blog-grid">
-                <div class="blog-img">
-                    <img src="assets/img/update1/blog/blog_1_1.jpg" alt="blog image">
-                </div>
-                <div class="blog-content">
-                    <a class="tag" href="blog.html">Learning</a>
-                    <h3 class="blog-title"><a href="blog-details.html">Repurpose mission critical action life items
-                            rather total linkagesuds</a></h3>
-                    <div class="blog-meta style2">
-                        <a href="blog.html"><i class="far fa-clock"></i>March 15, 2023</a>
-                        <a href="blog.html"><i class="far fa-folder"></i>Marketing</a>
+            @php
+                $no = 1;
+            @endphp
+            @forelse($recent_posts as $post)
+                @if ($no == 1)
+                    <div class="blog-grid">
+                        <div class="blog-img">
+                            @if ($post->image)
+                                <img src="assets/img/update1/blog/blog_1_1.jpg" alt="blog image">
+                            @else
+                                <img src="{{ asset('images/default-big.jpg') }}"
+                                    alt="blog image">
+                            @endif
+                        </div>
+                        <div class="blog-content">
+                            <a class="tag" href="{{route('semua.berita')}}">{{ $post->category->title }}</a>
+                            <h3 class="blog-title"><a href="{{route('detail.berita', $post->slug)}}">{{ $post->title }}</a></h3>
+                            <div class="blog-meta style2">
+                                <a href="{{route('detail.berita', $post->slug)}}"><i class="far fa-clock"></i>{{ $post->date }}</a>
+                                {{-- <a href="blog.html"><i class="far fa-folder"></i>Marketing</a> --}}
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="blog-grid">
-                <div class="blog-img">
-                    <img src="assets/img/update1/blog/blog_1_2.jpg" alt="blog image">
-                </div>
-                <div class="blog-content">
-                    <a class="tag" href="blog.html">Course</a>
-                    <h3 class="blog-title"><a href="blog-details.html">Toanmisra mission critical action life items
-                            rather Gotan</a></h3>
-                    <div class="blog-meta style2">
-                        <a href="blog.html"><i class="far fa-clock"></i>March 16, 2023</a>
-                        <a href="blog.html"><i class="far fa-folder"></i>Technology</a>
+                @elseif($no == 2)
+                    <div class="blog-grid">
+                        <div class="blog-img">
+                            @if ($post->image)
+                                <img src="assets/img/update1/blog/blog_1_2.jpg" alt="blog image">
+                            @else
+                                {{-- <img src="assets/img/update1/blog/blog_1_2.jpg" alt="blog image"> --}}
+                                <img src="{{ asset('images/default-big.jpg') }}" alt="blog image">
+                            @endif
+                        </div>
+                        <div class="blog-content">
+                            <a class="tag" href="{{route('semua.berita')}}">{{ $post->category->title }}</a>
+                            <h3 class="blog-title"><a href="{{route('detail.berita', $post->slug)}}">{{ $post->title }}</a></h3>
+                            <div class="blog-meta style2">
+                                <a href="{{route('detail.berita', $post->slug)}}"><i class="far fa-clock"></i>{{ $post->date }}</a>
+                                {{-- <a href="blog.html"><i class="far fa-folder"></i>Technology</a> --}}
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="blog-grid">
-                <div class="blog-img">
-                    <img src="assets/img/update1/blog/blog_1_3.jpg" alt="blog image">
-                </div>
-                <div class="blog-content">
-                    <a class="tag" href="blog.html">Learning</a>
-                    <h3 class="blog-title"><a href="blog-details.html">Habijoria mission critical action life items
-                            rather Moran</a></h3>
-                    <div class="blog-meta style2">
-                        <a href="blog.html"><i class="far fa-clock"></i>March 17, 2023</a>
-                        <a href="blog.html"><i class="far fa-folder"></i>Programing</a>
+                @else
+                    <div class="blog-grid">
+                        <div class="blog-img">
+                            @if ($post->image)
+                                <img src="assets/img/update1/blog/blog_1_2.jpg" alt="blog image">
+                            @else
+                                <img src="{{ asset('images/default-big.jpg') }}" alt="blog image">
+                            @endif
+                        </div>
+                        <div class="blog-content">
+                            <a class="tag" href="{{route('semua.berita')}}">{{ $post->category->title }}</a>
+                            <h3 class="blog-title"><a href="{{route('detail.berita', $post->slug)}}">{{ $post->title }}</a></h3>
+                            <div class="blog-meta style2">
+                                <a href="{{route('detail.berita', $post->slug)}}"><i class="far fa-clock"></i>{{ $post->date}}</a>
+                                {{-- <a href="blog.html"><i class="far fa-folder"></i>Programing</a> --}}
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                @endif
+                @php
+                    $no++;
+                @endphp
+            @empty
+                Tidak ada data
+            @endforelse
+
         </div>
         <div class="text-center mt-40 mt-xl-5">
-            <a href="blog.html" class="th-btn">Lihat Semua Berita<i class="fas fa-arrow-right ms-2"></i></a>
+            <a href="{{route('semua.berita')}}" class="th-btn">Lihat Semua Berita<i class="fas fa-arrow-right ms-2"></i></a>
         </div>
     </div>
     <div class="shape-mockup jump-reverse d-none d-lg-block" data-bottom="28%" data-right="3%"><img

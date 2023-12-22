@@ -45,6 +45,9 @@ use App\Http\Controllers\Organization\EmployeeController;
 use App\Http\Controllers\Activity\FileEvaluationController;
 use App\Http\Controllers\Information\InfographicController;
 use App\Http\Controllers\Information\FileDownloadController;
+use App\Http\Controllers\FrontController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,9 +63,19 @@ use App\Http\Controllers\Information\FileDownloadController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', function () {
-    return view('home-front');
-});
+Route::get('/', [FrontController::class, 'beranda'])->name('beranda');
+Route::get('/berita', [ArticleController::class, 'semuaBerita'])->name('semua.berita');
+Route::get('/berita/{slug}', [ArticleController::class, 'detailBerita'])->name('detail.berita');
+Route::get('/visi-dan-misi', [PageController::class, 'vision'])->name('vision');
+Route::get('/sejarah', [PageController::class, 'history'])->name('history');
+Route::get('/struktur-organisasi', [PageController::class, 'structure'])->name('structure');
+Route::get('/arah-kebijakan', [PageController::class, 'regulation'])->name('regulation');
+Route::get('/tupoksi', [PageController::class, 'task'])->name('task');
+Route::get('/profil-ppid', [PageController::class, 'profilePpid'])->name('profil.ppid');
+Route::get('/bidang-dan-uptd/{slug}', [PageController::class, 'division'])->name('division');
+Route::get('/agenda', [FrontController::class, 'semuaAgenda'])->name('semua.agenda');
+Route::get('/agenda/{slug}', [FrontController::class, 'detailAgenda'])->name('detail.agenda');
+Route::get('/harga-komoditi', [FrontController::class, 'hargaKomoditi'])->name('harga.komoditi');
 
 Auth::routes();
 

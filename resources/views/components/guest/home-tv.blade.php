@@ -11,9 +11,14 @@
 
             <div class="course-grid2">
                 <div class="course-img">
-                    <img src="assets/img/update1/course/course_5_1.jpg" alt="course">
-                    <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i
+                    <img src="images/image-indagkop-tv.jpg" alt="course">
+                    @if($video && !$video->link)
+                    <a href="{{$video->link}}" class="play-btn popup-video"><i
                             class="fas fa-play"></i></a>
+                    @else
+                    <a href="https://www.youtube.com/watch?v=nPzLvVOWSEg" class="play-btn popup-video"><i
+                        class="fas fa-play"></i></a>
+                    @endif
                 </div>
                 <div class="course-content">
                     <h3 class="course-title"><a href="course-details.html">INDAGKOP TV</a></h3>
@@ -43,41 +48,6 @@
                     </div> --}}
                 </div>
             </div>
-
-            {{-- <div class="course-grid2">
-                <div class="course-img">
-                    <img src="assets/img/update1/course/course_5_2.jpg" alt="course">
-                    <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i
-                            class="fas fa-play"></i></a>
-                </div>
-                <div class="course-content">
-                    <h3 class="course-title"><a href="course-details.html">Try To Make Something Very Easily</a></h3>
-                    <a href="course.html" class="course-author">by David Anfle Smith</a>
-                    <div class="course-meta">
-                        <div class="meta-box">
-                            <i class="fas fa-file"></i>
-                            <div>
-                                <span class="text">Total Lesson:</span>
-                                <span class="number">526</span>
-                            </div>
-                        </div>
-                        <div class="meta-box">
-                            <i class="fas fa-user"></i>
-                            <div>
-                                <span class="text">Total Students:</span>
-                                <span class="number">25,777</span>
-                            </div>
-                        </div>
-                        <div class="meta-box">
-                            <i class="fas fa-eye"></i>
-                            <div>
-                                <span class="text">Total Views:</span>
-                                <span class="number">1352k</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
         </div>
         <div class="shape-mockup" data-bottom="0%" data-right="0%"><img src="assets/img/update1/shape/line_5.png"
                 alt="shapes"></div>

@@ -2,7 +2,7 @@
     <div class="hero-slider-2 th-carousel" id="heroSlide6" data-fade="true" data-slide-show="1" data-md-slide-show="1"
         data-arrows="true">
         <div class="th-hero-slide">
-            <div class="th-hero-bg" data-bg-src="{{ asset('assets/img/hero/hero_bg_3_1.jpg') }}"></div>
+            <div class="th-hero-bg" data-bg-src="{{ asset('images/banners/p5IBG7Haj.jpg') }}"></div>
             <div class="container">
                 <div class="row align-items-center justify-content-center" style="height: 500px">
                     <div class="col-lg-12">
@@ -15,7 +15,7 @@
 
 
         <div class="th-hero-slide">
-            <div class="th-hero-bg" data-bg-src="{{ asset('assets/img/hero/hero_bg_3_2.jpg') }}"></div>
+            <div class="th-hero-bg" data-bg-src="{{ asset('images/banners/banner-2.jpg') }}"></div>
             <div class="container">
                 <div class="row align-items-center justify-content-center" style="height: 500px">
                     <div class="col-lg-12">

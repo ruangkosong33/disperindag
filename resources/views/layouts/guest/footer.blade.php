@@ -1,9 +1,9 @@
 <footer class="footer-wrapper footer-layout1" data-bg-src="assets/img/bg/footer-bg.png">
     <div class="shape-mockup footer-shape1 jump" data-left="60px" data-top="70px">
-        <img src="assets/img/normal/footer-bg-shape1.png" alt="img">
+        <img src="{{asset('assets/img/normal/footer-bg-shape1.png')}}" alt="img">
     </div>
     <div class="shape-mockup footer-shape2 jump-reverse" data-right="80px" data-bottom="120px">
-        <img src="assets/img/normal/footer-bg-shape2.png" alt="img">
+        <img src="{{asset('assets/img/normal/footer-bg-shape2.png')}}" alt="img">
     </div>
     <div class="footer-top">
         <div class="container">
@@ -40,7 +40,7 @@
             </div>
         </div>
     </div>
-    <div class="footer-wrap" data-bg-src="assets/img/bg/jiji.png">
+    <div class="footer-wrap" data-bg-src="{{asset('assets/img/bg/jiji.png')}}">
         <div class="widget-area">
             <div class="container">
                 <div class="row justify-content-between">

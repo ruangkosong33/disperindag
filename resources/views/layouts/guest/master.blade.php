@@ -37,6 +37,8 @@
         @include('layouts.guest.mobile-menu')
         @include('layouts.guest.header')
 
+        @yield('breadcrum')
+
         {{-- <main class="py-4"> --}}
         @yield('content')
         {{-- </main> --}}

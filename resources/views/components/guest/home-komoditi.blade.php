@@ -7,78 +7,23 @@
 
         <div class="course-tab-1 tab-menu1 th-carousel row" data-slide-show="4" data-ml-slide-show="3"
             data-lg-slide-show="3" data-md-slide-show="2" data-sm-slide-show="1" data-arrows="true" id="courseTab-1">
-            <div class="col-lg-3">
-                <a class="tab-btn">
-                    <span class="icon"><img src="assets/img/icon/course-tab-icon1.svg" alt="img"></span>
-                    <span class="details">
-                        <span class="box-title">Web Development</span>
-                        <span class="text">286 Courses</span>
-                    </span>
-                </a>
-            </div>
-            <div class="col-lg-3">
-                <a class="tab-btn">
-                    <span class="icon"><img src="assets/img/icon/course-tab-icon2.svg" alt="img"></span>
-                    <span class="details">
-                        <span class="box-title">Digital Marketing</span>
-                        <span class="text">286 Courses</span>
-                    </span>
-                </a>
-            </div>
-            <div class="col-lg-3">
-                <a class="tab-btn">
-                    <span class="icon"><img src="assets/img/icon/course-tab-icon1.svg" alt="img"></span>
-                    <span class="details">
-                        <span class="box-title">UI/UX Design</span>
-                        <span class="text">140 Courses</span>
-                    </span>
-                </a>
-            </div>
-            <div class="col-lg-3">
-                <a class="tab-btn">
-                    <span class="icon"><img src="assets/img/icon/course-tab-icon1.svg" alt="img"></span>
-                    <span class="details">
-                        <span class="box-title">Graphic Design</span>
-                        <span class="text">245 Courses</span>
-                    </span>
-                </a>
-            </div>
-            <div class="col-lg-3">
-                <a class="tab-btn">
-                    <span class="icon"><img src="assets/img/icon/course-tab-icon1.svg" alt="img"></span>
-                    <span class="details">
-                        <span class="box-title">Web Development</span>
-                        <span class="text">286 Courses</span>
-                    </span>
-                </a>
-            </div>
-            <div class="col-lg-3">
-                <a class="tab-btn">
-                    <span class="icon"><img src="assets/img/icon/course-tab-icon2.svg" alt="img"></span>
-                    <span class="details">
-                        <span class="box-title">Digital Marketing</span>
-                        <span class="text">286 Courses</span>
-                    </span>
-                </a>
-            </div>
-            <div class="col-lg-3">
-                <a class="tab-btn">
-                    <span class="icon"><img src="assets/img/icon/course-tab-icon1.svg" alt="img"></span>
-                    <span class="details">
-                        <span class="box-title">UI/UX Design</span>
-                        <span class="text">140 Courses</span>
-                    </span>
-                </a>
-            </div>
-            <div class="col-lg-3">
-                <a class="tab-btn">
-                    <span class="icon"><img src="assets/img/icon/course-tab-icon1.svg" alt="img"></span>
-                    <span class="details">
-                        <span class="box-title">Graphic Design</span>
-                        <span class="text">245 Courses</span>
-                    </span>
-                </a>
-            </div>
+            @forelse($comodities as $comodity)
+                <div class="col-lg-3">
+                    <a class="tab-btn">
+                        <span class="icon">
+                            @if(!$comodity->image)
+                            <img src="assets/img/icon/course-tab-icon1.svg" alt="img">
+                            @endif
+                        </span>
+                        <span class="details">
+                            <span class="box-title">{{ $comodity->title }}</span>
+                            <span class="text">Rp. {{ number_format($comodity->price, 0, ',', '.') }}</span>
+                        </span>
+                    </a>
+                </div>
+            @empty
+                Tidak ada data
+            @endforelse
         </div>
         <div class="text-center">
             <a href="course.html" class="th-btn">Lihat Semua Daftar Harga<i

@@ -15,120 +15,31 @@
         </div>
         <div class="row slider-shadow th-carousel blog-slider-1" data-slide-show="3" data-lg-slide-show="2"
             data-md-slide-show="2" data-sm-slide-show="1" data-arrows="true">
-            <div class="col-md-6 col-xl-4">
-                <div class="th-blog blog-single style2">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="assets/img/blog/blog-1-1.jpg" alt="Blog Image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
-                            <a href="blog.html"><i class="fa-light fa-clock"></i>05 Jun, 2023</a>
+            @forelse($seputar as $item)
+                <div class="col-md-6 col-xl-4">
+                    <div class="th-blog blog-single style2">
+                        <div class="blog-img">
+                            <a href="{{ route('detail.berita', $item->slug) }}"><img
+                                    src="{{ asset('images/default-lanskap.jpg') }}" alt="Blog Image"></a>
                         </div>
-                        <h4 class="box-title"><a href="blog-details.html">Educate, Empower, Excel: Discover the Power of
-                                Learning!</a>
-                        </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i
-                                class="fas fa-arrow-right ms-2"></i></a>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <a class="author" href="{{ route('detail.berita', $item->slug) }}"><i
+                                        class="fa-light fa-user"></i>by David Smith</a>
+                                <a href="{{ route('detail.berita', $item->slug) }}"><i class="fa-light fa-clock"></i>05
+                                    Jun, 2023</a>
+                            </div>
+                            <h4 class="box-title"><a
+                                    href="{{ route('detail.berita', $item->slug) }}">{{ $item->title }}</a>
+                            </h4>
+                            <a href="{{ route('detail.berita', $item->slug) }}" class="link-btn">Lihat detail<i
+                                    class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-md-6 col-xl-4">
-                <div class="th-blog blog-single style2">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="assets/img/blog/blog-1-2.jpg" alt="Blog Image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
-                            <a href="blog.html"><i class="fa-light fa-clock"></i>03 Jun, 2023</a>
-                        </div>
-                        <h4 class="box-title"><a href="blog-details.html">Enrich Your Mind, Envision Your Future:
-                                Education for Success</a>
-                        </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i
-                                class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-xl-4">
-                <div class="th-blog blog-single style2">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="assets/img/blog/blog-1-3.jpg" alt="Blog Image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
-                            <a href="blog.html"><i class="fa-light fa-clock"></i>10 Jul, 2023</a>
-                        </div>
-                        <h4 class="box-title"><a href="blog-details.html">University class starting soon while the
-                                lovely valley team work</a>
-                        </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i
-                                class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-xl-4">
-                <div class="th-blog blog-single style2">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="assets/img/blog/blog-1-1.jpg" alt="Blog Image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
-                            <a href="blog.html"><i class="fa-light fa-clock"></i>02 Apr, 2023</a>
-                        </div>
-                        <h4 class="box-title"><a href="blog-details.html">Educate, Empower, Excel: Discover the Power of
-                                Learning!</a>
-                        </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i
-                                class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-xl-4">
-                <div class="th-blog blog-single style2">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="assets/img/blog/blog-1-2.jpg" alt="Blog Image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
-                            <a href="blog.html"><i class="fa-light fa-clock"></i>03 Jun, 2023</a>
-                        </div>
-                        <h4 class="box-title"><a href="blog-details.html">Enrich Your Mind, Envision Your Future:
-                                Education for Success</a>
-                        </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i
-                                class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-xl-4">
-                <div class="th-blog blog-single style2">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="assets/img/blog/blog-1-3.jpg" alt="Blog Image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
-                            <a href="blog.html"><i class="fa-light fa-clock"></i>10 Jul, 2023</a>
-                        </div>
-                        <h4 class="box-title"><a href="blog-details.html">University class starting soon while the
-                                lovely valley team work</a>
-                        </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i
-                                class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-
+            @empty
+                Tidak ada data
+            @endforelse
         </div>
     </div>
     <div class="container mt-5">
@@ -147,119 +58,31 @@
         </div>
         <div class="row slider-shadow th-carousel blog-slider-1" data-slide-show="3" data-lg-slide-show="2"
             data-md-slide-show="2" data-sm-slide-show="1" data-arrows="true">
-            <div class="col-md-6 col-xl-4">
-                <div class="th-blog blog-single style2">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="assets/img/blog/blog-1-1.jpg" alt="Blog Image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
-                            <a href="blog.html"><i class="fa-light fa-clock"></i>05 Jun, 2023</a>
+            @forelse($articles as $item)
+                <div class="col-md-6 col-xl-4">
+                    <div class="th-blog blog-single style2">
+                        <div class="blog-img">
+                            <a href="{{ route('detail.berita', $item->slug) }}"><img
+                                    src="{{ asset('images/default-lanskap.jpg') }}" alt="Blog Image"></a>
                         </div>
-                        <h4 class="box-title"><a href="blog-details.html">Educate, Empower, Excel: Discover the Power
-                                of Learning!</a>
-                        </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i
-                                class="fas fa-arrow-right ms-2"></i></a>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <a class="author" href="{{ route('detail.berita', $item->slug) }}"><i
+                                        class="fa-light fa-user"></i>by David Smith</a>
+                                <a href="{{ route('detail.berita', $item->slug) }}"><i class="fa-light fa-clock"></i>05
+                                    Jun, 2023</a>
+                            </div>
+                            <h4 class="box-title"><a
+                                    href="{{ route('detail.berita', $item->slug) }}">{{ $item->title }}</a>
+                            </h4>
+                            <a href="{{ route('detail.berita', $item->slug) }}" class="link-btn">Lihat detail<i
+                                    class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-md-6 col-xl-4">
-                <div class="th-blog blog-single style2">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="assets/img/blog/blog-1-2.jpg" alt="Blog Image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
-                            <a href="blog.html"><i class="fa-light fa-clock"></i>03 Jun, 2023</a>
-                        </div>
-                        <h4 class="box-title"><a href="blog-details.html">Enrich Your Mind, Envision Your Future:
-                                Education for Success</a>
-                        </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i
-                                class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-xl-4">
-                <div class="th-blog blog-single style2">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="assets/img/blog/blog-1-3.jpg" alt="Blog Image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
-                            <a href="blog.html"><i class="fa-light fa-clock"></i>10 Jul, 2023</a>
-                        </div>
-                        <h4 class="box-title"><a href="blog-details.html">University class starting soon while the
-                                lovely valley team work</a>
-                        </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i
-                                class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-xl-4">
-                <div class="th-blog blog-single style2">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="assets/img/blog/blog-1-1.jpg" alt="Blog Image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
-                            <a href="blog.html"><i class="fa-light fa-clock"></i>02 Apr, 2023</a>
-                        </div>
-                        <h4 class="box-title"><a href="blog-details.html">Educate, Empower, Excel: Discover the Power
-                                of Learning!</a>
-                        </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i
-                                class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-xl-4">
-                <div class="th-blog blog-single style2">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="assets/img/blog/blog-1-2.jpg" alt="Blog Image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
-                            <a href="blog.html"><i class="fa-light fa-clock"></i>03 Jun, 2023</a>
-                        </div>
-                        <h4 class="box-title"><a href="blog-details.html">Enrich Your Mind, Envision Your Future:
-                                Education for Success</a>
-                        </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i
-                                class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-xl-4">
-                <div class="th-blog blog-single style2">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="assets/img/blog/blog-1-3.jpg" alt="Blog Image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
-                            <a href="blog.html"><i class="fa-light fa-clock"></i>10 Jul, 2023</a>
-                        </div>
-                        <h4 class="box-title"><a href="blog-details.html">University class starting soon while the
-                                lovely valley team work</a>
-                        </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i
-                                class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
+            @empty
+                Tidak ada data
+            @endforelse
 
         </div>
     </div>
@@ -279,120 +102,31 @@
         </div>
         <div class="row slider-shadow th-carousel blog-slider-1" data-slide-show="3" data-lg-slide-show="2"
             data-md-slide-show="2" data-sm-slide-show="1" data-arrows="true">
-            <div class="col-md-6 col-xl-4">
-                <div class="th-blog blog-single style2">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="assets/img/blog/blog-1-1.jpg" alt="Blog Image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
-                            <a href="blog.html"><i class="fa-light fa-clock"></i>05 Jun, 2023</a>
+            @forelse($info_public as $item)
+                <div class="col-md-6 col-xl-4">
+                    <div class="th-blog blog-single style2">
+                        <div class="blog-img">
+                            <a href="{{ route('detail.berita', $item->slug) }}"><img
+                                    src="{{ asset('images/default-lanskap.jpg') }}" alt="Blog Image"></a>
                         </div>
-                        <h4 class="box-title"><a href="blog-details.html">Educate, Empower, Excel: Discover the Power
-                                of Learning!</a>
-                        </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i
-                                class="fas fa-arrow-right ms-2"></i></a>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <a class="author" href="{{ route('detail.berita', $item->slug) }}"><i
+                                        class="fa-light fa-user"></i>by David Smith</a>
+                                <a href="{{ route('detail.berita', $item->slug) }}"><i class="fa-light fa-clock"></i>05
+                                    Jun, 2023</a>
+                            </div>
+                            <h4 class="box-title"><a
+                                    href="{{ route('detail.berita', $item->slug) }}">{{ $item->title }}</a>
+                            </h4>
+                            <a href="{{ route('detail.berita', $item->slug) }}" class="link-btn">Lihat detail<i
+                                    class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-md-6 col-xl-4">
-                <div class="th-blog blog-single style2">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="assets/img/blog/blog-1-2.jpg" alt="Blog Image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
-                            <a href="blog.html"><i class="fa-light fa-clock"></i>03 Jun, 2023</a>
-                        </div>
-                        <h4 class="box-title"><a href="blog-details.html">Enrich Your Mind, Envision Your Future:
-                                Education for Success</a>
-                        </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i
-                                class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-xl-4">
-                <div class="th-blog blog-single style2">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="assets/img/blog/blog-1-3.jpg" alt="Blog Image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
-                            <a href="blog.html"><i class="fa-light fa-clock"></i>10 Jul, 2023</a>
-                        </div>
-                        <h4 class="box-title"><a href="blog-details.html">University class starting soon while the
-                                lovely valley team work</a>
-                        </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i
-                                class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-xl-4">
-                <div class="th-blog blog-single style2">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="assets/img/blog/blog-1-1.jpg" alt="Blog Image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
-                            <a href="blog.html"><i class="fa-light fa-clock"></i>02 Apr, 2023</a>
-                        </div>
-                        <h4 class="box-title"><a href="blog-details.html">Educate, Empower, Excel: Discover the Power
-                                of Learning!</a>
-                        </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i
-                                class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-xl-4">
-                <div class="th-blog blog-single style2">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="assets/img/blog/blog-1-2.jpg" alt="Blog Image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
-                            <a href="blog.html"><i class="fa-light fa-clock"></i>03 Jun, 2023</a>
-                        </div>
-                        <h4 class="box-title"><a href="blog-details.html">Enrich Your Mind, Envision Your Future:
-                                Education for Success</a>
-                        </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i
-                                class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-xl-4">
-                <div class="th-blog blog-single style2">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="assets/img/blog/blog-1-3.jpg" alt="Blog Image"></a>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
-                            <a href="blog.html"><i class="fa-light fa-clock"></i>10 Jul, 2023</a>
-                        </div>
-                        <h4 class="box-title"><a href="blog-details.html">University class starting soon while the
-                                lovely valley team work</a>
-                        </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i
-                                class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-
+            @empty
+                Tidak ada data
+            @endforelse
         </div>
     </div>
 </section>
