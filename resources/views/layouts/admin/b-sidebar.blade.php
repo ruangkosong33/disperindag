@@ -35,14 +35,14 @@
           <li class="nav-header"><strong>Menu</strong></li>
 
           <li class="nav-item
-            {{request()->is('profile*') ? 'menu-open' : ''}}
-            {{request()->is('history*') ? 'menu-open' : ''}}
-            {{request()->is('task*') ? 'menu-open' : ''}}
-            {{request()->is('regulation*') ? 'menu-open' : ''}}
-            {{request()->is('vision*') ? 'menu-open' : ''}}
-            {{request()->is('policy*') ? 'menu-open' : ''}}
-            {{request()->is('structure*') ? 'menu-open' : ''}}
-            {{request()->is('kadis*') ? 'menu-open' : ''}}
+            {{request()->is('admin/profile*') ? 'menu-open' : ''}}
+            {{request()->is('admin/history*') ? 'menu-open' : ''}}
+            {{request()->is('admin/task*') ? 'menu-open' : ''}}
+            {{request()->is('admin/regulation*') ? 'menu-open' : ''}}
+            {{request()->is('admin/vision*') ? 'menu-open' : ''}}
+            {{request()->is('admin/policy*') ? 'menu-open' : ''}}
+            {{request()->is('admin/structure*') ? 'menu-open' : ''}}
+            {{request()->is('admin/kadis*') ? 'menu-open' : ''}}
                                                                         ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
@@ -53,7 +53,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('profile.index')}}" class="nav-link {{request()->is('profile*') ? 'active' : ''}}">
+                <a href="{{route('profile.index')}}" class="nav-link {{request()->is('admin/profile*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Profil Dinas</p>
                 </a>
@@ -61,7 +61,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('history.index')}}" class="nav-link {{request()->is('history*') ? 'active' : ''}}">
+                <a href="{{route('history.index')}}" class="nav-link {{request()->is('admin/history*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Sejarah Dinas</p>
                 </a>
@@ -69,7 +69,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('vision.index')}}" class="nav-link {{request()->is('vision*') ? 'active' : ''}}">
+                <a href="{{route('vision.index')}}" class="nav-link {{request()->is('admin/vision*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Visi & Misi</p>
                 </a>
@@ -77,7 +77,7 @@
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{route('kadis.index')}}" class="nav-link {{request()->is('kadis*') ? 'active' : ''}}">
+                  <a href="{{route('kadis.index')}}" class="nav-link {{request()->is('admin/kadis*') ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Kepala Dinas</p>
                   </a>
@@ -85,7 +85,7 @@
               </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('structure.index')}}" class="nav-link {{request()->is('structure*') ? 'active' : ''}}">
+                <a href="{{route('structure.index')}}" class="nav-link {{request()->is('admin/structure*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Struktur Organisasi</p>
                 </a>
@@ -93,7 +93,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('task.index')}}" class="nav-link {{request()->is('task*') ? 'active' : ''}}">
+                <a href="{{route('task.index')}}" class="nav-link {{request()->is('admin/task*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tugas Pokok & Fungsi</p>
                 </a>
@@ -101,7 +101,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('regulation.index')}}" class="nav-link {{request()->is('regulation*') ? 'active' : ''}}">
+                <a href="{{route('regulation.index')}}" class="nav-link {{request()->is('admin/regulation*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kebijakan Mutu</p>
                 </a>
@@ -109,7 +109,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('policy.index')}}" class="nav-link {{request()->is('policy*') ? 'active' : ''}}">
+                <a href="{{route('policy.index')}}" class="nav-link {{request()->is('admin/policy*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Peraturan & Kebijakan</p>
                 </a>

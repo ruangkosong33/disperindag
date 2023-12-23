@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Infographic extends Model
@@ -13,7 +12,7 @@ class Infographic extends Model
 
     protected $table='infographics';
 
-    protected $fillable=['title', 'slug', 'category_id', 'description', 'image'];
+    protected $fillable=['title', 'slug', 'description', 'image'];
 
     protected $hidden=[];
 
@@ -25,11 +24,5 @@ class Infographic extends Model
                 'source' => 'title'
             ]
         ];
-    }
-
-    //RELATION
-    public function category(): BelongsTo
-    {
-        return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 }
