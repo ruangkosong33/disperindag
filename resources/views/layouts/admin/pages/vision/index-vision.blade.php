@@ -16,7 +16,7 @@
                         <a href="{{route('vision.create')}}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah</a>
                     @else
                     @foreach ($vision as $visions)
-                        <a href="{{route('vision.edit', $vision->id)}}" class="btn btn-warning"><i class="fas fa-plus-circle"></i> Edit</a>
+                        <a href="{{route('vision.edit', $visions->id)}}" class="btn btn-warning"><i class="fas fa-plus-circle"></i> Edit</a>
                     @endforeach
                     @endif
                 </x-slot>

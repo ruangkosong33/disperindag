@@ -17,7 +17,8 @@
 
                     <div class="form-group">
                         <label for="title">Judul</label>
-                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="Banner">
+                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="Banner"
+                        value="{{old('title') ?? $banner->title}}">
 
                         @error('title')
                             <span class="invalid-feedback">{{$message}}</span>

@@ -1,9 +1,9 @@
 @extends('layouts.admin.b-master')
 
-@section('title', 'Profile PPID')
+@section('title', 'Profile Dinas')
 @section('breadcrumb')
     @parent
-    <li class="breadcrumb-item active">Profile </li>
+    <li class="breadcrumb-item active">Profile Dinas</li>
 @endsection
 
 @section('content')
@@ -12,11 +12,11 @@
         <div class="col-lg-12">
             <x-card>
                 <x-slot name="header">
-                    @if($profileppid->isEmpty())
-                        <a href="{{route('profileppid.create')}}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah</a>
+                    @if($profile->isEmpty())
+                        <a href="{{route('profile.create')}}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah</a>
                     @else
-                    @foreach ($profileppid as $profileppids)
-                        <a href="{{route('profileppid.edit', $profileppids->id)}}" class="btn btn-warning"><i class="fas fa-plus-circle"></i> Edit</a>
+                    @foreach ($profile as $profiles)
+                        <a href="{{route('profile.edit', $profiles->id)}}" class="btn btn-warning"><i class="fas fa-plus-circle"></i> Edit</a>
                     @endforeach
                     @endif
                 </x-slot>
@@ -26,14 +26,14 @@
                         <th>Judul</th>
                         <th>Deskripsi</th>
                     </x-slot>
-                        @foreach ($profileppid as $profileppids)
+                        @foreach ($profile as $profiles)
                         <tr>
                             <td width="38%">Sub Judul</td>
-                            <td>{{$profileppids->title}}</td>
+                            <td>{{$profiles->title}}</td>
                         </tr>
                         <tr>
                             <td width="38%">Deskripsi</td>
-                            <td>{!!$profileppids->description!!}</td>
+                            <td>{!!$profiles->description!!}</td>
                         </tr>
                         @endforeach
                 </x-table>

@@ -10,7 +10,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <form action="{{route('commodity.store')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('commodity.update', $commodity->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <x-card>

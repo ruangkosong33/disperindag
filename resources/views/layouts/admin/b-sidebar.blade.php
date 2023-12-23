@@ -13,7 +13,7 @@
           <img src="{{asset('bk/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">???</a>
+          <a href="#" class="d-block">{{Auth::user()->name}}</a>
         </div>
       </div>
 
@@ -42,6 +42,7 @@
             {{request()->is('vision*') ? 'menu-open' : ''}}
             {{request()->is('policy*') ? 'menu-open' : ''}}
             {{request()->is('structure*') ? 'menu-open' : ''}}
+            {{request()->is('kadis*') ? 'menu-open' : ''}}
                                                                         ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
@@ -54,7 +55,7 @@
               <li class="nav-item">
                 <a href="{{route('profile.index')}}" class="nav-link {{request()->is('profile*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Profil Kepala Dinas</p>
+                  <p>Profil Dinas</p>
                 </a>
               </li>
             </ul>
@@ -74,6 +75,14 @@
                 </a>
               </li>
             </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('kadis.index')}}" class="nav-link {{request()->is('kadis*') ? 'active' : ''}}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Kepala Dinas</p>
+                  </a>
+                </li>
+              </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{route('structure.index')}}" class="nav-link {{request()->is('structure*') ? 'active' : ''}}">
@@ -110,20 +119,20 @@
           </li>
 
           <li class="nav-item
-            {{request()->is('renstra*') ? 'menu-open' : ''}}
-            {{request()->is('filerenstra*') ? 'menu-open' : ''}}
-            {{request()->is('iku*') ? 'menu-open' : ''}}
-            {{request()->is('fileiku*') ? 'menu-open' : ''}}
-            {{request()->is('perform*') ? 'menu-open' : ''}}
-            {{request()->is('fileperform*') ? 'menu-open' : ''}}
-            {{request()->is('achieve*') ? 'menu-open' : ''}}
-            {{request()->is('fileachieve*') ? 'menu-open' : ''}}
-            {{request()->is('evaluation*') ? 'menu-open' : ''}}
-            {{request()->is('fileevaluation*') ? 'menu-open' : ''}}
-            {{request()->is('neraca*') ? 'menu-open' : ''}}
-            {{request()->is('fileneraca*') ? 'menu-open' : ''}}
-            {{request()->is('sop*') ? 'menu-open' : ''}}
-            {{request()->is('filesop*') ? 'menu-open' : ''}}
+            {{request()->is('admin/renstra*') ? 'menu-open' : ''}}
+            {{request()->is('admin/filerenstra*') ? 'menu-open' : ''}}
+            {{request()->is('admin/iku*') ? 'menu-open' : ''}}
+            {{request()->is('admin/fileiku*') ? 'menu-open' : ''}}
+            {{request()->is('admin/perform*') ? 'menu-open' : ''}}
+            {{request()->is('admin/fileperform*') ? 'menu-open' : ''}}
+            {{request()->is('admin/achieve*') ? 'menu-open' : ''}}
+            {{request()->is('admin/fileachieve*') ? 'menu-open' : ''}}
+            {{request()->is('admin/evaluation*') ? 'menu-open' : ''}}
+            {{request()->is('admin/fileevaluation*') ? 'menu-open' : ''}}
+            {{request()->is('admin/neraca*') ? 'menu-open' : ''}}
+            {{request()->is('admin/fileneraca*') ? 'menu-open' : ''}}
+            {{request()->is('admin/sop*') ? 'menu-open' : ''}}
+            {{request()->is('admin/filesop*') ? 'menu-open' : ''}}
                                                                             ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
@@ -134,7 +143,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('renstra.index')}}" class="nav-link {{ request()->is('renstra*') || request()->is('filerenstra*') ? 'active' : '' }}">
+                <a href="{{route('renstra.index')}}" class="nav-link {{ request()->is('admin/renstra*') || request()->is('admin/filerenstra*') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Rencana Strategis</p>
                 </a>
@@ -142,7 +151,7 @@
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{ route('iku.index') }}" class="nav-link {{ request()->is('iku*') || request()->is('fileiku*') ? 'active' : '' }}">
+                    <a href="{{ route('iku.index') }}" class="nav-link {{ request()->is('admin/iku*') || request()->is('admin/fileiku*') ? 'active' : '' }}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Indikator Kinerja Utama</p>
                     </a>
@@ -150,7 +159,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('perform.index')}}" class="nav-link {{request()->is('perform*') || request()->is('fileperform*') ? 'active' : ''}}">
+                <a href="{{route('perform.index')}}" class="nav-link {{request()->is('admin/perform*') || request()->is('admin/fileperform*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Program & Kinerja</p>
                 </a>
@@ -158,7 +167,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('achieve.index')}}" class="nav-link {{request()->is('achieve*') || request()->is('fileachieve*') ? 'active' : ''}}">
+                <a href="{{route('achieve.index')}}" class="nav-link {{request()->is('admin/achieve*') || request()->is('admin/fileachieve*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Laporan & Capaian</p>
                 </a>
@@ -166,7 +175,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('evaluation.index')}}" class="nav-link {{request()->is('evalution*') || request()->is('fileevaluation*') ? 'active' : ''}}">
+                <a href="{{route('evaluation.index')}}" class="nav-link {{request()->is('admin/evalution*') || request()->is('admin/fileevaluation*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Monitoring & Evaluasi</p>
                 </a>
@@ -174,7 +183,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('neraca.index')}}" class="nav-link {{request()->is('neraca*') || request()->is('fileneraca*') ? 'active' : ''}}">
+                <a href="{{route('neraca.index')}}" class="nav-link {{request()->is('admin/neraca*') || request()->is('admin/fileneraca*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Neraca Keuangan</p>
                 </a>
@@ -182,7 +191,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('sop.index')}}" class="nav-link {{request()->is('sop*') || request()->is('filesop*') ? 'active' : ''}}">
+                <a href="{{route('sop.index')}}" class="nav-link {{request()->is('admin/sop*') || request()->is('admin/filesop*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>SOP</p>
                 </a>
@@ -192,8 +201,8 @@
           </li>
 
           <li class="nav-item
-            {{request()->is('division*') ? 'menu-open' : ''}}
-            {{request()->is('employee*') ? 'menu-open' : ''}}
+            {{request()->is('admin/division*') ? 'menu-open' : ''}}
+            {{request()->is('admin/employee*') ? 'menu-open' : ''}}
                                                                         ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-building"></i>
@@ -204,7 +213,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('division.index')}}" class="nav-link {{request()->is('division*') ? 'active' : ''}}">
+                <a href="{{route('division.index')}}" class="nav-link {{request()->is('admin/division*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Unit Kerja</p>
                 </a>
@@ -212,7 +221,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('employee.index')}}" class="nav-link {{request()->is('employee*') ? 'active' : ''}}">
+                <a href="{{route('employee.index')}}" class="nav-link {{request()->is('admin/employee*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Pegawai</p>
                 </a>
@@ -222,8 +231,8 @@
           </li>
 
           <li class="nav-item
-            {{request()->is('post*') ? 'menu-open' : ''}}
-            {{request()->is('info*') ? 'menu-open' : ''}}
+            {{request()->is('admin/post*') ? 'menu-open' : ''}}
+            {{request()->is('admin/info*') ? 'menu-open' : ''}}
                                                                 ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-newspaper"></i>
@@ -234,7 +243,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('post.index')}}" class="nav-link {{request()->is('post*') ? 'active' : ''}}">
+                <a href="{{route('post.index')}}" class="nav-link {{request()->is('admin/post*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Berita</p>
                 </a>
@@ -242,7 +251,7 @@
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{route('info.index')}}" class="nav-link {{request()->is('info*') ? 'active' : ''}}">
+                  <a href="{{route('info.index')}}" class="nav-link {{request()->is('admin/info*') ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Pengumuman</p>
                   </a>
@@ -252,11 +261,11 @@
           </li>
 
           <li class="nav-item
-            {{request()->is('commodity*') ? 'menu-open' : ''}}
-            {{request()->is('event*') ? 'menu-open' : ''}}
-            {{request()->is('download*') ? 'menu-open' : ''}}
-            {{request()->is('filedownload*') ? 'menu-open' : ''}}
-            {{request()->is('infographic*') ? 'menu-open' : ''}}
+            {{request()->is('admin/commodity*') ? 'menu-open' : ''}}
+            {{request()->is('admin/event*') ? 'menu-open' : ''}}
+            {{request()->is('admin/download*') ? 'menu-open' : ''}}
+            {{request()->is('admin/filedownload*') ? 'menu-open' : ''}}
+            {{request()->is('admin/infographic*') ? 'menu-open' : ''}}
                                                                     ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-info"></i>
@@ -267,7 +276,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('commodity.index')}}" class="nav-link {{request()->is('commodity*') ? 'active' : ''}}">
+                <a href="{{route('commodity.index')}}" class="nav-link {{request()->is('admin/commodity*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Harga Komoditi</p>
                 </a>
@@ -275,7 +284,7 @@
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{route('event.index')}}" class="nav-link {{request()->is('event*') ? 'active' : ''}}">
+                  <a href="{{route('event.index')}}" class="nav-link {{request()->is('admin/event*') ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Agenda Kegiatan</p>
                   </a>
@@ -283,7 +292,7 @@
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{route('download.index')}}" class="nav-link {{request()->is('download*') || request()->is('filedownload*') ? 'active' : ''}}">
+                  <a href="{{route('download.index')}}" class="nav-link {{request()->is('admin/download*') || request()->is('admin/filedownload*') ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Unduhan</p>
                   </a>
@@ -291,7 +300,7 @@
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{route('infographic.index')}}" class="nav-link {{request()->is('infographic*') ? 'active' : ''}}">
+                  <a href="{{route('infographic.index')}}" class="nav-link {{request()->is('admin/infographic*') ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Infografis</p>
                   </a>
@@ -301,9 +310,9 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link
-            {{request()->is('video*') ? 'menu-open' : ''}}
-            {{request()->is('photo*') ? 'menu-open' : ''}}
-            {{request()->is('banner*') ? 'menu-open' : ''}}
+            {{request()->is('admin/video*') ? 'menu-open' : ''}}
+            {{request()->is('admin/photo*') ? 'menu-open' : ''}}
+            {{request()->is('admin/banner*') ? 'menu-open' : ''}}
                                                                 ">
               <i class="nav-icon fas fa-film"></i>
               <p>
@@ -313,7 +322,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('photo.index')}}" class="nav-link {{request()->is('photo*') ? 'active' : ''}}">
+                <a href="{{route('photo.index')}}" class="nav-link {{request()->is('admin/photo*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Galeri Foto</p>
                 </a>
@@ -321,7 +330,7 @@
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{route('video.index')}}" class="nav-link {{request()->is('video*') ? 'active' : ''}}">
+                  <a href="{{route('video.index')}}" class="nav-link {{request()->is('admin/video*') ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Galeri Video</p>
                   </a>
@@ -329,7 +338,7 @@
             </ul>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{route('banner.index')}}" class="nav-link {{request()->is('banner*') ? 'active' : ''}}">
+                  <a href="{{route('banner.index')}}" class="nav-link {{request()->is('admin/banner*') ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Slider Banner</p>
                   </a>
@@ -339,7 +348,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{route('category.index')}}" class="nav-link {{request()->is('category*') ? 'active' : ''}}">
+            <a href="{{route('category.index')}}" class="nav-link {{request()->is('admin/category*') ? 'active' : ''}}">
               <i class="nav-icon fas fa-tags"></i>
               <p>
                 Kategori
@@ -351,8 +360,8 @@
           <li class="nav-header"><strong>PPID</strong></li>
 
           <li class="nav-item
-            {{request()->is('dip*') ? 'menu-open' : ''}}
-            {{request()->is('filedip*') ? 'menu-open' : ''}}
+            {{request()->is('admin/dip*') ? 'menu-open' : ''}}
+            {{request()->is('admin/filedip*') ? 'menu-open' : ''}}
                                                             ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
@@ -363,7 +372,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('dip.index')}}" class="nav-link {{request()->is('dip*') || request()->is('filedip*') ? 'active' : ''}}">
+                <a href="{{route('dip.index')}}" class="nav-link {{request()->is('admin/dip*') || request()->is('admin/filedip*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data & Kategori DIP</p>
                 </a>
@@ -373,12 +382,12 @@
           </li>
 
           <li class="nav-item
-            {{request()->is('profilppid*') ? 'menu-open' : ''}}
-            {{request()->is('visionppid*') ? 'menu-open' : ''}}
-            {{request()->is('lawppid*') ? 'menu-open' : ''}}
-            {{request()->is('maklumatppid*') ? 'menu-open' : ''}}
-            {{request()->is('serviceppid*') ? 'menu-open' : ''}}
-            {{request()->is('costppid*') ? 'menu-open' : ''}}
+            {{request()->is('admin/profilppid*') ? 'menu-open' : ''}}
+            {{request()->is('admin/visionppid*') ? 'menu-open' : ''}}
+            {{request()->is('admin/lawppid*') ? 'menu-open' : ''}}
+            {{request()->is('admin/maklumatppid*') ? 'menu-open' : ''}}
+            {{request()->is('admin/serviceppid*') ? 'menu-open' : ''}}
+            {{request()->is('admin/costppid*') ? 'menu-open' : ''}}
 
                                                             ">
             <a href="#" class="nav-link">
@@ -390,7 +399,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('profileppid.index')}}" class="nav-link {{request()->is('profilppid*') ? 'active' : ''}}">
+                <a href="{{route('profileppid.index')}}" class="nav-link {{request()->is('admin/profilppid*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Profil PPID</p>
                 </a>
@@ -398,7 +407,7 @@
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{route('visionppid.index')}}" class="nav-link {{request()->is('visionppid*') ? 'active' : ''}}">
+                  <a href="{{route('visionppid.index')}}" class="nav-link {{request()->is('admin/visionppid*') ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Visi & Misi PPID</p>
                   </a>
@@ -414,7 +423,7 @@
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{route('lawppid.index')}}" class="nav-link {{request()->is('lawppid*') ? 'active' : ''}}">
+                  <a href="{{route('lawppid.index')}}" class="nav-link {{request()->is('admin/lawppid*') ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Dasar Hukum</p>
                   </a>
@@ -422,7 +431,7 @@
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{route('maklumatppid.index')}}" class="nav-link {{request()->is('maklumatppid*') ? 'active' : ''}}">
+                  <a href="{{route('maklumatppid.index')}}" class="nav-link {{request()->is('admin/maklumatppid*') ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Maklumat Pelayanan</p>
                   </a>
@@ -470,7 +479,7 @@
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{route('serviceppid.index')}}" class="nav-link {{request()->is('serviceppid*') ? 'active' : ''}}">
+                  <a href="{{route('serviceppid.index')}}" class="nav-link {{request()->is('admin/serviceppid*') ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Waktu & Layanan</p>
                   </a>
@@ -478,7 +487,7 @@
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{route('costppid.index')}}" class="nav-link {{request()->is('costppid*') ? 'active' : ''}}">
+                  <a href="{{route('costppid.index')}}" class="nav-link {{request()->is('admin/costppid*') ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Standar Biaya</p>
                   </a>
@@ -492,8 +501,8 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link
-            {{request()->is('dip*') ? 'menu-open' : ''}}
-            {{request()->is('filedip*') ? 'menu-open' : ''}}
+            {{request()->is('admin/dip*') ? 'menu-open' : ''}}
+            {{request()->is('admin/filedip*') ? 'menu-open' : ''}}
                                                                 ">
               <i class="nav-icon fas fa-universal-access"></i>
               <p>
@@ -503,7 +512,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('dip.index')}}" class="nav-link {{request()->is('dip*') ? 'active' : ''}}">
+                <a href="{{route('dip.index')}}" class="nav-link {{request()->is('admin/dip*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kategori DIP</p>
                 </a>

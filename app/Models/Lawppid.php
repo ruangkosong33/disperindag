@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Lawppid extends Model
 {
-    use HasFactorym, Sluggable;
+    use HasFactory, Sluggable;
 
     protected $table='lawppids';
 

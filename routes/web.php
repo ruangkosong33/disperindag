@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\FrontController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\Media\PhotoController;
 use App\Http\Controllers\Media\VideoController;
 use App\Http\Controllers\AboutUs\TaskController;
@@ -12,6 +15,7 @@ use App\Http\Controllers\Article\InfoController;
 use App\Http\Controllers\Article\PostController;
 use App\Http\Controllers\Media\BannerController;
 use App\Http\Controllers\PPID\LawPpidController;
+use App\Http\Controllers\AboutUs\KadisController;
 use App\Http\Controllers\PPID\CostPpidController;
 use App\Http\Controllers\AboutUs\PolicyController;
 use App\Http\Controllers\AboutUs\VisionController;
@@ -45,9 +49,6 @@ use App\Http\Controllers\Organization\EmployeeController;
 use App\Http\Controllers\Activity\FileEvaluationController;
 use App\Http\Controllers\Information\InfographicController;
 use App\Http\Controllers\Information\FileDownloadController;
-use App\Http\Controllers\FrontController;
-use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,9 +61,8 @@ use App\Http\Controllers\PageController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
+//LANDING
 Route::get('/', [FrontController::class, 'beranda'])->name('beranda');
 Route::get('/berita', [ArticleController::class, 'semuaBerita'])->name('semua.berita');
 Route::get('/berita/{slug}', [ArticleController::class, 'detailBerita'])->name('detail.berita');
@@ -76,10 +76,11 @@ Route::get('/bidang-dan-uptd/{slug}', [PageController::class, 'division'])->name
 Route::get('/agenda', [FrontController::class, 'semuaAgenda'])->name('semua.agenda');
 Route::get('/agenda/{slug}', [FrontController::class, 'detailAgenda'])->name('detail.agenda');
 Route::get('/harga-komoditi', [FrontController::class, 'hargaKomoditi'])->name('harga.komoditi');
+//
 
 Auth::routes();
 
-
+//SYSADMIN
 Route::middleware(['auth', 'roles:admin'])->group(function () {
 
     Route::prefix('admin')->group(function () {
@@ -95,6 +96,7 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::resource('/task', TaskController::class);
         Route::resource('/policy', PolicyController::class);
         Route::resource('/regulation', RegulationController::class);
+        Route::resource('/kadis', KadisController::class);
         //
 
         //ACTIVITY
@@ -203,8 +205,14 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::delete('/filedip/{dip}/{filedip}', [FileDipController::class, 'destroy'])->name('filedip.destroy');
         //
 
-    });
+        //LOGOUT
+        Route::get('logout', function () {
+            Auth::logout();
 
+            return redirect()->route('login');
+        });
+
+    });
 });
 
 
