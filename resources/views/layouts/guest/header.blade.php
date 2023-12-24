@@ -220,7 +220,7 @@
                                         <i class="far fa-shopping-cart"></i>
                                         <span class="badge">5</span>
                                     </button>
-                                    <a href="contact.html" class="th-btn ml-25">Kontak Kami <i
+                                    <a href="{{route('indagkop.tv')}}" class="th-btn ml-25">Indagkop TV <i
                                             class="fas fa-arrow-right ms-1"></i></a>
                                 </div>
                             </div>

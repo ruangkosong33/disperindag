@@ -9,120 +9,29 @@
             </div>
             <div class="col-auto">
                 <div class="sec-btn">
-                    <a href="course.html" class="th-btn">Lihat Semua Pengumuman<i
+                    <a href="{{route('semua.pengumuman')}}" class="th-btn">Lihat Semua Pengumuman<i
                             class="fas fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
         </div>
         <div class="row gy-4">
+            @forelse ($pengumuman as $item)
             <div class="col-lg-6 col-xl-4">
                 <div class="category-list2">
                     {{-- <div class="category-list2_icon">
                         <img src="assets/img/update1/icon/category_2_1.svg" alt="icon">
                     </div> --}}
                     <div class="category-list2_content">
-                        <h3 class="category-list2_title"><a href="course.html">Web Development</a></h3>
+                        <h3 class="category-list2_title"><a href="{{route('detail.pengumuman', $item->slug)}}">{{$item->title}}</a></h3>
                         {{-- <span class="category-list2_text">256 Courses</span> --}}
                     </div>
                     <a href="course.html" class="icon-btn"><i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            <div class="col-lg-6 col-xl-4">
-                <div class="category-list2">
-                    {{-- <div class="category-list2_icon">
-                        <img src="assets/img/update1/icon/category_2_1.svg" alt="icon">
-                    </div> --}}
-                    <div class="category-list2_content">
-                        <h3 class="category-list2_title"><a href="course.html">Digital Marketing</a></h3>
-                        {{-- <span class="category-list2_text">356 Courses</span> --}}
-                    </div>
-                    <a href="course.html" class="icon-btn"><i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-4">
-                <div class="category-list2">
-                    {{-- <div class="category-list2_icon">
-                        <img src="assets/img/update1/icon/category_2_1.svg" alt="icon">
-                    </div> --}}
-                    <div class="category-list2_content">
-                        <h3 class="category-list2_title"><a href="course.html">UI/UX Design</a></h3>
-                        {{-- <span class="category-list2_text">456 Courses</span> --}}
-                    </div>
-                    <a href="course.html" class="icon-btn"><i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-4">
-                <div class="category-list2">
-                    {{-- <div class="category-list2_icon">
-                        <img src="assets/img/update1/icon/category_2_1.svg" alt="icon">
-                    </div> --}}
-                    <div class="category-list2_content">
-                        <h3 class="category-list2_title"><a href="course.html">Finance Managment</a></h3>
-                        {{-- <span class="category-list2_text">156 Courses</span> --}}
-                    </div>
-                    <a href="course.html" class="icon-btn"><i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-4">
-                <div class="category-list2">
-                    {{-- <div class="category-list2_icon">
-                        <img src="assets/img/update1/icon/category_2_1.svg" alt="icon">
-                    </div> --}}
-                    <div class="category-list2_content">
-                        <h3 class="category-list2_title"><a href="course.html">Graphic Design</a></h3>
-                        {{-- <span class="category-list2_text">220 Courses</span> --}}
-                    </div>
-                    <a href="course.html" class="icon-btn"><i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-4">
-                <div class="category-list2">
-                    {{-- <div class="category-list2_icon">
-                        <img src="assets/img/update1/icon/category_2_1.svg" alt="icon">
-                    </div> --}}
-                    <div class="category-list2_content">
-                        <h3 class="category-list2_title"><a href="course.html">Product Marketing</a></h3>
-                        {{-- <span class="category-list2_text">230 Courses</span> --}}
-                    </div>
-                    <a href="course.html" class="icon-btn"><i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-4">
-                <div class="category-list2">
-                    {{-- <div class="category-list2_icon">
-                        <img src="assets/img/update1/icon/category_2_1.svg" alt="icon">
-                    </div> --}}
-                    <div class="category-list2_content">
-                        <h3 class="category-list2_title"><a href="course.html">Music Production</a></h3>
-                        {{-- <span class="category-list2_text">226 Courses</span> --}}
-                    </div>
-                    <a href="course.html" class="icon-btn"><i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-4">
-                <div class="category-list2">
-                    {{-- <div class="category-list2_icon">
-                        <img src="assets/img/update1/icon/category_2_1.svg" alt="icon">
-                    </div> --}}
-                    <div class="category-list2_content">
-                        <h3 class="category-list2_title"><a href="course.html">Lifestyle Course</a></h3>
-                        {{-- <span class="category-list2_text">346 Courses</span> --}}
-                    </div>
-                    <a href="course.html" class="icon-btn"><i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-4">
-                <div class="category-list2">
-                    {{-- <div class="category-list2_icon">
-                        <img src="assets/img/update1/icon/category_2_1.svg" alt="icon">
-                    </div> --}}
-                    <div class="category-list2_content">
-                        <h3 class="category-list2_title"><a href="course.html">Business Growth</a></h3>
-                        {{-- <span class="category-list2_text">310 Courses</span> --}}
-                    </div>
-                    <a href="course.html" class="icon-btn"><i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
+            @empty
+                Tidak ada data
+            @endforelse
+
         </div>
     </div>
 </section>

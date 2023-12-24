@@ -1,7 +1,7 @@
 @extends('layouts.guest.master')
 
 @section('content')
-    @include('components.guest.slider')
+    @include('components.guest.slider', ['banners' => $banners])
 
     <div class="cta-area-1" data-bg-src="assets/img/bg/cta-bg1.png">
         <div class="container">
@@ -29,7 +29,7 @@
 
     @include('components.guest.home-recent-news', ['recent_posts' => $recent_posts])
 
-    @include('components.guest.home-pengumuman')
+    @include('components.guest.home-pengumuman', ['pengumuman' => $pengumuman])
 
     @include('components.guest.home-agenda', ['events' => $events])
 

@@ -1,30 +1,31 @@
 <div class="th-hero-wrapper hero-3 hero-6" id="hero">
     <div class="hero-slider-2 th-carousel" id="heroSlide6" data-fade="true" data-slide-show="1" data-md-slide-show="1"
         data-arrows="true">
-        <div class="th-hero-slide">
-            <div class="th-hero-bg" data-bg-src="{{ asset('images/banners/p5IBG7Haj.jpg') }}"></div>
-            <div class="container">
-                <div class="row align-items-center justify-content-center" style="height: 500px">
-                    <div class="col-lg-12">
-                        <div class="hero-style3 text-center">
+        @forelse($banners as $item)
+            <div class="th-hero-slide">
+                <div class="th-hero-bg" data-bg-src="{{ asset('storage/image-banner/' . $item->image) }}"></div>
+                <div class="container">
+                    <div class="row align-items-center justify-content-center" style="height: 500px">
+                        <div class="col-lg-12">
+                            <div class="hero-style3 text-center">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-
-        <div class="th-hero-slide">
-            <div class="th-hero-bg" data-bg-src="{{ asset('images/banners/banner-2.jpg') }}"></div>
-            <div class="container">
-                <div class="row align-items-center justify-content-center" style="height: 500px">
-                    <div class="col-lg-12">
-                        <div class="hero-style3 text-center">
+        @empty
+            <div class="th-hero-slide">
+                <div class="th-hero-bg" data-bg-src="{{ asset('images/banners/p5IBG7Haj.jpg') }}"></div>
+                <div class="container">
+                    <div class="row align-items-center justify-content-center" style="height: 500px">
+                        <div class="col-lg-12">
+                            <div class="hero-style3 text-center">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endforelse
     </div>
     <div class="hero-shape shape1 movingX d-md-block d-none">
         <img src="{{ asset('assets/img/hero/shape_3_1.png') }}" alt="shape">

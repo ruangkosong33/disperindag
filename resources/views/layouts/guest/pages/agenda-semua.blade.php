@@ -12,12 +12,12 @@
                     <div class="col-lg-6 col-xl-4">
                         <div class="event-card">
                             <div class="event-card_img" data-mask-src="{{asset('assets/img/event/event_img-shape.png')}}">
-                                <img src="{{asset('assets/img/event/event_img-1.png')}}" alt="event">
+                                <img src="{{asset('images/event-big.png')}}" alt="event">
                             </div>
                             <div class="event-card_content">
                                 <div class="event-author">
                                     <div class="avater">
-                                        <img src="{{asset('assets/img/event/event-author1.png')}}" alt="avater">
+                                        <img src="{{asset('images/event.png')}}" alt="avater">
                                     </div>
                                     <div class="details">
                                         {{-- <span class="author-name">David Smith</span>

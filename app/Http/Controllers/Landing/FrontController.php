@@ -1,12 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Landing;
 
+use App\Models\Banner;
 use App\Models\Commodity;
 use App\Models\Event;
+use App\Models\Info;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Models\Video;
+use App\Http\Controllers\Controller;
 
 class FrontController extends Controller
 {
@@ -28,6 +31,10 @@ class FrontController extends Controller
             $q->where('title', 'Info Publik');
         })->orderBy('date', 'DESC')->orderBy('id', 'DESC')->limit(6)->get();
 
+        $pengumuman = Info::orderBy('date', 'DESC')->orderBy('id', 'DESC')->limit(9)->get();
+
+        $banners = Banner::orderBy('id', 'DESC')->limit(5)->get();
+
         return view('home-front', compact([
             'video',
             'recent_posts',
@@ -36,6 +43,8 @@ class FrontController extends Controller
             'seputar',
             'articles',
             'info_public',
+            'pengumuman',
+            'banners',
         ]));
     }
 
@@ -55,5 +64,11 @@ class FrontController extends Controller
     {
         $items = Commodity::orderBy('date', 'DESC')->orderBy('id', 'DESC')->paginate(20);
         return view('layouts.guest.pages.harga-komoditi', compact('items'));
+    }
+
+    public function indagkopTv()
+    {
+        $items = Video::orderBy('id', 'DESC')->paginate(20);
+        return view('layouts.guest.pages.tv-indagkop', compact('items'));
     }
 }

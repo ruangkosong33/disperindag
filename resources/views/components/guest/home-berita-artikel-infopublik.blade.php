@@ -19,15 +19,21 @@
                 <div class="col-md-6 col-xl-4">
                     <div class="th-blog blog-single style2">
                         <div class="blog-img">
-                            <a href="{{ route('detail.berita', $item->slug) }}"><img
-                                    src="{{ asset('images/default-lanskap.jpg') }}" alt="Blog Image"></a>
+                            <a href="{{ route('detail.berita', $item->slug) }}">
+                                @if ($item->image)
+                                    <img src="{{ asset('storage/image-post/' . $post->image) }}" alt="">
+                                @else
+                                    <img src="{{ asset('images/default-lanskap.jpg') }}" alt="Blog Image">
+                                @endif
+                            </a>
+
                         </div>
                         <div class="blog-content">
                             <div class="blog-meta">
                                 <a class="author" href="{{ route('detail.berita', $item->slug) }}"><i
                                         class="fa-light fa-user"></i>by David Smith</a>
-                                <a href="{{ route('detail.berita', $item->slug) }}"><i class="fa-light fa-clock"></i>05
-                                    Jun, 2023</a>
+                                <a href="{{ route('detail.berita', $item->slug) }}"><i
+                                        class="fa-light fa-clock"></i>{{ $item->date }}</a>
                             </div>
                             <h4 class="box-title"><a
                                     href="{{ route('detail.berita', $item->slug) }}">{{ $item->title }}</a>
@@ -61,16 +67,19 @@
             @forelse($articles as $item)
                 <div class="col-md-6 col-xl-4">
                     <div class="th-blog blog-single style2">
-                        <div class="blog-img">
-                            <a href="{{ route('detail.berita', $item->slug) }}"><img
-                                    src="{{ asset('images/default-lanskap.jpg') }}" alt="Blog Image"></a>
-                        </div>
+                        <a href="{{ route('detail.berita', $item->slug) }}">
+                            @if ($item->image)
+                                <img src="{{ asset('storage/image-post/' . $post->image) }}" alt="">
+                            @else
+                                <img src="{{ asset('images/default-lanskap.jpg') }}" alt="Blog Image">
+                            @endif
+                        </a>
                         <div class="blog-content">
                             <div class="blog-meta">
                                 <a class="author" href="{{ route('detail.berita', $item->slug) }}"><i
                                         class="fa-light fa-user"></i>by David Smith</a>
-                                <a href="{{ route('detail.berita', $item->slug) }}"><i class="fa-light fa-clock"></i>05
-                                    Jun, 2023</a>
+                                <a href="{{ route('detail.berita', $item->slug) }}"><i
+                                        class="fa-light fa-clock"></i>{{ $item->date }}</a>
                             </div>
                             <h4 class="box-title"><a
                                     href="{{ route('detail.berita', $item->slug) }}">{{ $item->title }}</a>
@@ -105,16 +114,19 @@
             @forelse($info_public as $item)
                 <div class="col-md-6 col-xl-4">
                     <div class="th-blog blog-single style2">
-                        <div class="blog-img">
-                            <a href="{{ route('detail.berita', $item->slug) }}"><img
-                                    src="{{ asset('images/default-lanskap.jpg') }}" alt="Blog Image"></a>
-                        </div>
+                        <a href="{{ route('detail.berita', $item->slug) }}">
+                            @if ($item->image)
+                                <img src="{{ asset('storage/image-post/' . $post->image) }}" alt="">
+                            @else
+                                <img src="{{ asset('images/default-lanskap.jpg') }}" alt="Blog Image">
+                            @endif
+                        </a>
                         <div class="blog-content">
                             <div class="blog-meta">
                                 <a class="author" href="{{ route('detail.berita', $item->slug) }}"><i
                                         class="fa-light fa-user"></i>by David Smith</a>
-                                <a href="{{ route('detail.berita', $item->slug) }}"><i class="fa-light fa-clock"></i>05
-                                    Jun, 2023</a>
+                                <a href="{{ route('detail.berita', $item->slug) }}"><i
+                                        class="fa-light fa-clock"></i>{{ $item->date }}</a>
                             </div>
                             <h4 class="box-title"><a
                                     href="{{ route('detail.berita', $item->slug) }}">{{ $item->title }}</a>

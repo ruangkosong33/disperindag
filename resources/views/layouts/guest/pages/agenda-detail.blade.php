@@ -10,9 +10,6 @@
             <div class="row">
                 <div class="col-xxl-9 col-lg-8">
                     <div class="event-details-wrap">
-                        <div class="event-img">
-                            <img src="{{asset('assets/img/event/event_details.png')}}" alt="Event Image">
-                        </div>
                         <h3 class="h3 mt-n2">{{$item->title}}</h3>
                         {!! $item->description !!}
                     </div>

@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\Landing\PengumumanController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PageController;
-use App\Http\Controllers\FrontController;
-use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\Landing\PageController;
+use App\Http\Controllers\Landing\FrontController;
+use App\Http\Controllers\Landing\ArticleController;
 use App\Http\Controllers\Media\PhotoController;
 use App\Http\Controllers\Media\VideoController;
 use App\Http\Controllers\AboutUs\TaskController;
@@ -76,6 +77,9 @@ Route::get('/bidang-dan-uptd/{slug}', [PageController::class, 'division'])->name
 Route::get('/agenda', [FrontController::class, 'semuaAgenda'])->name('semua.agenda');
 Route::get('/agenda/{slug}', [FrontController::class, 'detailAgenda'])->name('detail.agenda');
 Route::get('/harga-komoditi', [FrontController::class, 'hargaKomoditi'])->name('harga.komoditi');
+Route::get('/pengumuman', [PengumumanController::class, 'semua'])->name('semua.pengumuman');
+Route::get('/pengumuman/{slug}', [PengumumanController::class, 'detail'])->name('detail.pengumuman');
+Route::get('/indagkop-tv', [FrontController::class, 'indagkopTv'])->name('indagkop.tv');
 //
 
 Auth::routes();

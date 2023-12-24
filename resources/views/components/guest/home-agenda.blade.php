@@ -13,12 +13,12 @@
                 <div class="col-lg-6 col-xl-4">
                     <div class="event-card">
                         <div class="event-card_img" data-mask-src="{{asset('assets/img/event/event_img-shape.png')}}">
-                            <img src="{{asset('assets/img/event/event_img-1.png')}}" alt="event">
+                            <img src="{{asset('images/event-big.png')}}" alt="event">
                         </div>
                         <div class="event-card_content">
                             <div class="event-author">
                                 <div class="avater">
-                                    <img src="{{asset('assets/img/event/event-author1.png')}}" alt="avater">
+                                    <img src="{{asset('images/event.png')}}" alt="avater">
                                 </div>
                                 <div class="details">
                                     {{-- <span class="author-name">David Smith</span>
@@ -31,7 +31,7 @@
                             </div>
                             <h3 class="event-card_title"><a href="#">{{$item->title}}</a></h3>
                             <div class="event-card_bottom">
-                                <a href="#" class="th-btn">Lihat Kegiatan <i
+                                <a href="{{route('detail.agenda', $item->slug)}}" class="th-btn">Lihat Kegiatan <i
                                         class="far fa-arrow-right ms-1"></i></a>
                             </div>
                             <div class="event-card-shape jump">

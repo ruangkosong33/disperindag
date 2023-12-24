@@ -11,13 +11,16 @@
 
             <div class="course-grid2">
                 <div class="course-img">
-                    <img src="images/image-indagkop-tv.jpg" alt="course">
-                    @if($video && !$video->link)
-                    <a href="{{$video->link}}" class="play-btn popup-video"><i
-                            class="fas fa-play"></i></a>
+                    @if ($video->image)
+                        <img src="{{asset('storage/image-video/'.$video->image)}}" alt="course">
                     @else
-                    <a href="https://www.youtube.com/watch?v=nPzLvVOWSEg" class="play-btn popup-video"><i
-                        class="fas fa-play"></i></a>
+                        <img src="images/image-indagkop-tv.jpg" alt="course">
+                    @endif
+                    @if ($video && !$video->link)
+                        <a href="{{ $video->link }}" class="play-btn popup-video"><i class="fas fa-play"></i></a>
+                    @else
+                        <a href="https://www.youtube.com/watch?v=nPzLvVOWSEg" class="play-btn popup-video"><i
+                                class="fas fa-play"></i></a>
                     @endif
                 </div>
                 <div class="course-content">

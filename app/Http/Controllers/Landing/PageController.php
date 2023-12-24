@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Landing;
 
 use App\Models\Division;
 use App\Models\History;
@@ -10,6 +10,7 @@ use App\Models\Structure;
 use App\Models\Task;
 use App\Models\Vision;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class PageController extends Controller
 {
