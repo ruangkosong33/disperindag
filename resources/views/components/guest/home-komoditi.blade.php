@@ -26,7 +26,7 @@
             @endforelse
         </div>
         <div class="text-center">
-            <a href="course.html" class="th-btn">Lihat Semua Daftar Harga<i
+            <a href="{{route('harga.komoditi')}}" class="th-btn">Lihat Semua Daftar Harga<i
                     class="fa-solid fa-arrow-right ms-2"></i></a>
         </div>
     </div>

@@ -1,3 +1,52 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Jost:wght@300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700&display=swap");
 
 @import 'vendor_import';
+
+.counter-year {
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    background: #fff;
+    text-align: center;
+    width: 190px;
+    padding: 25px 30px 10px;
+    margin: 0 auto;
+    border-radius: 30px 0;
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 1;
+}
+
+.counter-year .counter-icon {
+    font-size: 35px;
+    margin: 0 0 10px;
+    transform: rotateX(0deg);
+    transition: all 0.3s ease 0s;
+}
+
+.counter-year:hover .counter-icon {
+    transform: rotateX(360deg);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.counter-year h3 {
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 20px;
+    color: #fff;
+}
+
+.counter-year .counter-value {
+    color: #666;
+    background: #fff;
+    font-size: 33px;
+    font-weight: 600;
+    text-align: right;
+    line-height: 60px;
+    width: 90%;
+    height: 50px;
+    padding: 0 15px;
+    margin: 0 0 0 -20px;
+    display: block;
+}

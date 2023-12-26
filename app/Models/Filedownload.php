@@ -11,7 +11,7 @@ class Filedownload extends Model
 {
     use HasFactory, Sluggable;
 
-    protected $table='filedownloads';
+    protected $table='file_downloads';
 
     protected $fillable=['title', 'slug', 'file', 'date'];
 

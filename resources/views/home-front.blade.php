@@ -49,7 +49,7 @@
                             <h2 class="cta-title sec-title">Download File</h2>
                             {{-- <p class="cta-text">Met consectetur adipiscing sed eiustempore dolore</p> --}}
                         </div>
-                        <a href="about.html" class="th-btn style8">Kunjungi Halaman<i
+                        <a href="{{route('download.front.index')}}" class="th-btn style8">Kunjungi Halaman<i
                                 class="fas fa-arrow-right ms-1"></i></a>
                     </div>
                 </div>

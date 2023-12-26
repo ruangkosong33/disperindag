@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Landing\PengumumanController;
+use App\Http\Controllers\Landing\ProgramKegiatanController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -72,15 +73,44 @@ Route::get('/sejarah', [PageController::class, 'history'])->name('history');
 Route::get('/struktur-organisasi', [PageController::class, 'structure'])->name('structure');
 Route::get('/arah-kebijakan', [PageController::class, 'regulation'])->name('regulation');
 Route::get('/tupoksi', [PageController::class, 'task'])->name('task');
+// PPID
 Route::get('/profil-ppid', [PageController::class, 'profilePpid'])->name('profil.ppid');
+Route::get('/struktur-ppid', [PageController::class, 'structurePpid'])->name('struktur.ppid');
+Route::get('/dasar-hukum-ppid', [PageController::class, 'dasarHukumPpid'])->name('dasar.hukum.ppid');
+Route::get('/maklumat-pelayanan-ppid', [PageController::class, 'maklumatPelayananPpid'])->name('maklumat.pelayanan.ppid');
+// Route::get('/panduan-ppid', [PageController::class, 'dasarHukumPpid'])->name('panduan.ppid');
+
+// bidang & Uptd
 Route::get('/bidang-dan-uptd/{slug}', [PageController::class, 'division'])->name('division');
+Route::get('/data-pegawai/{slug}', [PageController::class, 'divisionDataPegawai'])->name('division.datapegawai');
+//
 Route::get('/agenda', [FrontController::class, 'semuaAgenda'])->name('semua.agenda');
 Route::get('/agenda/{slug}', [FrontController::class, 'detailAgenda'])->name('detail.agenda');
 Route::get('/harga-komoditi', [FrontController::class, 'hargaKomoditi'])->name('harga.komoditi');
 Route::get('/pengumuman', [PengumumanController::class, 'semua'])->name('semua.pengumuman');
 Route::get('/pengumuman/{slug}', [PengumumanController::class, 'detail'])->name('detail.pengumuman');
 Route::get('/indagkop-tv', [FrontController::class, 'indagkopTv'])->name('indagkop.tv');
-//
+Route::get('/kepala-dinas', [PageController::class, 'kepalaDinas'])->name('kepala.dinas');
+// renstra
+Route::get('renstra', [ProgramKegiatanController::class, 'renstraIndex'])->name('renstra.front.index');
+Route::get('renstra/tahun/{year}', [ProgramKegiatanController::class, 'renstraTahun'])->name('renstra.front.year');
+Route::get('renstra/detail/{slug}', [ProgramKegiatanController::class, 'renstraDetail'])->name('renstra.front.detail');
+// renja
+Route::get('renja', [ProgramKegiatanController::class, 'renjaIndex'])->name('renja.front.index');
+Route::get('renja/tahun/{year}', [ProgramKegiatanController::class, 'renjaTahun'])->name('renja.front.year');
+Route::get('renja/detail/{slug}', [ProgramKegiatanController::class, 'renjaDetail'])->name('renja.front.detail');
+// iku
+Route::get('iku', [ProgramKegiatanController::class, 'ikuIndex'])->name('iku.front.index');
+Route::get('iku/tahun/{year}', [ProgramKegiatanController::class, 'ikuTahun'])->name('iku.front.year');
+Route::get('iku/detail/{slug}', [ProgramKegiatanController::class, 'ikuDetail'])->name('iku.front.detail');
+// sop
+Route::get('sop', [ProgramKegiatanController::class, 'sopIndex'])->name('sop.front.index');
+Route::get('sop/child/{slug}', [ProgramKegiatanController::class, 'sopTahun'])->name('sop.front.year');
+Route::get('sop/detail/{slug}', [ProgramKegiatanController::class, 'sopDetail'])->name('sop.front.detail');
+// Download File
+Route::get('download', [ProgramKegiatanController::class, 'downloadIndex'])->name('download.front.index');
+Route::get('download/child/{slug}', [ProgramKegiatanController::class, 'downloadChild'])->name('download.front.child');
+Route::get('download/detail/{slug}', [ProgramKegiatanController::class, 'downloadDetail'])->name('download.front.detail');
 
 Auth::routes();
 

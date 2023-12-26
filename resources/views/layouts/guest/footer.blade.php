@@ -1,9 +1,9 @@
 <footer class="footer-wrapper footer-layout1" data-bg-src="assets/img/bg/footer-bg.png">
     <div class="shape-mockup footer-shape1 jump" data-left="60px" data-top="70px">
-        <img src="{{asset('assets/img/normal/footer-bg-shape1.png')}}" alt="img">
+        <img src="{{ asset('assets/img/normal/footer-bg-shape1.png') }}" alt="img">
     </div>
     <div class="shape-mockup footer-shape2 jump-reverse" data-right="80px" data-bottom="120px">
-        <img src="{{asset('assets/img/normal/footer-bg-shape2.png')}}" alt="img">
+        <img src="{{ asset('assets/img/normal/footer-bg-shape2.png') }}" alt="img">
     </div>
     <div class="footer-top">
         <div class="container">
@@ -40,7 +40,7 @@
             </div>
         </div>
     </div>
-    <div class="footer-wrap" data-bg-src="{{asset('assets/img/bg/jiji.png')}}">
+    <div class="footer-wrap" data-bg-src="{{ asset('assets/img/bg/jiji.png') }}">
         <div class="widget-area">
             <div class="container">
                 <div class="row justify-content-between">
@@ -48,9 +48,12 @@
                         <div class="widget footer-widget">
                             <div class="th-widget-about">
                                 <div class="about-logo">
-                                    <a href="index.html"><img src="{{ asset('images/logo-indagkop-transparent.png') }}" alt="Edura"></a>
+                                    <a href="index.html"><img src="{{ asset('images/logo-indagkop-transparent.png') }}"
+                                            alt="Edura"></a>
                                 </div>
-                                <p class="about-text">Sebuah Lembaga Pemerintah Provinsi Kalimantan Timur Yang Bertanggung Jawab Dalam Pengelolaan Perindustrian, Perdagangan, Koperasi, Usaha Kecil dan Menengah.</p>
+                                <p class="about-text">Sebuah Lembaga Pemerintah Provinsi Kalimantan Timur Yang
+                                    Bertanggung Jawab Dalam Pengelolaan Perindustrian, Perdagangan, Koperasi, Usaha
+                                    Kecil dan Menengah.</p>
                                 <div class="th-social">
                                     <h6 class="title text-white">IKUTI KAMI DI:</h6>
                                     <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
@@ -77,7 +80,8 @@
                     <div class="col-md-6 col-xl-auto">
                         <div class="widget widget_nav_menu footer-widget">
                             <h3 class="widget_title">STATISTIK</h3>
-                            <div class="menu-all-pages-container">
+                            <div id="histats_counter"></div>
+                            {{-- <div class="menu-all-pages-container">
                                 <ul class="menu">
                                     <li><a href="contact.html">Community</a></li>
                                     <li><a href="contact.html">Support</a></li>
@@ -86,7 +90,7 @@
                                     <li><a href="contact.html">Security</a></li>
                                     <li><a href="contact.html">Template</a></li>
                                 </ul>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -96,14 +100,15 @@
             <div class="copyright-wrap">
                 <div class="row justify-content-between align-items-center">
                     <div class="col-md-6">
-                        <p class="copyright-text">Copyright © 2023 <a href="index.html">Indagkop Kaltim</a> All Rights Reserved.</p>
+                        <p class="copyright-text">Copyright © 2023 <a href="index.html">Indagkop Kaltim</a> All Rights
+                            Reserved.</p>
                     </div>
                     <div class="col-md-6 text-end d-none d-md-block">
                         <div class="footer-links">
-                            <ul>
+                            {{-- <ul>
                                 <li><a href="about.html">Privacy Policy</a></li>
                                 <li><a href="about.html">Terms & Condition</a></li>
-                            </ul>
+                            </ul> --}}
                         </div>
                     </div>
                 </div>
@@ -111,3 +116,21 @@
         </div>
     </div>
 </footer>
+
+@push('script')
+    <script type="text/javascript">
+        var _Hasync = _Hasync || [];
+        _Hasync.push(['Histats.start', '1,4832513,4,423,112,75,00011111']);
+        _Hasync.push(['Histats.fasi', '1']);
+        _Hasync.push(['Histats.track_hits', '']);
+        (function() {
+            var hs = document.createElement('script');
+            hs.type = 'text/javascript';
+            hs.async = true;
+            hs.src = ('//s10.histats.com/js15_as.js');
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+        })();
+    </script>
+    <noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?4832513&101" alt=""
+                border="0"></a></noscript>
+@endpush

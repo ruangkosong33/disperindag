@@ -30,6 +30,6 @@ class Fileperform extends Model
     //RELATION
     public function performs(): BelongsTo
     {
-        return $this->belongsTo(Perform::class);
+        return $this->belongsTo(Perform::class, 'perform_id');
     }
 }

@@ -21,6 +21,7 @@
 
     <!-- Scripts -->
     @vite('resources/sass/app-guest.scss')
+    @stack('style')
 </head>
 
 <body>
@@ -82,6 +83,7 @@
     <!-- Main Js File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
     @vite('resources/js/app-guest.js')
+    @stack('script')
 </body>
 
 </html>

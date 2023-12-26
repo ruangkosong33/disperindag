@@ -30,6 +30,6 @@ class Fileiku extends Model
     //RELATION
     public function ikus(): BelongsTo
     {
-        return $this->belongsTo(Iku::class);
+        return $this->belongsTo(Iku::class, 'iku_id');
     }
 }

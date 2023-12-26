@@ -30,6 +30,6 @@ class Filerenstra extends Model
     //RELATION
     public function renstras(): BelongsTo
     {
-        return $this->belongsTo(Renstra::class);
+        return $this->belongsTo(Renstra::class, 'renstra_id');
     }
 }

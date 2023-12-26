@@ -137,7 +137,7 @@
                                                 <li><a href="{{route('task')}}">Tupoksi</a></li>
                                                 <li><a href="{{route('structure')}}">Struktur Organisasi</a></li>
                                                 <li><a href="{{route('regulation')}}">Arah Kebijakan</a></li>
-                                                <li><a href="#">Kepala Dinas</a></li>
+                                                <li><a href="{{route('kepala.dinas')}}">Kepala Dinas</a></li>
                                                 <li class="menu-item-has-children"><a href="#">Bidang dan UPTD</a>
                                                     <ul class="sub-menu">
                                                         @foreach($divisions as $item)
@@ -150,12 +150,12 @@
                                         <li class="menu-item-has-children">
                                             <a href="#">Program & Kegiatan</a>
                                             <ul class="sub-menu">
-                                                <li><a href="#">Renstra</a></li>
-                                                <li><a href="#">Renja</a></li>
-                                                <li><a href="#">IKU</a></li>
+                                                <li><a href="{{route('renstra.front.index')}}">Renstra</a></li>
+                                                <li><a href="{{route('renja.front.index')}}">Renja</a></li>
+                                                <li><a href="{{route('iku.front.index')}}">IKU</a></li>
                                                 <li><a href="#">LKJIP</a></li>
                                                 <li><a href="#">LPPD</a></li>
-                                                <li><a href="#">SOP</a></li>
+                                                <li><a href="{{route('sop.front.index')}}">SOP</a></li>
                                             </ul>
                                         </li>
                                         <li class="menu-item-has-children">
@@ -184,9 +184,9 @@
                                             <a href="#">PPID</a>
                                             <ul class="sub-menu">
                                                 <li><a href="{{route('profil.ppid')}}">Profile PPID</a></li>
-                                                <li><a href="#">Struktur organisasi <br> PPID</a></li>
-                                                <li><a href="#">Dasar Hukum</a></li>
-                                                <li><a href="#">Maklumat pelayanan</a></li>
+                                                <li><a href="{{route('struktur.ppid')}}">Struktur organisasi <br> PPID</a></li>
+                                                <li><a href="{{route('dasar.hukum.ppid')}}">Dasar Hukum</a></li>
+                                                <li><a href="{{route('maklumat.pelayanan.ppid')}}">Maklumat pelayanan</a></li>
                                                 <li><a href="#">Panduan</a></li>
                                                 <li><a href="#">Permohonan informasi</a></li>
                                                 <li><a href="#">Permohonan Keberatan <br> Informasi</a></li>
