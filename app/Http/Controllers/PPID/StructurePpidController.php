@@ -41,7 +41,7 @@ class StructurePpidController extends Controller
             $file=$request->file('image');
             $extension=$file->getClientOriginalName();
             $images=$extension;
-            $file->storeAs('public/image-structurePPID', $images);
+            $file->storeAs('public/image-structure-ppid', $images);
         }
         else{
             $images=null;
@@ -89,7 +89,7 @@ class StructurePpidController extends Controller
             $file=$request->file('image');
             $extension=$file->getClientOriginalName();
             $images=$extension;
-            $file->storeAs('public/image-structurePPID', $images);
+            $file->storeAs('public/image-structure-ppid', $images);
         }
         else{
             $images=$structureppid->image;

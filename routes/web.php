@@ -1,13 +1,8 @@
 <?php
 
-use App\Http\Controllers\Landing\PengumumanController;
-use App\Http\Controllers\Landing\ProgramKegiatanController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Landing\PageController;
-use App\Http\Controllers\Landing\FrontController;
-use App\Http\Controllers\Landing\ArticleController;
 use App\Http\Controllers\Media\PhotoController;
 use App\Http\Controllers\Media\VideoController;
 use App\Http\Controllers\AboutUs\TaskController;
@@ -15,9 +10,11 @@ use App\Http\Controllers\Activity\IkuController;
 use App\Http\Controllers\Activity\SopController;
 use App\Http\Controllers\Article\InfoController;
 use App\Http\Controllers\Article\PostController;
+use App\Http\Controllers\Landing\PageController;
 use App\Http\Controllers\Media\BannerController;
 use App\Http\Controllers\PPID\LawPpidController;
 use App\Http\Controllers\AboutUs\KadisController;
+use App\Http\Controllers\Landing\FrontController;
 use App\Http\Controllers\PPID\CostPpidController;
 use App\Http\Controllers\AboutUs\PolicyController;
 use App\Http\Controllers\AboutUs\VisionController;
@@ -25,6 +22,7 @@ use App\Http\Controllers\InfoPublic\DipController;
 use App\Http\Controllers\AboutUs\HistoryController;
 use App\Http\Controllers\AboutUs\ProfileController;
 use App\Http\Controllers\Activity\NeracaController;
+use App\Http\Controllers\Landing\ArticleController;
 use App\Http\Controllers\PPID\VisionPpidController;
 use App\Http\Controllers\Activity\AchieveController;
 use App\Http\Controllers\Activity\FileIkuController;
@@ -39,6 +37,8 @@ use App\Http\Controllers\Information\EventController;
 use App\Http\Controllers\PPID\MaklumatPpidController;
 use App\Http\Controllers\AboutUs\RegulationController;
 use App\Http\Controllers\InfoPublic\FileDipController;
+use App\Http\Controllers\Landing\PengumumanController;
+use App\Http\Controllers\PPID\StructurePpidController;
 use App\Http\Controllers\Activity\EvaluationController;
 use App\Http\Controllers\Activity\FileNeracaController;
 use App\Http\Controllers\Activity\FileAchieveController;
@@ -48,8 +48,10 @@ use App\Http\Controllers\Information\DownloadController;
 use App\Http\Controllers\Information\CommodityController;
 use App\Http\Controllers\Organization\DivisionController;
 use App\Http\Controllers\Organization\EmployeeController;
+use App\Http\Controllers\PPID\GuideInformationController;
 use App\Http\Controllers\Activity\FileEvaluationController;
 use App\Http\Controllers\Information\InfographicController;
+use App\Http\Controllers\Landing\ProgramKegiatanController;
 use App\Http\Controllers\Information\FileDownloadController;
 
 /*
@@ -63,7 +65,6 @@ use App\Http\Controllers\Information\FileDownloadController;
 |
 */
 
-
 //LANDING
 Route::get('/', [FrontController::class, 'beranda'])->name('beranda');
 Route::get('/berita', [ArticleController::class, 'semuaBerita'])->name('semua.berita');
@@ -73,6 +74,7 @@ Route::get('/sejarah', [PageController::class, 'history'])->name('history');
 Route::get('/struktur-organisasi', [PageController::class, 'structure'])->name('structure');
 Route::get('/arah-kebijakan', [PageController::class, 'regulation'])->name('regulation');
 Route::get('/tupoksi', [PageController::class, 'task'])->name('task');
+
 // PPID
 Route::get('/profil-ppid', [PageController::class, 'profilePpid'])->name('profil.ppid');
 Route::get('/struktur-ppid', [PageController::class, 'structurePpid'])->name('struktur.ppid');
@@ -80,7 +82,7 @@ Route::get('/dasar-hukum-ppid', [PageController::class, 'dasarHukumPpid'])->name
 Route::get('/maklumat-pelayanan-ppid', [PageController::class, 'maklumatPelayananPpid'])->name('maklumat.pelayanan.ppid');
 // Route::get('/panduan-ppid', [PageController::class, 'dasarHukumPpid'])->name('panduan.ppid');
 
-// bidang & Uptd
+//BIDANG & UPTD
 Route::get('/bidang-dan-uptd/{slug}', [PageController::class, 'division'])->name('division');
 Route::get('/data-pegawai/{slug}', [PageController::class, 'divisionDataPegawai'])->name('division.datapegawai');
 //
@@ -91,23 +93,28 @@ Route::get('/pengumuman', [PengumumanController::class, 'semua'])->name('semua.p
 Route::get('/pengumuman/{slug}', [PengumumanController::class, 'detail'])->name('detail.pengumuman');
 Route::get('/indagkop-tv', [FrontController::class, 'indagkopTv'])->name('indagkop.tv');
 Route::get('/kepala-dinas', [PageController::class, 'kepalaDinas'])->name('kepala.dinas');
-// renstra
+
+//RENSTRA
 Route::get('renstra', [ProgramKegiatanController::class, 'renstraIndex'])->name('renstra.front.index');
 Route::get('renstra/tahun/{year}', [ProgramKegiatanController::class, 'renstraTahun'])->name('renstra.front.year');
 Route::get('renstra/detail/{slug}', [ProgramKegiatanController::class, 'renstraDetail'])->name('renstra.front.detail');
-// renja
+
+//RENJA
 Route::get('renja', [ProgramKegiatanController::class, 'renjaIndex'])->name('renja.front.index');
 Route::get('renja/tahun/{year}', [ProgramKegiatanController::class, 'renjaTahun'])->name('renja.front.year');
 Route::get('renja/detail/{slug}', [ProgramKegiatanController::class, 'renjaDetail'])->name('renja.front.detail');
-// iku
+
+//IKU
 Route::get('iku', [ProgramKegiatanController::class, 'ikuIndex'])->name('iku.front.index');
 Route::get('iku/tahun/{year}', [ProgramKegiatanController::class, 'ikuTahun'])->name('iku.front.year');
 Route::get('iku/detail/{slug}', [ProgramKegiatanController::class, 'ikuDetail'])->name('iku.front.detail');
-// sop
+
+//SOP
 Route::get('sop', [ProgramKegiatanController::class, 'sopIndex'])->name('sop.front.index');
 Route::get('sop/child/{slug}', [ProgramKegiatanController::class, 'sopTahun'])->name('sop.front.year');
 Route::get('sop/detail/{slug}', [ProgramKegiatanController::class, 'sopDetail'])->name('sop.front.detail');
-// Download File
+
+//DOWNLOAD FILE
 Route::get('download', [ProgramKegiatanController::class, 'downloadIndex'])->name('download.front.index');
 Route::get('download/child/{slug}', [ProgramKegiatanController::class, 'downloadChild'])->name('download.front.child');
 Route::get('download/detail/{slug}', [ProgramKegiatanController::class, 'downloadDetail'])->name('download.front.detail');
@@ -229,6 +236,8 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::resource('/maklumatppid', MaklumatPpidController::class);
         Route::resource('/serviceppid', ServicePpidController::class);
         Route::resource('/costppid', CostPpidController::class);
+        Route::resource('/structureppid', StructurePpidController::class);
+        Route::resource('/guideinformation', GuideInformationController::class);
 
         Route::resource('/dip', DipController::class);
         Route::get('/filedip/{dip}', [FileDipController::class, 'index'])->name('filedip.index');

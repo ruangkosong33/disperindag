@@ -32,4 +32,9 @@ class Dip extends Model
     {
         return $this->hasMany(Filedip::class);
     }
+
+    public function guideinformations(): HasMany
+    {
+        return $this->hasMany(Guideinformation::class);
+    }
 }

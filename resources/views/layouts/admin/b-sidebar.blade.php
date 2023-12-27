@@ -382,14 +382,14 @@
           </li>
 
           <li class="nav-item
-            {{request()->is('admin/profilppid*') ? 'menu-open' : ''}}
+            {{request()->is('admin/profileppid*') ? 'menu-open' : ''}}
             {{request()->is('admin/visionppid*') ? 'menu-open' : ''}}
             {{request()->is('admin/lawppid*') ? 'menu-open' : ''}}
             {{request()->is('admin/maklumatppid*') ? 'menu-open' : ''}}
             {{request()->is('admin/serviceppid*') ? 'menu-open' : ''}}
             {{request()->is('admin/costppid*') ? 'menu-open' : ''}}
-
-                                                            ">
+            {{request()->is('admin/structureppid*') ? 'menu-open' : ''}}
+                                                                            ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-folder"></i>
               <p>
@@ -399,9 +399,9 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('profileppid.index')}}" class="nav-link {{request()->is('admin/profilppid*') ? 'active' : ''}}">
+                <a href="{{route('profileppid.index')}}" class="nav-link {{request()->is('admin/profileppid*') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Profil PPID</p>
+                  <p>Profile PPID</p>
                 </a>
               </li>
             </ul>
@@ -415,7 +415,7 @@
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="{{route('structureppid.index')}}" class="nav-link {{request()->is('admin/structureppid*') ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Struktur Organisasi PPID</p>
                   </a>
@@ -439,7 +439,7 @@
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="{{route('guideinformation.index')}}" class="nav-link {{request()->is('admin/guideinformation*') ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Tata Cara Permohonan</p>
                   </a>

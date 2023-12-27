@@ -72,7 +72,7 @@ class VideoController extends Controller
      */
     public function edit(Video $video)
     {
-        return view('layouts.admin.pages.video.edit-video');
+        return view('layouts.admin.pages.video.edit-video', ['video'=>$video]);
     }
 
     /**
