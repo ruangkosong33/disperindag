@@ -11,44 +11,24 @@
 
             <div class="course-grid2">
                 <div class="course-img">
-                    @if ($video->image)
-                        <img src="{{asset('storage/image-video/'.$video->image)}}" alt="course">
+                    @if ($video)
+                        @if ($video->image)
+                            <img src="{{ asset('storage/image-video/' . $video->image) }}" alt="course">
+                        @else
+                            <img src="images/image-indagkop-tv.jpg" alt="course">
+                        @endif
+                        @if ($video && !$video->link)
+                            <a href="{{ $video->link }}" class="play-btn popup-video"><i class="fas fa-play"></i></a>
+                        @else
+                            <a href="https://www.youtube.com/watch?v=nPzLvVOWSEg" class="play-btn popup-video"><i
+                                    class="fas fa-play"></i></a>
+                        @endif
                     @else
-                        <img src="images/image-indagkop-tv.jpg" alt="course">
-                    @endif
-                    @if ($video && !$video->link)
-                        <a href="{{ $video->link }}" class="play-btn popup-video"><i class="fas fa-play"></i></a>
-                    @else
-                        <a href="https://www.youtube.com/watch?v=nPzLvVOWSEg" class="play-btn popup-video"><i
-                                class="fas fa-play"></i></a>
+                        Tidak ada video
                     @endif
                 </div>
                 <div class="course-content">
                     <h3 class="course-title"><a href="course-details.html">INDAGKOP TV</a></h3>
-                    {{-- <a href="course.html" class="course-author">by David Anfle Smith</a>
-                    <div class="course-meta">
-                        <div class="meta-box">
-                            <i class="fas fa-file"></i>
-                            <div>
-                                <span class="text">Total Lesson:</span>
-                                <span class="number">328</span>
-                            </div>
-                        </div>
-                        <div class="meta-box">
-                            <i class="fas fa-user"></i>
-                            <div>
-                                <span class="text">Total Students:</span>
-                                <span class="number">25,869</span>
-                            </div>
-                        </div>
-                        <div class="meta-box">
-                            <i class="fas fa-eye"></i>
-                            <div>
-                                <span class="text">Total Views:</span>
-                                <span class="number">1256k</span>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
         </div>

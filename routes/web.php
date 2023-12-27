@@ -53,6 +53,7 @@ use App\Http\Controllers\Activity\FileEvaluationController;
 use App\Http\Controllers\Information\InfographicController;
 use App\Http\Controllers\Landing\ProgramKegiatanController;
 use App\Http\Controllers\Information\FileDownloadController;
+use App\Http\Controllers\Landing\FormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,7 +67,8 @@ use App\Http\Controllers\Information\FileDownloadController;
 */
 
 //LANDING
-Route::get('/', [FrontController::class, 'beranda'])->name('beranda');
+Route::get('/', [FrontController::class, 'home'])->name('home.front');
+Route::get('/beranda', [FrontController::class, 'beranda'])->name('beranda');
 Route::get('/berita', [ArticleController::class, 'semuaBerita'])->name('semua.berita');
 Route::get('/berita/{slug}', [ArticleController::class, 'detailBerita'])->name('detail.berita');
 Route::get('/visi-dan-misi', [PageController::class, 'vision'])->name('vision');
@@ -74,15 +76,19 @@ Route::get('/sejarah', [PageController::class, 'history'])->name('history');
 Route::get('/struktur-organisasi', [PageController::class, 'structure'])->name('structure');
 Route::get('/arah-kebijakan', [PageController::class, 'regulation'])->name('regulation');
 Route::get('/tupoksi', [PageController::class, 'task'])->name('task');
-
 // PPID
 Route::get('/profil-ppid', [PageController::class, 'profilePpid'])->name('profil.ppid');
 Route::get('/struktur-ppid', [PageController::class, 'structurePpid'])->name('struktur.ppid');
 Route::get('/dasar-hukum-ppid', [PageController::class, 'dasarHukumPpid'])->name('dasar.hukum.ppid');
 Route::get('/maklumat-pelayanan-ppid', [PageController::class, 'maklumatPelayananPpid'])->name('maklumat.pelayanan.ppid');
-// Route::get('/panduan-ppid', [PageController::class, 'dasarHukumPpid'])->name('panduan.ppid');
+// Panduan???
+// Route::get('/panduan-ppid', [PageController::class, 'panduanPpid'])->name('panduan.ppid');
+Route::get('/permohonan-informasi', [FormController::class, 'permohonanInformasi'])->name('permohonan.informasi.ppid');
+Route::post('/permohonan-informasi', [FormController::class, 'permohonanInformasiRequest'])->name('permohonan.informasi.request.ppid');
+Route::get('/permohonan-keberatan-informasi', [FormController::class, 'permohonanKeberatanInformasi'])->name('permohonan.keberatan.informasi.ppid');
+Route::post('/permohonan-keberatan-informasi', [FormController::class, 'permohonanKeberatanInformasiRequest'])->name('permohonan.keberatan.informasi.request.ppid');
 
-//BIDANG & UPTD
+// bidang & Uptd
 Route::get('/bidang-dan-uptd/{slug}', [PageController::class, 'division'])->name('division');
 Route::get('/data-pegawai/{slug}', [PageController::class, 'divisionDataPegawai'])->name('division.datapegawai');
 //
@@ -93,28 +99,23 @@ Route::get('/pengumuman', [PengumumanController::class, 'semua'])->name('semua.p
 Route::get('/pengumuman/{slug}', [PengumumanController::class, 'detail'])->name('detail.pengumuman');
 Route::get('/indagkop-tv', [FrontController::class, 'indagkopTv'])->name('indagkop.tv');
 Route::get('/kepala-dinas', [PageController::class, 'kepalaDinas'])->name('kepala.dinas');
-
-//RENSTRA
+// renstra
 Route::get('renstra', [ProgramKegiatanController::class, 'renstraIndex'])->name('renstra.front.index');
 Route::get('renstra/tahun/{year}', [ProgramKegiatanController::class, 'renstraTahun'])->name('renstra.front.year');
 Route::get('renstra/detail/{slug}', [ProgramKegiatanController::class, 'renstraDetail'])->name('renstra.front.detail');
-
-//RENJA
+// renja
 Route::get('renja', [ProgramKegiatanController::class, 'renjaIndex'])->name('renja.front.index');
 Route::get('renja/tahun/{year}', [ProgramKegiatanController::class, 'renjaTahun'])->name('renja.front.year');
 Route::get('renja/detail/{slug}', [ProgramKegiatanController::class, 'renjaDetail'])->name('renja.front.detail');
-
-//IKU
+// iku
 Route::get('iku', [ProgramKegiatanController::class, 'ikuIndex'])->name('iku.front.index');
 Route::get('iku/tahun/{year}', [ProgramKegiatanController::class, 'ikuTahun'])->name('iku.front.year');
 Route::get('iku/detail/{slug}', [ProgramKegiatanController::class, 'ikuDetail'])->name('iku.front.detail');
-
-//SOP
+// sop
 Route::get('sop', [ProgramKegiatanController::class, 'sopIndex'])->name('sop.front.index');
 Route::get('sop/child/{slug}', [ProgramKegiatanController::class, 'sopTahun'])->name('sop.front.year');
 Route::get('sop/detail/{slug}', [ProgramKegiatanController::class, 'sopDetail'])->name('sop.front.detail');
-
-//DOWNLOAD FILE
+// Download File
 Route::get('download', [ProgramKegiatanController::class, 'downloadIndex'])->name('download.front.index');
 Route::get('download/child/{slug}', [ProgramKegiatanController::class, 'downloadChild'])->name('download.front.child');
 Route::get('download/detail/{slug}', [ProgramKegiatanController::class, 'downloadDetail'])->name('download.front.detail');
@@ -147,7 +148,7 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::post('/filerenstra/{renstra}', [FileRenstraController::class, 'store'])->name('filerenstra.store');
         Route::get('/filerenstra/{renstra}/edit/{filerenstra}', [FileRenstraController::class, 'edit'])->name('filerenstra.edit');
         Route::put('/filerenstra/{renstra}/{filerenstra}', [FileRenstraController::class, 'update'])->name('filerenstra.update');
-        Route::delete('/filerenstra/{renstra}/{filerenstra}', [FileRenstraController::class , 'destroy'])->name('filerenstra.destroy');
+        Route::delete('/filerenstra/{renstra}/{filerenstra}', [FileRenstraController::class, 'destroy'])->name('filerenstra.destroy');
 
         Route::resource('/iku', IkuController::class);
         Route::get('/fileiku/{iku}', [FileIkuController::class, 'index'])->name('fileiku.index');

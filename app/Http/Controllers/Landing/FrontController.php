@@ -13,6 +13,10 @@ use App\Http\Controllers\Controller;
 
 class FrontController extends Controller
 {
+    public function home()
+    {
+        return view('layouts.guest.pages.home');
+    }
     public function beranda()
     {
         $video = Video::orderBy('id', 'DESC')->first();

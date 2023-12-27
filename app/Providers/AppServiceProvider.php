@@ -26,6 +26,6 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
 
         View::composer(['layouts.guest.article-sidebar'], SidebarPostComposer::class);
-        View::composer(['layouts.guest.header'], HeaderComposer::class);
+        View::composer(['layouts.guest.header', 'layouts.guest.mobile-menu'], HeaderComposer::class);
     }
 }

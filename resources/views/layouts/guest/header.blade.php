@@ -176,7 +176,7 @@
                                             <ul class="sub-menu">
                                                 <li><a href="#">Standar Pelayanan</a></li>
                                                 <li><a href="#">SP4N Lapor</a></li>
-                                                <li><a href="#">Survey Kepuasan Masyarakat</a></li>
+                                                <li><a href="https://Bit.ly/SKMINDAGKOP" target="_blank">Survey Kepuasan Masyarakat</a></li>
                                                 <li><a href="#">WBS</a></li>
                                             </ul>
                                         </li>
@@ -188,8 +188,8 @@
                                                 <li><a href="{{route('dasar.hukum.ppid')}}">Dasar Hukum</a></li>
                                                 <li><a href="{{route('maklumat.pelayanan.ppid')}}">Maklumat pelayanan</a></li>
                                                 <li><a href="#">Panduan</a></li>
-                                                <li><a href="#">Permohonan informasi</a></li>
-                                                <li><a href="#">Permohonan Keberatan <br> Informasi</a></li>
+                                                <li><a href="{{route('permohonan.informasi.ppid')}}">Permohonan informasi</a></li>
+                                                <li><a href="{{route('permohonan.keberatan.informasi.ppid')}}">Permohonan Keberatan <br> Informasi</a></li>
                                                 <li class="menu-item-has-children">
                                                     <a href="#">Info public</a>
                                                     <ul class="sub-menu">
@@ -200,9 +200,6 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        {{-- <li>
-                                            <a href="contact.html">Contact</a>
-                                        </li> --}}
                                     </ul>
                                 </nav>
                                 <button type="button" class="th-menu-toggle d-block d-lg-none"><i
@@ -210,7 +207,7 @@
                             </div>
                             <div class="col-auto d-none d-xl-block">
                                 <div class="header-button">
-                                    <button type="button" class="icon-btn searchBoxToggler"><i
+                                    {{-- <button type="button" class="icon-btn searchBoxToggler"><i
                                             class="far fa-search"></i></button>
                                     <a href="wishlist.html" class="icon-btn">
                                         <i class="far fa-heart"></i>
@@ -219,7 +216,7 @@
                                     <button type="button" class="icon-btn sideMenuToggler">
                                         <i class="far fa-shopping-cart"></i>
                                         <span class="badge">5</span>
-                                    </button>
+                                    </button> --}}
                                     <a href="{{route('indagkop.tv')}}" class="th-btn ml-25">Indagkop TV <i
                                             class="fas fa-arrow-right ms-1"></i></a>
                                 </div>

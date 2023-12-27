@@ -167,7 +167,7 @@
                     scrollTop: target.offset().top - 10
                     }, 1000);
                 };
-    
+
                 });
             });
             })
@@ -178,7 +178,7 @@
     /*---------- 05. Scroll To Top ----------*/
     // progressAvtivation
     if($('.scroll-top').length > 0) {
-        
+
         var scrollTopbtn = document.querySelector('.scroll-top');
         var progressPath = document.querySelector('.scroll-top path');
         var pathLength = progressPath.getTotalLength();
@@ -186,7 +186,7 @@
         progressPath.style.strokeDasharray = pathLength + ' ' + pathLength;
         progressPath.style.strokeDashoffset = pathLength;
         progressPath.getBoundingClientRect();
-        progressPath.style.transition = progressPath.style.WebkitTransition = 'stroke-dashoffset 10ms linear';		
+        progressPath.style.transition = progressPath.style.WebkitTransition = 'stroke-dashoffset 10ms linear';
         var updateProgress = function () {
             var scroll = $(window).scrollTop();
             var height = $(document).height() - $(window).height();
@@ -194,7 +194,7 @@
             progressPath.style.strokeDashoffset = progress;
         }
         updateProgress();
-        $(window).scroll(updateProgress);	
+        $(window).scroll(updateProgress);
         var offset = 50;
         var duration = 750;
         jQuery(window).on('scroll', function() {
@@ -203,7 +203,7 @@
             } else {
                 jQuery(scrollTopbtn).removeClass('show');
             }
-        });				
+        });
         jQuery(scrollTopbtn).on('click', function(event) {
             event.preventDefault();
             jQuery('html, body').animate({scrollTop: 0}, duration);
@@ -227,7 +227,7 @@
           $(this).removeAttr('data-bg-color');
         });
     };
-      
+
     if ($('[data-mask-src]').length > 0) {
         $('[data-mask-src]').each(function () {
           var mask = $(this).attr('data-mask-src');
@@ -410,24 +410,24 @@
         });
     });
 
-    
+
     /*----------- 08. Custom Animaiton For Slider ----------*/
     $('[data-ani-duration]').each(function () {
         var durationTime = $(this).data('ani-duration');
         $(this).css('animation-duration', durationTime);
     });
-    
+
     $('[data-ani-delay]').each(function () {
         var delayTime = $(this).data('ani-delay');
         $(this).css('animation-delay', delayTime);
     });
-    
+
     $('[data-ani]').each(function () {
         var animaionName = $(this).data('ani');
         $(this).addClass(animaionName);
         $('.slick-current [data-ani]').addClass('th-animated');
     });
-    
+
     $('.th-carousel').on('afterChange', function (event, slick, currentSlide, nextSlide) {
         $(slick.$slides).find('[data-ani]').removeClass('th-animated');
         $(slick.$slides[currentSlide]).find('[data-ani]').addClass('th-animated');
@@ -578,7 +578,7 @@
     /* magnificPopup img view */
     $(".popup-image").magnificPopup({
         type: "image",
-        mainClass: 'mfp-zoom-in', 
+        mainClass: 'mfp-zoom-in',
         removalDelay: 260,
         gallery: {
             enabled: true,
@@ -588,7 +588,7 @@
     /* magnificPopup video view */
     $(".popup-video").magnificPopup({
         type: "iframe",
-        mainClass: 'mfp-zoom-in', 
+        mainClass: 'mfp-zoom-in',
         removalDelay: 260,
     });
 
@@ -602,7 +602,7 @@
         $(".slick-slider").slick("refresh");
     });
 
-    
+
 
     /*---------- 13. Section Position ----------*/
     // Interger Converter
@@ -681,7 +681,7 @@
             });
         }
     });
-    
+
 
     $(".masonary-active").imagesLoaded(function () {
         var $filter = ".masonary-active",
@@ -903,7 +903,7 @@
     /*----------- 20. Tilt Active ----------*/
     $('.tilt-active').tilt({
         maxTilt: 7,
-        perspective: 1000,   
+        perspective: 1000,
     })
 
     /*----------- 21. Indicator ----------*/
@@ -928,7 +928,7 @@
             $(this).siblings(".active").removeClass("active");
             linePos();
         });
-        
+
         function linePos() {
             var $btnActive = $menu.find(".active"),
                 $height = $btnActive.css("height"),
@@ -1199,11 +1199,11 @@
 		if (a.length) {
 			$(a).each(function(i, item) {
 				inject += '<span class="'+klass+(i+1)+'">'+item+'</span>'+after;
-			});	
+			});
 			t.empty().append(inject);
 		}
 	}
-	
+
 	var methods = {
 		init : function() {
 
@@ -1220,14 +1220,14 @@
 			});
 
 		},
-		
+
 		lines : function() {
 
 			return this.each(function() {
 				var r = "eefec303079ad17405c889e092e105b0";
 				// Because it's hard to split a <br/> tag consistently across browsers,
-				// (*ahem* IE *ahem*), we replaces all <br/> instances with an md5 hash 
-				// (of the word "split").  If you're trying to use this plugin on that 
+				// (*ahem* IE *ahem*), we replaces all <br/> instances with an md5 hash
+				// (of the word "split").  If you're trying to use this plugin on that
 				// md5 hash string, it will fail because you're being ridiculous.
 				injector($(this).children("br").replaceWith(r).end(), r, 'line', '');
 			});
@@ -1246,7 +1246,7 @@
 		return this;
 	};
 
-    $(".about-title-anime").lettering();    
+    $(".about-title-anime").lettering();
 
     /*----------- Countdown ----------*/
 
@@ -1335,5 +1335,5 @@
     //       return false;
     //     }
     //   }
-    
+
 })(jQuery);

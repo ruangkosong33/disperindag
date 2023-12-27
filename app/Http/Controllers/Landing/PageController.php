@@ -94,5 +94,4 @@ class PageController extends Controller
     //     $item = Structureppid::first();
     //     return view('layouts.guest.pages.pages.ppid.panduan', compact('item'));
     // }
-
 }
