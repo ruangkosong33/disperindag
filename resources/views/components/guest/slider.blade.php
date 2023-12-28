@@ -5,7 +5,7 @@
             <div class="th-hero-slide">
                 <div class="th-hero-bg" data-bg-src="{{ asset('storage/image-banner/' . $item->image) }}"></div>
                 <div class="container">
-                    <div class="row align-items-center justify-content-center" style="height: 500px">
+                    <div class="row align-items-center justify-content-center slider-height">
                         <div class="col-lg-12">
                             <div class="hero-style3 text-center">
                             </div>
@@ -17,7 +17,7 @@
             <div class="th-hero-slide">
                 <div class="th-hero-bg" data-bg-src="{{ asset('images/banners/p5IBG7Haj.jpg') }}"></div>
                 <div class="container">
-                    <div class="row align-items-center justify-content-center" style="height: 500px">
+                    <div class="row align-items-center justify-content-center slider-height" >
                         <div class="col-lg-12">
                             <div class="hero-style3 text-center">
                             </div>

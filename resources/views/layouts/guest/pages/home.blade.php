@@ -21,7 +21,7 @@
         #hero {
             width: 100%;
             height: 100vh;
-            background: url({{ asset('images/portal4.jpg') }}) top center;
+            background: url({{ asset('images/BANNER-1-DISPERINDAGKOP.jpg') }}) top center;
             background-size: cover;
             position: relative;
         }
@@ -50,7 +50,7 @@
 <section id="hero" class="d-flex align-items-center justify-content-center">
     <div class="container text-center" data-aos="fade-up">
 
-        <div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+        <div class="row gy-4 mt-5 justify-content-center menu-home" data-aos="zoom-in" data-aos-delay="250">
             <div class="col-xl-2 col-md-4">
                 <div class="icon-box">
                     <i class="ri-store-line"></i>
