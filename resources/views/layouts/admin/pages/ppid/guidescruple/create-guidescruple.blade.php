@@ -1,16 +1,16 @@
 @extends('layouts.admin.b-master')
 
-@section('title', 'Tata Cara Permohonan')
+@section('title', 'Tata Cara Pengajuan Keberatan')
 @section('breadcrumb')
     @parent
-    <li class="breadcrumb-item active"><a href="{{route('guideinformation.index')}}">Tata Cara Permohonan</a></li>
+    <li class="breadcrumb-item active"><a href="{{route('guidescruple.index')}}">Tata Cara Pengajuan Keberatan</a></li>
     <li class="breadcrumb-item active">Tambah Data</li>
 @endsection
 
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <form action="{{route('guideinformation.store')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('guidescruple.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <x-card>
 

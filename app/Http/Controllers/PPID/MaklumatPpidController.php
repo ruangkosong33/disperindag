@@ -35,7 +35,7 @@ class MaklumatPpidController extends Controller
             'title'=>'required',
         ]);
 
-        $maklumatppid=Maklumat::create([
+        $maklumatppid=Maklumatppid::create([
             'title'=>$request->title,
             'description'=>$request->description,
         ]);
@@ -64,7 +64,7 @@ class MaklumatPpidController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Maklumatppid $maklumatppid)
     {
         $this->validate($request, [
             'title'=>'required',

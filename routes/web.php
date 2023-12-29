@@ -10,6 +10,7 @@ use App\Http\Controllers\Activity\IkuController;
 use App\Http\Controllers\Activity\SopController;
 use App\Http\Controllers\Article\InfoController;
 use App\Http\Controllers\Article\PostController;
+use App\Http\Controllers\Landing\FormController;
 use App\Http\Controllers\Landing\PageController;
 use App\Http\Controllers\Media\BannerController;
 use App\Http\Controllers\PPID\LawPpidController;
@@ -34,6 +35,7 @@ use App\Http\Controllers\PPID\ProfilePpidController;
 use App\Http\Controllers\PPID\ServicePpidController;
 use App\Http\Controllers\AboutUs\StructureController;
 use App\Http\Controllers\Information\EventController;
+use App\Http\Controllers\PPID\GuideScrupleController;
 use App\Http\Controllers\PPID\MaklumatPpidController;
 use App\Http\Controllers\AboutUs\RegulationController;
 use App\Http\Controllers\InfoPublic\FileDipController;
@@ -53,7 +55,6 @@ use App\Http\Controllers\Activity\FileEvaluationController;
 use App\Http\Controllers\Information\InfographicController;
 use App\Http\Controllers\Landing\ProgramKegiatanController;
 use App\Http\Controllers\Information\FileDownloadController;
-use App\Http\Controllers\Landing\FormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -239,6 +240,7 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::resource('/costppid', CostPpidController::class);
         Route::resource('/structureppid', StructurePpidController::class);
         Route::resource('/guideinformation', GuideInformationController::class);
+        Route::resource('/guidescruple', GuideScrupleController::class);
 
         Route::resource('/dip', DipController::class);
         Route::get('/filedip/{dip}', [FileDipController::class, 'index'])->name('filedip.index');
@@ -253,7 +255,6 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::get('logout', function () {
             Auth::logout();
 
-            return redirect()->route('login');
         });
 
     });

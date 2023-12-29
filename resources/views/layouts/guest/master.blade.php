@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Disperindagkop-Kaltim') }}</title>
     <link rel="icon" href="{{ asset('images/favicon.ico') }}" />
     <meta name="author" content="Test">
     <meta name="description" content="Indagkop Kaltim - Dinas Profil">

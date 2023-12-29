@@ -10,7 +10,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{asset('bk/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+            @php
+            $splitName = explode(' ',Auth::user()->name);
+            @endphp
+            <img src="https://ui-avatars.com/api/?name={{$splitName[0]}}&background=random" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">{{Auth::user()->name}}</a>
@@ -266,7 +269,7 @@
             {{request()->is('admin/download*') ? 'menu-open' : ''}}
             {{request()->is('admin/filedownload*') ? 'menu-open' : ''}}
             {{request()->is('admin/infographic*') ? 'menu-open' : ''}}
-                                                                    ">
+                                                                        ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-info"></i>
               <p>
@@ -313,7 +316,7 @@
             {{request()->is('admin/video*') ? 'menu-open' : ''}}
             {{request()->is('admin/photo*') ? 'menu-open' : ''}}
             {{request()->is('admin/banner*') ? 'menu-open' : ''}}
-                                                                ">
+                                                                    ">
               <i class="nav-icon fas fa-film"></i>
               <p>
                 Media
@@ -362,7 +365,7 @@
           <li class="nav-item
             {{request()->is('admin/dip*') ? 'menu-open' : ''}}
             {{request()->is('admin/filedip*') ? 'menu-open' : ''}}
-                                                            ">
+                                                                    ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
@@ -389,6 +392,8 @@
             {{request()->is('admin/serviceppid*') ? 'menu-open' : ''}}
             {{request()->is('admin/costppid*') ? 'menu-open' : ''}}
             {{request()->is('admin/structureppid*') ? 'menu-open' : ''}}
+            {{request()->is('admin/guideinformation*') ? 'menu-open' : ''}}
+            {{request()->is('admin/guidescruple*') ? 'menu-open' : ''}}
                                                                             ">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-folder"></i>
@@ -447,7 +452,7 @@
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="{{route('guidescruple.index')}}" class="nav-link {{request()->is('admin/guidescruple*') ? 'active' : ''}}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Tata Cara Pengajuan</p>
                   </a>
@@ -503,7 +508,7 @@
             <a href="#" class="nav-link
             {{request()->is('admin/dip*') ? 'menu-open' : ''}}
             {{request()->is('admin/filedip*') ? 'menu-open' : ''}}
-                                                                ">
+                                                                    ">
               <i class="nav-icon fas fa-universal-access"></i>
               <p>
                 Data BPSK

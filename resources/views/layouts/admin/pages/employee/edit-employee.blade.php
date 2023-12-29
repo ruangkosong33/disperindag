@@ -40,7 +40,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="name">Nama</label>
-                                <input type="text" class="form-control" name="name"
+                                <input type="text" class="form-control" name="name" placeholder="Nama Lengkap"
                                 value="{{old('name') ?? $employee->name}}">
 
                             </div>
@@ -53,7 +53,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="nip">NIP</label>
-                                <input type="text" class="form-control" name="nip"
+                                <input type="text" class="form-control" name="nip" placeholder="Nomor Induk Pegawai"
                                 value="{{old('nip') ?? $employee->nip}}">
 
                             </div>
@@ -96,7 +96,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="position">Jabatan</label>
-                                <input type="text" class="form-control" name="position"
+                                <input type="text" class="form-control" name="position" placeholder="Jabatan"
                                 value="{{old('position') ?? $employee->position}}">
 
                             </div>
@@ -109,7 +109,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="education">Pendidikan</label>
-                                <input type="text" class="form-control" name="education"
+                                <input type="text" class="form-control" name="education" placeholder="Pendidikan"
                                 value="{{old('education') ?? $employee->education}}">
 
                             </div>
@@ -119,7 +119,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="pim">Pim Diklat</label>
-                                <input type="text" class="form-control" name="pim"
+                                <input type="text" class="form-control" name="pim" placeholder="Pim Diklat"
                                 value="{{old('pim') ?? $employee->pim}}">
 
                             </div>

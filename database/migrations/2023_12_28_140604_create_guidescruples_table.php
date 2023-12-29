@@ -11,20 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('guideinformations', function (Blueprint $table) {
+        Schema::create('guidescruples', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('slug');
             $table->foreignId('dip_id')->references('id')->on('dips');
             $table->string('address');
             $table->string('email');
-            $table->integer('phone');
+            $table->string('phone');
             $table->string('job');
             $table->longText('applicantdata');
             $table->longText('objective');
             $table->enum('obtaion', [1,2,3,4]);
-            $table->enum('copy', [1,2,3,4]);
-            $table->enum('method', [1,2,3,4]);
+            $table->enum('copy', [1,2]);
+            $table->enum('method', [1,2,3]);
             $table->timestamps();
         });
     }
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('guideinformations');
+        Schema::dropIfExists('guidescruples');
     }
 };

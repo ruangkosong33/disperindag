@@ -33,8 +33,8 @@ class Dip extends Model
         return $this->hasMany(Filedip::class);
     }
 
-    public function guideinformations(): HasMany
+    public function guidescruples(): HasMany
     {
-        return $this->hasMany(Guideinformation::class);
+        return $this->hasMany(guidescruples::class);
     }
 }

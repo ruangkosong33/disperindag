@@ -52,7 +52,7 @@
                 </x-table>
 
             </x-card>
-            
+
         </div>
     </div>
 

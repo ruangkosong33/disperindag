@@ -7,13 +7,14 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Employee extends Model
+class Guidescruple extends Model
 {
     use HasFactory, Sluggable;
 
-    protected $table='employees';
+    protected $table='guidescruples';
 
-    protected $fillable=['division_id', 'name', 'slug', 'nip', 'image', 'level', 'education', 'position', 'pim'];
+    protected $fillable=['name', 'slug', 'dip_id', 'address', 'email', 'phone',
+                        'job', 'applicantdata', 'objective', 'obtaion', 'copy', 'method'];
 
     protected $hidden=[];
 
@@ -28,9 +29,8 @@ class Employee extends Model
     }
 
     //RELATION
-    public function division(): BelongsTo
+    public function dip(): BelongsTo
     {
-        return $this->belongsTo(Division::class);
+        return $this->belongsTo(Dip::class);
     }
 }
-
