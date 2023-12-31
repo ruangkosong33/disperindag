@@ -25,11 +25,11 @@ class PostController extends Controller
      */
     public function create()
     {
-        // $user=User::orderBy('id')->get();
+        $user=User::orderBy('id')->get();
 
         $category=Category::orderBy('id')->get();
 
-        return view('layouts.admin.pages.post.create-post', ['category'=>$category]);
+        return view('layouts.admin.pages.post.create-post', ['category'=>$category, 'user'=>$user]);
     }
 
     /**

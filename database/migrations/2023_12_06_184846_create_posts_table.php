@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('date')->nullable();
             $table->string('image')->nullable();
             $table->enum('status', ['Publish', 'Draft']);
-
+            $table->foreignId('user_id')->references('id')->on('users')->after('slug');
             $table->timestamps();
         });
     }
