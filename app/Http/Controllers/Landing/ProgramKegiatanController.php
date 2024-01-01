@@ -133,7 +133,7 @@ class ProgramKegiatanController extends Controller
 
     public function downloadDetail($slug)
     {
-        $item = Download::where('slug', $slug)->firstOrFail();
+        $item = Filedownload::where('slug', $slug)->firstOrFail();
         return view('layouts.guest.pages.download-detail', compact('item'));
     }
 }
