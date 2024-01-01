@@ -11,7 +11,7 @@
             <div class="col-12">
                 <h2 class="title text-center">Unduh Berkas</h2>
             </div>
-            @include('components.guest.program-kegiatan.tahun', [$items, 'route'=>'download.front.child'])
+            @include('components.guest.program-kegiatan.index', [$items, 'route'=>'download.front.child'])
         </div>
     </div>
 @endsection

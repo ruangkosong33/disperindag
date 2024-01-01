@@ -171,6 +171,7 @@ return [
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         // Intervention\Image\ImageServiceProvider::class
+        Buzz\LaravelGoogleCaptcha\CaptchaServiceProvider::class,
     ])->toArray(),
 
     /*

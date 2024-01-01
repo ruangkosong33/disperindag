@@ -10,7 +10,7 @@
             <div class="col-12">
                 <h2 class="title text-center">LKJIP Tahun {{ $year }}</h2>
             </div>
-            @include('components.guest.program-kegiatan.tahun', [$items, 'route'=>'lkjip.front.year'])
+            @include('components.guest.program-kegiatan.tahun', [$items, 'route'=>'lkjip.front.detail'])
         </div>
     </div>
 @endsection

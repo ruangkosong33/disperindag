@@ -24,7 +24,7 @@
                             </div>
                             <div class="blog-content">
                                 <div class="blog-meta">
-                                    <a class="author" href="{{route('detail.berita', $article->slug)}}"><i class="fa-light fa-user"></i>by David Smith</a>
+                                    <a class="author" href="{{route('detail.berita', $article->slug)}}"><i class="fa-light fa-user"></i>by {{$article->users->name}}</a>
                                     <a href="{{route('detail.berita', $article->slug)}}"><i class="fa-light fa-clock"></i>{{ $article->date }}</a>
                                     <a href="{{route('detail.berita', $article->slug)}}"><i
                                             class="fa-light fa-book"></i>{{ $article->category->title }}</a>

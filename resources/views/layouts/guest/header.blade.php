@@ -116,9 +116,17 @@
                                                 <li><a href="{{ route('dasar.hukum.ppid') }}">Dasar Hukum</a></li>
                                                 <li><a href="{{ route('maklumat.pelayanan.ppid') }}">Maklumat
                                                         pelayanan</a></li>
-                                                <li><a href="#">Panduan</a></li>
-                                                <li><a href="{{ route('permohonan.informasi.ppid') }}">Permohonan
-                                                        informasi</a></li>
+                                                <li class="menu-item-has-children">
+                                                    <a href="#">Panduan</a>
+                                                    <ul class="sub-menu">
+                                                        <li><a href="{{ route('tatacara.permohonan.ppid') }}">Tata Cara <br> Permohonan</a></li>
+                                                        {{-- <li><a href="{{ route('tatacara.pengajuan.ppid') }}">Tata Cara <br>Pengajuan</a></li> --}}
+                                                        <li><a href="{{ route('standar.biaya.ppid') }}">Biaya</a></li>
+                                                        <li><a href="{{ route('waktu.layanan.ppid') }}">Waktu dan <br> Layanan</a></li>
+                                                    </ul>
+                                                </li>
+                                                {{-- <li><a href="{{ route('permohonan.informasi.ppid') }}">Permohonan
+                                                        informasi</a></li> --}}
                                                 <li><a href="{{ route('permohonan.keberatan.informasi.ppid') }}">Permohonan
                                                         Keberatan <br> Informasi</a></li>
                                                 <li class="menu-item-has-children">

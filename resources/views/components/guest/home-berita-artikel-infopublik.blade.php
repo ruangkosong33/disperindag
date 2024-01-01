@@ -31,7 +31,7 @@
                         <div class="blog-content">
                             <div class="blog-meta">
                                 <a class="author" href="{{ route('detail.berita', $item->slug) }}"><i
-                                        class="fa-light fa-user"></i>by David Smith</a>
+                                        class="fa-light fa-user"></i>by {{$item->users->name}}</a>
                                 <a href="{{ route('detail.berita', $item->slug) }}"><i
                                         class="fa-light fa-clock"></i>{{ $item->date }}</a>
                             </div>
@@ -77,7 +77,7 @@
                         <div class="blog-content">
                             <div class="blog-meta">
                                 <a class="author" href="{{ route('detail.berita', $item->slug) }}"><i
-                                        class="fa-light fa-user"></i>by David Smith</a>
+                                        class="fa-light fa-user"></i>by {{$item->users->name}}</a>
                                 <a href="{{ route('detail.berita', $item->slug) }}"><i
                                         class="fa-light fa-clock"></i>{{ $item->date }}</a>
                             </div>
@@ -124,7 +124,7 @@
                         <div class="blog-content">
                             <div class="blog-meta">
                                 <a class="author" href="{{ route('detail.berita', $item->slug) }}"><i
-                                        class="fa-light fa-user"></i>by David Smith</a>
+                                        class="fa-light fa-user"></i>by {{$item->users->name}}</a>
                                 <a href="{{ route('detail.berita', $item->slug) }}"><i
                                         class="fa-light fa-clock"></i>{{ $item->date }}</a>
                             </div>

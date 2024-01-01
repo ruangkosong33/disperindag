@@ -2,11 +2,15 @@
 
 namespace Database\Seeders;
 
+use App\Models\Costppid;
+use App\Models\Dip;
 use App\Models\Division;
+use App\Models\Guideinformation;
 use App\Models\History;
 use App\Models\Lawppid;
 use App\Models\Profileppid;
 use App\Models\Regulation;
+use App\Models\Serviceppid;
 use App\Models\Structure;
 use App\Models\Structureppid;
 use App\Models\Task;
@@ -64,5 +68,33 @@ class PageSeeder extends Seeder
                 'description' => $faker->text,
             ]);
         }
+
+        for($i=0; $i < 10; $i++) {
+            Guideinformation::create([
+                'title' => $faker->text(120),
+                'description' => $faker->text,
+            ]);
+        }
+
+        for($i=0; $i < 5; $i++) {
+            Costppid::create([
+                'title' => $faker->text(80),
+                'description' => $faker->text,
+            ]);
+        }
+
+        for($i=0; $i < 5; $i++) {
+            Serviceppid::create([
+                'title' => $faker->text(80),
+                'description' => $faker->text,
+            ]);
+        }
+
+        for($i=1; $i <= 5; $i++) {
+            Dip::create([
+                'title' => 'Kategori '.$i
+            ]);
+        }
+
     }
 }

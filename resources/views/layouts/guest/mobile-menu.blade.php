@@ -72,8 +72,15 @@
                         <li><a href="{{route('struktur.ppid')}}">Struktur Organisasi PPID</a></li>
                         <li><a href="{{route('dasar.hukum.ppid')}}">Dasar Hukum</a></li>
                         <li><a href="{{route('maklumat.pelayanan.ppid')}}">Maklumat Pelayanan</a></li>
-                        <li><a href="#">Panduan</a></li>
-                        <li><a href="{{route('permohonan.informasi.ppid')}}">Permohonan Informasi</a></li>
+                        <li class="menu-item-has-children">
+                            <a href="#">Panduan</a>
+                            <ul class="sub-menu">
+                                <li><a href="{{ route('tatacara.permohonan.ppid') }}">Tata Cara Permohonan</a></li>
+                                <li><a href="{{ route('standar.biaya.ppid') }}">Biaya</a></li>
+                                <li><a href="{{ route('waktu.layanan.ppid') }}">Waktu dan Layanan</a></li>
+                            </ul>
+                        </li>
+                        {{-- <li><a href="{{route('permohonan.informasi.ppid')}}">Permohonan Informasi</a></li> --}}
                         <li><a href="{{route('permohonan.keberatan.informasi.ppid')}}">Permohonan Keberatan Informasi</a></li>
                         <li class="menu-item-has-children">
                             <a href="#">Info Publik</a>

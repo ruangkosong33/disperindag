@@ -38,11 +38,11 @@
         <div class="col-md-3 col-sm-6">
             <div class="counter-year counter-year-{{ $n }}">
                 <div class="counter-icon">
-                    <a href="{{ route($route, $produk->year) }}">
+                    <a href="{{ route($route, $produk->year?$produk->year:$produk->slug ) }}">
                         <i class="fa fa-folder"></i>
                     </a>
                 </div>
-                <h3>{{ $produk->year }}</h3>
+                <h3>{{ $produk->year?$produk->year:$produk->title }}</h3>
                 {{-- <span class="counter-value">{{ $produk->jumlah }}</span> --}}
             </div>
         </div>

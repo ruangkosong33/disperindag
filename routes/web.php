@@ -82,12 +82,16 @@ Route::get('/profil-ppid', [PageController::class, 'profilePpid'])->name('profil
 Route::get('/struktur-ppid', [PageController::class, 'structurePpid'])->name('struktur.ppid');
 Route::get('/dasar-hukum-ppid', [PageController::class, 'dasarHukumPpid'])->name('dasar.hukum.ppid');
 Route::get('/maklumat-pelayanan-ppid', [PageController::class, 'maklumatPelayananPpid'])->name('maklumat.pelayanan.ppid');
-// Panduan???
+Route::get('/tata-cara-permohonan-ppid', [PageController::class, 'tataCaraPermohonan'])->name('tatacara.permohonan.ppid');
+Route::get('/tata-cara-pengajuan-ppid', [PageController::class, 'tataCaraPengajuan'])->name('tatacara.pengajuan.ppid');
+Route::get('/standar-biaya-ppid', [PageController::class, 'standarBiaya'])->name('standar.biaya.ppid');
+Route::get('/waktu-dan-layanan-ppid', [PageController::class, 'waktuLayanan'])->name('waktu.layanan.ppid');
+
 // Route::get('/panduan-ppid', [PageController::class, 'panduanPpid'])->name('panduan.ppid');
 Route::get('/permohonan-informasi', [FormController::class, 'permohonanInformasi'])->name('permohonan.informasi.ppid');
 Route::post('/permohonan-informasi', [FormController::class, 'permohonanInformasiRequest'])->name('permohonan.informasi.request.ppid');
 Route::get('/permohonan-keberatan-informasi', [FormController::class, 'permohonanKeberatanInformasi'])->name('permohonan.keberatan.informasi.ppid');
-Route::post('/permohonan-keberatan-informasi', [FormController::class, 'permohonanKeberatanInformasiRequest'])->name('permohonan.keberatan.informasi.request.ppid');
+Route::post('/permohonan-keberatan-informasi-request', [FormController::class, 'permohonanKeberatanInformasiRequest'])->name('permohonan.keberatan.informasi.request.ppid');
 
 // bidang & Uptd
 Route::get('/bidang-dan-uptd/{slug}', [PageController::class, 'division'])->name('division');

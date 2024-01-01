@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers\Landing;
 
+use App\Models\Costppid;
 use App\Models\Division;
 use App\Models\Employee;
+use App\Models\Guideinformation;
+use App\Models\Guidescruple;
 use App\Models\History;
 use App\Models\Kadis;
 use App\Models\Lawppid;
+use App\Models\Maklumatppid;
 use App\Models\Profileppid;
 use App\Models\Regulation;
 use App\Models\Serviceppid;
@@ -85,13 +89,25 @@ class PageController extends Controller
 
     public function maklumatPelayananPpid()
     {
-        $item = Serviceppid::first();
+        $item = Maklumatppid::first();
         return view('layouts.guest.pages.pages.ppid.maklumat-pelayanan', compact('item'));
     }
 
-    // public function panduanPpid()
-    // {
-    //     $item = Structureppid::first();
-    //     return view('layouts.guest.pages.pages.ppid.panduan', compact('item'));
-    // }
+    public function tataCaraPermohonan()
+    {
+        $items = Guideinformation::all();
+        return view('layouts.guest.pages.pages.ppid.tata-cara-permohonan', compact('items'));
+    }
+
+    public function standarBiaya()
+    {
+        $items = Costppid::all();
+        return view('layouts.guest.pages.pages.ppid.standar-biaya', compact('items'));
+    }
+
+    public function waktuLayanan()
+    {
+        $items = Serviceppid::all();
+        return view('layouts.guest.pages.pages.ppid.waktu-layanan', compact('items'));
+    }
 }

@@ -20,7 +20,7 @@
                         </div>
                         <div class="blog-content">
                             <div class="blog-meta">
-                                <a class="author" href="#"><i class="far fa-user"></i>oleh David Smith</a>
+                                <a class="author" href="#"><i class="far fa-user"></i>oleh {{$item->users->name}}</a>
                                 <a href="#"><i class="fa-light fa-calendar-days"></i>{{$item->date}}</a>
                                 <a href="#"><i class="fa-light fa-book"></i>{{$item->category->title}}</a>
                             </div>

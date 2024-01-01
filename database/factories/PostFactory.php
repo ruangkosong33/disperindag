@@ -28,6 +28,7 @@ class PostFactory extends Factory
             'date' => date("Y-m-d"),
             'status' => 'Publish',
             'category_id' => $category->id,
+            'user_id' => 1,
         ];
     }
 }

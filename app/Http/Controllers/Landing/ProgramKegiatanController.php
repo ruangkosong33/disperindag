@@ -128,12 +128,12 @@ class ProgramKegiatanController extends Controller
         $item = Download::where('slug', $slug)->firstOrFail();
         $items = Filedownload::where('download_id', $item->id)->orderBy('id', 'DESC')->paginate(10);
 
-        return view('layouts.guest.pages.download-index', compact('item', 'items'));
+        return view('layouts.guest.pages.download-child', compact('item', 'items'));
     }
 
     public function downloadDetail($slug)
     {
-        $item = Filedownload::where('slug', $slug)->firstOrFail();
+        $item = Download::where('slug', $slug)->firstOrFail();
         return view('layouts.guest.pages.download-detail', compact('item'));
     }
 }
