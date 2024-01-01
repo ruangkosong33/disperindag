@@ -18,13 +18,13 @@ class UsersSeeder extends Seeder
                'name'=>'superadmin',
                'email'=>'super@mail.com',
                'role'=>1,
-               'password'=> bcrypt('123456'),
+               'password'=> Hash::make('Password#!'),
             ],
             [
                'name'=>'admin',
                'email'=>'admin@mail.com',
                'role'=>0,
-               'password'=> bcrypt('123456'),
+               'password'=> Hash::make('Password#!'),
             ],
         ];
 
